@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controller/FunctionalCVController.java" afterPath="$PROJECT_DIR$/src/controller/FunctionalCVController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/FunctionalCV.fxml" afterPath="$PROJECT_DIR$/src/view/FunctionalCV.fxml" />
+    </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -79,73 +83,40 @@
       <file leaf-file-name="FunctionalCVController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/controller/FunctionalCVController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="446">
-              <caret line="65" column="81" lean-forward="false" selection-start-line="65" selection-start-column="81" selection-end-line="65" selection-end-column="81" />
+            <state relative-caret-position="239">
+              <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
               <folding>
                 <element signature="method#addToSkillsTable#0;class#FunctionalCVController#0" expanded="false" />
+                <element signature="method#addToCareerSummaryTable#0;class#FunctionalCVController#0" expanded="false" />
+                <element signature="method#configureSkillsTable#0;class#FunctionalCVController#0" expanded="false" />
+                <element signature="method#configureCareerSummaryTable#0;class#FunctionalCVController#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ChronologicalCV.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/view/ChronologicalCV.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="139" lean-forward="false" selection-start-line="13" selection-start-column="139" selection-end-line="13" selection-end-column="139" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CombinedCV.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/view/CombinedCV.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="135" lean-forward="false" selection-start-line="13" selection-start-column="135" selection-end-line="13" selection-end-column="135" />
-              <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="FunctionalCV.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/view/FunctionalCV.fxml">
-          <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+          <provider editor-type-id="JavaFX-Scene-Builder">
             <state />
           </provider>
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="139" lean-forward="false" selection-start-line="13" selection-start-column="139" selection-end-line="13" selection-end-column="139" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="71">
+              <caret line="78" column="84" lean-forward="false" selection-start-line="78" selection-start-column="84" selection-end-line="78" selection-end-column="84" />
               <folding>
-                <marker date="1490567323000" expanded="true" signature="3383:3488" ph="..." />
-                <marker date="1490567323000" expanded="true" signature="3405:3467" ph="..." />
-                <marker date="1490567323000" expanded="true" signature="3579:3860" ph="..." />
-                <marker date="1490567323000" expanded="true" signature="3604:3835" ph="..." />
-                <marker date="1490567323000" expanded="true" signature="3951:4158" ph="..." />
-                <marker date="1490567323000" expanded="true" signature="3976:4133" ph="..." />
-                <marker date="1490567323000" expanded="true" signature="4258:4363" ph="..." />
-                <marker date="1490567323000" expanded="true" signature="4280:4342" ph="..." />
-                <marker date="1490567323000" expanded="true" signature="4454:4821" ph="..." />
-                <marker date="1490567323000" expanded="true" signature="4479:4796" ph="..." />
-                <marker date="1490567323000" expanded="true" signature="4912:5119" ph="..." />
-                <marker date="1490567323000" expanded="true" signature="4937:5094" ph="..." />
-                <marker date="1490567323000" expanded="true" signature="5212:5317" ph="..." />
-                <marker date="1490567323000" expanded="true" signature="5234:5296" ph="..." />
-                <marker date="1490567323000" expanded="true" signature="5408:5770" ph="..." />
-                <marker date="1490567323000" expanded="true" signature="5433:5745" ph="..." />
-                <marker date="1490567323000" expanded="true" signature="5862:6069" ph="..." />
-                <marker date="1490567323000" expanded="true" signature="5887:6044" ph="..." />
-                <marker date="1490567323000" expanded="true" signature="6169:6274" ph="..." />
-                <marker date="1490567323000" expanded="true" signature="6191:6253" ph="..." />
-                <marker date="1490567323000" expanded="true" signature="6454:6559" ph="..." />
-                <marker date="1490567323000" expanded="true" signature="6476:6538" ph="..." />
-                <marker date="1490567323000" expanded="true" signature="7919:7933" ph="..." />
+                <marker date="1490569899000" expanded="true" signature="8003:8017" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CareerSummary.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/model/CareerSummary.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="183">
+              <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -167,6 +138,9 @@
       <setting name="OPEN_NEW_TAB" value="false" />
     </FindUsagesManager>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
       <projects_view />
@@ -187,11 +161,11 @@
         <option value="$PROJECT_DIR$/src/controller/CVController.java" />
         <option value="$PROJECT_DIR$/src/model/CareerSummary.java" />
         <option value="$PROJECT_DIR$/src/model/Education.java" />
-        <option value="$PROJECT_DIR$/src/view/FunctionalCV.fxml" />
         <option value="$PROJECT_DIR$/src/view/ChronologicalCV.fxml" />
         <option value="$PROJECT_DIR$/src/view/CombinedCV.fxml" />
         <option value="$PROJECT_DIR$/src/controller/SelectionWindowController.java" />
         <option value="$PROJECT_DIR$/src/view/SelectionWindow.fxml" />
+        <option value="$PROJECT_DIR$/src/view/FunctionalCV.fxml" />
         <option value="$PROJECT_DIR$/src/controller/FunctionalCVController.java" />
       </list>
     </option>
@@ -208,6 +182,7 @@
     <option name="width" value="1440" />
     <option name="height" value="822" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectReloadState">
     <option name="STATE" value="0" />
   </component>
@@ -594,7 +569,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="822" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -605,8 +579,8 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934928" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23638779" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23638779" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -668,6 +642,9 @@
           <caret line="42" column="30" lean-forward="false" selection-start-line="42" selection-start-column="30" selection-end-line="42" selection-end-column="30" />
           <folding>
             <element signature="method#addToSkillsTable#0;class#FunctionalCVController#0" expanded="false" />
+            <element signature="method#addToCareerSummaryTable#0;class#FunctionalCVController#0" expanded="false" />
+            <element signature="method#configureSkillsTable#0;class#FunctionalCVController#0" expanded="false" />
+            <element signature="method#configureCareerSummaryTable#0;class#FunctionalCVController#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -715,6 +692,9 @@
           <caret line="42" column="30" lean-forward="false" selection-start-line="42" selection-start-column="30" selection-end-line="42" selection-end-column="30" />
           <folding>
             <element signature="method#addToSkillsTable#0;class#FunctionalCVController#0" expanded="false" />
+            <element signature="method#addToCareerSummaryTable#0;class#FunctionalCVController#0" expanded="false" />
+            <element signature="method#configureSkillsTable#0;class#FunctionalCVController#0" expanded="false" />
+            <element signature="method#configureCareerSummaryTable#0;class#FunctionalCVController#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -762,6 +742,9 @@
           <caret line="42" column="30" lean-forward="false" selection-start-line="42" selection-start-column="30" selection-end-line="42" selection-end-column="30" />
           <folding>
             <element signature="method#addToSkillsTable#0;class#FunctionalCVController#0" expanded="false" />
+            <element signature="method#addToCareerSummaryTable#0;class#FunctionalCVController#0" expanded="false" />
+            <element signature="method#configureSkillsTable#0;class#FunctionalCVController#0" expanded="false" />
+            <element signature="method#configureCareerSummaryTable#0;class#FunctionalCVController#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -809,6 +792,9 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="method#addToSkillsTable#0;class#FunctionalCVController#0" expanded="false" />
+            <element signature="method#addToCareerSummaryTable#0;class#FunctionalCVController#0" expanded="false" />
+            <element signature="method#configureSkillsTable#0;class#FunctionalCVController#0" expanded="false" />
+            <element signature="method#configureCareerSummaryTable#0;class#FunctionalCVController#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -856,6 +842,9 @@
           <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding>
             <element signature="method#addToSkillsTable#0;class#FunctionalCVController#0" expanded="false" />
+            <element signature="method#addToCareerSummaryTable#0;class#FunctionalCVController#0" expanded="false" />
+            <element signature="method#configureSkillsTable#0;class#FunctionalCVController#0" expanded="false" />
+            <element signature="method#configureCareerSummaryTable#0;class#FunctionalCVController#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -967,32 +956,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/CareerSummary.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="52" lean-forward="true" selection-start-line="18" selection-start-column="52" selection-end-line="18" selection-end-column="52" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#649#650#0" expanded="true" />
-            <element signature="e#690#691#0" expanded="true" />
-            <element signature="e#738#739#0" expanded="true" />
-            <element signature="e#781#782#0" expanded="true" />
-            <element signature="e#818#819#0" expanded="true" />
-            <element signature="e#853#854#0" expanded="true" />
-            <element signature="e#977#978#0" expanded="true" />
-            <element signature="e#1007#1008#0" expanded="true" />
-            <element signature="e#1042#1043#0" expanded="true" />
-            <element signature="e#1079#1080#0" expanded="true" />
-            <element signature="e#1133#1134#0" expanded="true" />
-            <element signature="e#1164#1165#0" expanded="true" />
-            <element signature="e#1192#1193#0" expanded="true" />
-            <element signature="e#1225#1226#0" expanded="true" />
-            <element signature="e#1276#1277#0" expanded="true" />
-            <element signature="e#1303#1304#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Skills.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -1040,41 +1003,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/FunctionalCV.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="139" lean-forward="false" selection-start-line="13" selection-start-column="139" selection-end-line="13" selection-end-column="139" />
-          <folding>
-            <marker date="1490567323000" expanded="true" signature="3383:3488" ph="..." />
-            <marker date="1490567323000" expanded="true" signature="3405:3467" ph="..." />
-            <marker date="1490567323000" expanded="true" signature="3579:3860" ph="..." />
-            <marker date="1490567323000" expanded="true" signature="3604:3835" ph="..." />
-            <marker date="1490567323000" expanded="true" signature="3951:4158" ph="..." />
-            <marker date="1490567323000" expanded="true" signature="3976:4133" ph="..." />
-            <marker date="1490567323000" expanded="true" signature="4258:4363" ph="..." />
-            <marker date="1490567323000" expanded="true" signature="4280:4342" ph="..." />
-            <marker date="1490567323000" expanded="true" signature="4454:4821" ph="..." />
-            <marker date="1490567323000" expanded="true" signature="4479:4796" ph="..." />
-            <marker date="1490567323000" expanded="true" signature="4912:5119" ph="..." />
-            <marker date="1490567323000" expanded="true" signature="4937:5094" ph="..." />
-            <marker date="1490567323000" expanded="true" signature="5212:5317" ph="..." />
-            <marker date="1490567323000" expanded="true" signature="5234:5296" ph="..." />
-            <marker date="1490567323000" expanded="true" signature="5408:5770" ph="..." />
-            <marker date="1490567323000" expanded="true" signature="5433:5745" ph="..." />
-            <marker date="1490567323000" expanded="true" signature="5862:6069" ph="..." />
-            <marker date="1490567323000" expanded="true" signature="5887:6044" ph="..." />
-            <marker date="1490567323000" expanded="true" signature="6169:6274" ph="..." />
-            <marker date="1490567323000" expanded="true" signature="6191:6253" ph="..." />
-            <marker date="1490567323000" expanded="true" signature="6454:6559" ph="..." />
-            <marker date="1490567323000" expanded="true" signature="6476:6538" ph="..." />
-            <marker date="1490567323000" expanded="true" signature="7919:7933" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/SelectionWindowController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="608">
@@ -1096,12 +1024,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/FunctionalCV.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="71">
+          <caret line="78" column="84" lean-forward="false" selection-start-line="78" selection-start-column="84" selection-end-line="78" selection-end-column="84" />
+          <folding>
+            <marker date="1490569899000" expanded="true" signature="8003:8017" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/CareerSummary.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/FunctionalCVController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="446">
-          <caret line="65" column="81" lean-forward="false" selection-start-line="65" selection-start-column="81" selection-end-line="65" selection-end-column="81" />
+        <state relative-caret-position="239">
+          <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
           <folding>
             <element signature="method#addToSkillsTable#0;class#FunctionalCVController#0" expanded="false" />
+            <element signature="method#addToCareerSummaryTable#0;class#FunctionalCVController#0" expanded="false" />
+            <element signature="method#configureSkillsTable#0;class#FunctionalCVController#0" expanded="false" />
+            <element signature="method#configureCareerSummaryTable#0;class#FunctionalCVController#0" expanded="false" />
           </folding>
         </state>
       </provider>
