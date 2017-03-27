@@ -4,7 +4,6 @@
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
@@ -64,8 +63,8 @@
             <TableView fx:id="skillsTable" editable="true" layoutX="2.0" layoutY="374.0" prefHeight="114.0" prefWidth="437.0" />
             <ButtonBar layoutX="10.0" layoutY="488.0" prefHeight="40.0" prefWidth="274.0">
               <buttons>
-                  <Button mnemonicParsing="false" onAction="#addToSkillsTable" text="New" />
-                  <Button mnemonicParsing="false" text="Delete" />
+                  <Button mnemonicParsing="false" onAction="#addToSkillsTable" text="Add" />
+                  <Button mnemonicParsing="false" onAction="#deleteSkill" text="Delete" />
               </buttons>
             </ButtonBar>
             <Label layoutX="10.0" layoutY="528.0" text="4.CAREER SUMMARY" underline="true">
@@ -76,8 +75,8 @@
             <TableView fx:id="careerSummaryTable" layoutX="1.0" layoutY="555.0" prefHeight="114.0" prefWidth="441.0" />
             <ButtonBar layoutX="14.0" layoutY="669.0" prefHeight="40.0" prefWidth="266.0">
                <buttons>
-                  <Button mnemonicParsing="false" onAction="#addToCareerSummaryTable" text="New" />
-                  <Button mnemonicParsing="false" text="Delete" />
+                  <Button mnemonicParsing="false" onAction="#addToCareerSummaryTable" text="Add" />
+                  <Button mnemonicParsing="false" onAction="#deleteCareerSummary" text="Delete" />
                </buttons>
             </ButtonBar>
             <Label layoutX="10.0" layoutY="709.0" text="5.EDUCATION AND TRAINING" underline="true">
@@ -85,18 +84,11 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <TableView fx:id="educationTable" layoutX="1.0" layoutY="736.0" prefHeight="114.0" prefWidth="446.0">
-               <columns>
-                  <TableColumn prefWidth="109.0" text="Qualification" />
-                  <TableColumn prefWidth="92.0" text="Location" />
-                  <TableColumn minWidth="0.0" prefWidth="90.0" text="Date" />
-                  <TableColumn prefWidth="154.0" text="Establishment" />
-               </columns>
-            </TableView>
+            <TableView fx:id="educationTable" layoutX="1.0" layoutY="736.0" prefHeight="114.0" prefWidth="446.0" />
             <ButtonBar layoutX="29.0" layoutY="850.0" prefHeight="40.0" prefWidth="266.0">
                <buttons>
-                  <Button mnemonicParsing="false" text="New" />
-                  <Button mnemonicParsing="false" text="Delete" />
+                  <Button mnemonicParsing="false" onAction="#addToEducationTable" text="Add" />
+                  <Button mnemonicParsing="false" onAction="#deleteEducation" text="Delete" />
                </buttons>
             </ButtonBar>
             <Label layoutX="10.0" layoutY="883.0" text="6.FURTHER COURSES" underline="true">
@@ -104,18 +96,11 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <TableView fx:id="courseTable" layoutX="1.0" layoutY="910.0" prefHeight="114.0" prefWidth="452.0">
-               <columns>
-                  <TableColumn prefWidth="109.0" text="Course" />
-                  <TableColumn prefWidth="111.0" text="Establishment" />
-                  <TableColumn minWidth="0.0" prefWidth="123.0" text="Location" />
-                  <TableColumn prefWidth="108.0" text="Date" />
-               </columns>
-            </TableView>
+            <TableView fx:id="courseTable" layoutX="1.0" layoutY="910.0" prefHeight="114.0" prefWidth="452.0" />
             <ButtonBar layoutX="29.0" layoutY="1024.0" prefHeight="40.0" prefWidth="266.0">
                <buttons>
-                  <Button mnemonicParsing="false" text="New" />
-                  <Button mnemonicParsing="false" text="Delete" />
+                  <Button mnemonicParsing="false" onAction="#addToCourseTable" text="Add" />
+                  <Button mnemonicParsing="false" onAction="#deleteCourse" text="Delete" />
                </buttons>
             </ButtonBar>
             <Label layoutX="1.0" layoutY="1064.0" text="7.ADDITIONAL INFORMATION" underline="true">

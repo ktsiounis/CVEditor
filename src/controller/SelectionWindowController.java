@@ -24,20 +24,23 @@ public class SelectionWindowController {
         if(functionalCVchoice.isSelected()){
             Stage primaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
             Parent newScene = FXMLLoader.load(getClass().getResource("/view/FunctionalCV.fxml"));
-            primaryStage.setScene(new Scene(newScene, 600, 375));
+            primaryStage.setTitle("CVEditor - FunctionalCV");
+            primaryStage.setScene(new Scene(newScene, 700, 475));
             primaryStage.show();
 
         }
         else if (chronologicalCVchoice.isSelected()) {
             Stage primaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
             Parent newScene = FXMLLoader.load(getClass().getResource("/view/ChronologicalCV.fxml"));
-            primaryStage.setScene(new Scene(newScene, 600, 375));
+            primaryStage.setTitle("CVEditor - ChronologicalCV");
+            primaryStage.setScene(new Scene(newScene, 700, 475));
             primaryStage.show();
         }
         else if(combinedCVchoice.isSelected()){
             Stage primaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
             Parent newScene = FXMLLoader.load(getClass().getResource("/view/CombinedCV.fxml"));
-            primaryStage.setScene(new Scene(newScene, 600, 375));
+            primaryStage.setTitle("CVEditor - CombinedCV");
+            primaryStage.setScene(new Scene(newScene, 700, 475));
             primaryStage.show();
         }
         else {
