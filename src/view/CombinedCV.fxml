@@ -71,7 +71,7 @@
             <ButtonBar layoutX="10.0" layoutY="488.0" prefHeight="40.0" prefWidth="274.0">
               <buttons>
                   <Button mnemonicParsing="false" onAction="#addToSkillsTable" text="Add" />
-                  <Button mnemonicParsing="false" text="Delete" />
+                  <Button fx:id="deleteSkill" mnemonicParsing="false" text="Delete" />
               </buttons>
             </ButtonBar>
             <Label layoutX="10.0" layoutY="528.0" text="4.PROFESSIONAL EXPERIENCE" underline="true">
@@ -101,7 +101,7 @@
             <ButtonBar layoutX="27.0" layoutY="1213.0" prefHeight="40.0" prefWidth="266.0">
                <buttons>
                   <Button mnemonicParsing="false" onAction="#addToEducationTable" text="Add" />
-                  <Button mnemonicParsing="false" text="Delete" />
+                  <Button mnemonicParsing="false" onAction="#deleteEducation" text="Delete" />
                </buttons>
             </ButtonBar>
             <Label layoutX="8.0" layoutY="1246.0" text="6.FURTHER COURSES" underline="true">
@@ -113,7 +113,7 @@
             <ButtonBar layoutX="27.0" layoutY="1387.0" prefHeight="40.0" prefWidth="266.0">
                <buttons>
                   <Button mnemonicParsing="false" onAction="#addToCourseTable" text="Add" />
-                  <Button mnemonicParsing="false" text="Delete" />
+                  <Button mnemonicParsing="false" onAction="#deleteCourse" text="Delete" />
                </buttons>
             </ButtonBar>
             <Label layoutX="-1.0" layoutY="1427.0" text="7.ADDITIONAL INFORMATION" underline="true">

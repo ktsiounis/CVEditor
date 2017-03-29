@@ -66,13 +66,6 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <TableView layoutX="4.0" layoutY="507.0" prefHeight="114.0" prefWidth="441.0">
-               <columns>
-                  <TableColumn prefWidth="124.0" text="Company name" />
-                  <TableColumn prefWidth="149.0" text="Job Title" />
-                  <TableColumn prefWidth="167.0" text="Date" />
-               </columns>
-            </TableView>
             <ButtonBar layoutX="8.0" layoutY="627.0" prefHeight="40.0" prefWidth="266.0">
                <buttons>
                   <Button mnemonicParsing="false" text="Add" />
@@ -88,7 +81,7 @@
             <ButtonBar layoutX="27.0" layoutY="1256.0" prefHeight="40.0" prefWidth="266.0">
                <buttons>
                   <Button mnemonicParsing="false" onAction="#addToEducationTable" text="Add" />
-                  <Button mnemonicParsing="false" text="Delete" />
+                  <Button mnemonicParsing="false" onAction="#deleteEducation" text="Delete" />
                </buttons>
             </ButtonBar>
             <Label layoutX="8.0" layoutY="1289.0" text="6.FURTHER COURSES" underline="true">
@@ -100,7 +93,7 @@
             <ButtonBar layoutX="27.0" layoutY="1430.0" prefHeight="40.0" prefWidth="266.0">
                <buttons>
                   <Button mnemonicParsing="false" onAction="#addToCourseTable" text="Add" />
-                  <Button mnemonicParsing="false" text="Delete" />
+                  <Button mnemonicParsing="false" onAction="#deleteCourse" text="Delete" />
                </buttons>
             </ButtonBar>
             <Label layoutX="-1.0" layoutY="1470.0" text="7.ADDITIONAL INFORMATION" underline="true">

@@ -1,13 +1,11 @@
 package controller;
 
+import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.Course;
 import model.Education;
@@ -118,5 +116,15 @@ public class ChronologicalCVControler implements Initializable{
         courseTable.getColumns().addAll(courseColumn, establishmentColumn, locationColumn, dateColumn);
         courseTable.setItems(courseList);
 
+    }
+
+    public void deleteEducation(){
+        int selectedIndex = educationTable.getSelectionModel().getSelectedIndex();
+        educationTable.getItems().remove(selectedIndex);
+    }
+
+    public void deleteCourse(){
+        int selectedIndex = courseTable.getSelectionModel().getSelectedIndex();
+        courseTable.getItems().remove(selectedIndex);
     }
 }

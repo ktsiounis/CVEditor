@@ -162,6 +162,17 @@ public class CombinedCVController implements Initializable{
     }
 
     public void deleteSkill(){
+        int selectedIndex = skillsTable.getSelectionModel().getSelectedIndex();
+        skillsTable.getItems().remove(selectedIndex);
+    }
 
+    public void deleteEducation(){
+        int selectedIndex = educationTable.getSelectionModel().getSelectedIndex();
+        educationTable.getItems().remove(selectedIndex);
+    }
+
+    public void deleteCourse(){
+        int selectedIndex = courseTable.getSelectionModel().getSelectedIndex();
+        courseTable.getItems().remove(selectedIndex);
     }
 }
