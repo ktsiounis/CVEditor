@@ -4,10 +4,7 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import model.CareerSummary;
-import model.Course;
-import model.Education;
-import model.Skills;
+import model.*;
 
 /**
  * Created by Ntinos on 30/3/2017.

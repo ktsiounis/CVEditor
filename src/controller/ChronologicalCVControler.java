@@ -9,8 +9,10 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.Course;
 import model.Education;
+import model.ProfessionalExperience;
 
 import java.net.URL;
+import java.util.Arrays;
 import java.util.ResourceBundle;
 
 /**
@@ -23,12 +25,17 @@ public class ChronologicalCVControler extends CommonFunctions implements Initial
     @FXML
     private TableView<Course> courseTable = new TableView<>();
     @FXML
+    private TableView<ProfessionalExperience> profExperienceTable = new TableView<>();
+    @FXML
     private TextField qualificationTxt, locationTxt, educationDateTxt, establishmentTxt;
     @FXML
     private TextField courseTxt, courseLocationTxt, courseDateTxt, courseEstablishmentTxt;
+    @FXML
+    private TextField companyNameTxt, jobTitleTxt, dateFromTxt, dateToTxt, paragraphTxt, achievementsTxt;
 
     private ObservableList<Education> educationList = FXCollections.observableArrayList();
     private ObservableList<Course> courseList = FXCollections.observableArrayList();
+    private ObservableList<ProfessionalExperience> professionalExperiences = FXCollections.observableArrayList();
 
     public void addToEducationTable(){
 
@@ -68,10 +75,59 @@ public class ChronologicalCVControler extends CommonFunctions implements Initial
 
     }
 
+    public void addToProfessionalExpTable(){
+        if(!companyNameTxt.getText().isEmpty() && !jobTitleTxt.getText().isEmpty() && !dateFromTxt.getText().isEmpty() && !achievementsTxt.getText().isEmpty()) {
+            String[] achievements = achievementsTxt.getText().split(",");
+            ProfessionalExperience exp = new ProfessionalExperience(companyNameTxt.getText(), jobTitleTxt.getText(),
+                    dateFromTxt.getText(), "2018", "paragraph",
+                    FXCollections.observableArrayList(Arrays.asList(achievements)));
+            professionalExperiences.add(exp);
+            companyNameTxt.clear();
+            jobTitleTxt.clear();
+            dateFromTxt.clear();
+        }
+        else{
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Please fill the empty fields");
+            alert.showAndWait();
+        }
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         configureEducationTable(educationTable, educationList);
         configureCourseTable(courseTable, courseList);
+        configureProfessionalExperienceTable();
+    }
+
+    public void configureProfessionalExperienceTable(){
+        TableColumn<ProfessionalExperience, String> companyNameCol = new TableColumn<>("Company Name");
+        companyNameCol.setMinWidth(124);
+        companyNameCol.setCellValueFactory(new PropertyValueFactory<>("companyName"));
+
+        TableColumn<ProfessionalExperience, String> jobTitleCol = new TableColumn<>("Job Title");
+        jobTitleCol.setMinWidth(124);
+        jobTitleCol.setCellValueFactory(new PropertyValueFactory<>("jobTitle"));
+
+        TableColumn<ProfessionalExperience, String> dateFromCol = new TableColumn<>("Date From");
+        dateFromCol.setMinWidth(124);
+        dateFromCol.setCellValueFactory(new PropertyValueFactory<>("dateFrom"));
+
+        TableColumn<ProfessionalExperience, String> dateToCol = new TableColumn<>("Date To");
+        dateToCol.setMinWidth(124);
+        dateToCol.setCellValueFactory(new PropertyValueFactory<>("dateTo"));
+
+        TableColumn<ProfessionalExperience, String> paragraphCol = new TableColumn<>("Responsibilities Paragraph");
+        paragraphCol.setMinWidth(135);
+        paragraphCol.setCellValueFactory(new PropertyValueFactory<>("paragraph"));
+
+        TableColumn<ProfessionalExperience, String> achievementsCol = new TableColumn<>("Achievements");
+        achievementsCol.setMinWidth(124);
+        achievementsCol.setCellValueFactory(new PropertyValueFactory<>("achievements"));
+
+        profExperienceTable.getColumns().addAll(companyNameCol, jobTitleCol, dateFromCol, dateToCol, paragraphCol, achievementsCol);
+        profExperienceTable.setItems(professionalExperiences);
     }
 
     public void deleteEducation(){
