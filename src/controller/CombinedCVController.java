@@ -19,7 +19,7 @@ import java.util.ResourceBundle;
 /**
  * Created by dtsiounis on 27/03/2017.
  */
-public class CombinedCVController implements Initializable{
+public class CombinedCVController extends CommonFunctions implements Initializable{
 
     @FXML
     private TableView<Education> educationTable = new TableView<>();
@@ -95,70 +95,9 @@ public class CombinedCVController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        configureSkillsTable();
-        configureCourseTable();
-        configureEducationTable();
-    }
-
-    public void configureSkillsTable(){
-        TableColumn<Skills, String> skillColumn = new TableColumn<>("Skill");
-        skillColumn.setMinWidth(124);
-        skillColumn.setCellValueFactory(new PropertyValueFactory<>("skill"));
-
-        TableColumn<Skills, String> experienceColumn = new TableColumn<>("Experience");
-        experienceColumn.setMinWidth(124);
-        experienceColumn.setCellValueFactory(new PropertyValueFactory<>("experience"));
-
-        TableColumn<Skills, String> companyColumn = new TableColumn<>("Company");
-        companyColumn.setMinWidth(124);
-        companyColumn.setCellValueFactory(new PropertyValueFactory<>("company"));
-
-        skillsTable.getColumns().addAll(skillColumn, experienceColumn, companyColumn);
-        skillsTable.setItems(skillsList);
-    }
-
-    public void configureEducationTable(){
-        TableColumn<Education, String> qualificationColumn = new TableColumn<>("Qualification");
-        qualificationColumn.setMinWidth(124);
-        qualificationColumn.setCellValueFactory(new PropertyValueFactory<>("qualification"));
-
-        TableColumn<Education, String> locationColumn = new TableColumn<>("Location");
-        locationColumn.setMinWidth(124);
-        locationColumn.setCellValueFactory(new PropertyValueFactory<>("location"));
-
-        TableColumn<Education, String> establishmentColumn = new TableColumn<>("Establishment");
-        establishmentColumn.setMinWidth(124);
-        establishmentColumn.setCellValueFactory(new PropertyValueFactory<>("establishment"));
-
-        TableColumn<Education, String> dateColumn = new TableColumn<>("Date");
-        dateColumn.setMinWidth(124);
-        dateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
-
-        educationTable.getColumns().addAll(qualificationColumn, establishmentColumn, locationColumn, dateColumn);
-        educationTable.setItems(educationList);
-
-    }
-
-    public void configureCourseTable(){
-        TableColumn<Course, String> courseColumn = new TableColumn<>("Course");
-        courseColumn.setMinWidth(124);
-        courseColumn.setCellValueFactory(new PropertyValueFactory<>("course"));
-
-        TableColumn<Course, String> locationColumn = new TableColumn<>("Location");
-        locationColumn.setMinWidth(124);
-        locationColumn.setCellValueFactory(new PropertyValueFactory<>("location"));
-
-        TableColumn<Course, String> establishmentColumn = new TableColumn<>("Establishment");
-        establishmentColumn.setMinWidth(124);
-        establishmentColumn.setCellValueFactory(new PropertyValueFactory<>("establishment"));
-
-        TableColumn<Course, String> dateColumn = new TableColumn<>("Date");
-        dateColumn.setMinWidth(124);
-        dateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
-
-        courseTable.getColumns().addAll(courseColumn, establishmentColumn, locationColumn, dateColumn);
-        courseTable.setItems(courseList);
-
+        configureSkillsTable(skillsTable, skillsList);
+        configureEducationTable(educationTable, educationList);
+        configureCourseTable(courseTable, courseList);
     }
 
     public void deleteSkill(){
