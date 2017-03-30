@@ -1,6 +1,5 @@
 package model;
 
-import javafx.beans.property.SimpleLongProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 /**
@@ -11,7 +10,6 @@ public class Skills {
     private SimpleStringProperty skill;
     private SimpleStringProperty experience;
     private SimpleStringProperty company;
-    SimpleLongProperty list;
 
     public Skills(){
 

@@ -8,8 +8,6 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.TreeTableColumn?>
-<?import javafx.scene.control.TreeTableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -154,12 +152,6 @@
             </ButtonBar>
             <TextField layoutX="385.0" layoutY="988.0" promptText="(Achievement)" />
             <TextField layoutX="385.0" layoutY="1028.0" promptText="(Company Name)" />
-            <TreeTableView fx:id="professionalTable" layoutX="52.0" layoutY="503.0" prefHeight="155.0" prefWidth="377.0">
-              <columns>
-                <TreeTableColumn prefWidth="75.0" text="C1" />
-                <TreeTableColumn prefWidth="75.0" text="C2" />
-              </columns>
-            </TreeTableView>
          </children>
       </AnchorPane>
    </content>
