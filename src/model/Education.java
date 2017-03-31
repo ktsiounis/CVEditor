@@ -10,13 +10,15 @@ public class Education {
     private final SimpleStringProperty qualification;
     private final SimpleStringProperty establishment;
     private final SimpleStringProperty location;
-    private final SimpleStringProperty date;
+    private final SimpleStringProperty yearFrom;
+    private final SimpleStringProperty yearTo;
 
-    public Education(String qualification, String establishment, String location, String date) {
+    public Education(String qualification, String establishment, String location, String yearFrom, String yearTo) {
         this.qualification = new SimpleStringProperty(qualification);
         this.establishment = new SimpleStringProperty(establishment);
         this.location = new SimpleStringProperty(location);
-        this.date = new SimpleStringProperty(date);
+        this.yearFrom = new SimpleStringProperty(yearFrom);
+        this.yearTo = new SimpleStringProperty(yearTo);
     }
 
     public void setQualification(String qualification) {
@@ -31,8 +33,12 @@ public class Education {
         this.location.set(location);
     }
 
-    public void setDate(String date) {
-        this.date.set(date);
+    public void setYearFrom(String yearFrom) {
+        this.yearFrom.set(yearFrom);
+    }
+
+    public void setYearTo(String yearTo) {
+        this.yearTo.set(yearTo);
     }
 
     public String getQualification() {
@@ -60,11 +66,19 @@ public class Education {
         return location;
     }
 
-    public String getDate() {
-        return date.get();
+    public String getYearFrom() {
+        return yearFrom.get();
     }
 
-    public SimpleStringProperty dateProperty() {
-        return date;
+    public String getYearTo() {
+        return yearTo.get();
+    }
+
+    public SimpleStringProperty yearFromProperty() {
+        return yearFrom;
+    }
+
+    public SimpleStringProperty yearToProperty() {
+        return yearTo;
     }
 }

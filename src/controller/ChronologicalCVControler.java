@@ -21,58 +21,61 @@ import java.util.ResourceBundle;
 public class ChronologicalCVControler extends CommonFunctions implements Initializable{
 
     @FXML
-    private TableView<Education> educationTable = new TableView<>();
+    private TableView<Education> educationTable;
     @FXML
-    private TableView<Course> courseTable = new TableView<>();
+    private TableView<Course> courseTable;
     @FXML
-    private TableView<ProfessionalExperience> profExperienceTable = new TableView<>();
+    private TableView<ProfessionalExperience> profExperienceTable;
+
     @FXML
-    private TextField qualificationTxt, locationTxt, educationDateTxt, establishmentTxt;
+    private TextField qualificationTxt, locationTxt, educationYearFromTxt, educationYearToTxt, establishmentTxt;
     @FXML
-    private TextField courseTxt, courseLocationTxt, courseDateTxt, courseEstablishmentTxt;
+    private TextField courseTxt, courseLocationTxt, courseYearFromTxt, courseYearToTxt, courseEstablishmentTxt;
     @FXML
     private TextField companyNameTxt, jobTitleTxt, dateFromTxt, dateToTxt, paragraphTxt, achievementsTxt;
 
-    private ObservableList<Education> educationList = FXCollections.observableArrayList();
-    private ObservableList<Course> courseList = FXCollections.observableArrayList();
-    private ObservableList<ProfessionalExperience> professionalExperiences = FXCollections.observableArrayList();
+    private ObservableList<Education> educationList;
+    private ObservableList<Course> courseList;
+    private ObservableList<ProfessionalExperience> professionalExperiences;
+
+    public ChronologicalCVControler() {
+        this.educationYearFromTxt = new TextField();
+        this.educationYearToTxt = new TextField();
+        this.courseYearFromTxt = new TextField();
+        this.courseYearToTxt = new TextField();
+        this.dateToTxt = new TextField();
+        this.paragraphTxt = new TextField();
+        this.qualificationTxt = new TextField();
+        this.locationTxt = new TextField();
+        this.establishmentTxt = new TextField();
+        this.courseTxt = new TextField();
+        this.courseLocationTxt = new TextField();
+        this.courseEstablishmentTxt = new TextField();
+        this.dateFromTxt = new TextField();
+        this.jobTitleTxt = new TextField();
+        this.achievementsTxt = new TextField();
+        this.companyNameTxt = new TextField();
+        this.educationList = FXCollections.observableArrayList();
+        this.courseList = FXCollections.observableArrayList();
+        this.professionalExperiences = FXCollections.observableArrayList();
+        this.educationTable = new TableView<>();
+        this.courseTable = new TableView<>();
+        this.profExperienceTable = new TableView<>();
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        configureEducationTable(educationTable, educationList);
+        configureCourseTable(courseTable, courseList);
+        configureProfessionalExperienceTable();
+    }
 
     public void addToEducationTable(){
-
-        if(!(qualificationTxt.getText().isEmpty()) && !(locationTxt.getText().isEmpty()) && !(educationDateTxt.getText().isEmpty()) && !(establishmentTxt.getText().isEmpty())) {
-            Education education = new Education(qualificationTxt.getText(), establishmentTxt.getText(), locationTxt.getText(), educationDateTxt.getText());
-            educationList.add(education);
-            qualificationTxt.clear();
-            establishmentTxt.clear();
-            locationTxt.clear();
-            educationDateTxt.clear();
-        }
-        else {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText("Please fill the empty fields");
-            alert.showAndWait();
-        }
-
+        addEducation(qualificationTxt, locationTxt, educationYearFromTxt, educationYearToTxt,establishmentTxt, educationList);
     }
 
     public void addToCourseTable(){
-
-        if(!(courseTxt.getText().isEmpty()) && !(courseLocationTxt.getText().isEmpty()) && !(courseDateTxt.getText().isEmpty()) && !(courseEstablishmentTxt.getText().isEmpty())) {
-            Course course = new Course(courseTxt.getText(), courseEstablishmentTxt.getText(), courseLocationTxt.getText(), courseDateTxt.getText());
-            courseList.add(course);
-            courseTxt.clear();
-            courseEstablishmentTxt.clear();
-            courseLocationTxt.clear();
-            courseDateTxt.clear();
-        }
-        else {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText("Please fill the empty fields");
-            alert.showAndWait();
-        }
-
+        addCourse(courseTxt, courseLocationTxt, courseYearFromTxt, courseYearToTxt, courseEstablishmentTxt, courseList);
     }
 
     public void addToProfessionalExpTable(){
@@ -85,6 +88,7 @@ public class ChronologicalCVControler extends CommonFunctions implements Initial
             companyNameTxt.clear();
             jobTitleTxt.clear();
             dateFromTxt.clear();
+            achievementsTxt.clear();
         }
         else{
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -92,13 +96,6 @@ public class ChronologicalCVControler extends CommonFunctions implements Initial
             alert.setHeaderText("Please fill the empty fields");
             alert.showAndWait();
         }
-    }
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        configureEducationTable(educationTable, educationList);
-        configureCourseTable(courseTable, courseList);
-        configureProfessionalExperienceTable();
     }
 
     public void configureProfessionalExperienceTable(){
@@ -138,5 +135,86 @@ public class ChronologicalCVControler extends CommonFunctions implements Initial
     public void deleteCourse(){
         int selectedIndex = courseTable.getSelectionModel().getSelectedIndex();
         courseTable.getItems().remove(selectedIndex);
+    }
+
+    public void deleteProfessionalExperience(){
+        int selectedIndex = profExperienceTable.getSelectionModel().getSelectedIndex();
+        profExperienceTable.getItems().remove(selectedIndex);
+    }
+
+    public ObservableList<Education> getEducationList() {
+        return educationList;
+    }
+
+    public ObservableList<Course> getCourseList() {
+        return courseList;
+    }
+
+    public ObservableList<ProfessionalExperience> getProfessionalExperiences() {
+        return professionalExperiences;
+    }
+
+    public void setQualificationTxt(String qualificationTxt) {
+        this.qualificationTxt.setText(qualificationTxt);
+    }
+
+    public void setLocationTxt(String locationTxt) {
+        this.locationTxt.setText(locationTxt);
+    }
+
+    public void setEducationYearFromTxt(String educationYearFromTxt) {
+        this.educationYearFromTxt.setText(educationYearFromTxt);
+    }
+
+    public void setEducationYearToTxt(String educationYearToTxt) {
+        this.educationYearToTxt.setText(educationYearToTxt);
+    }
+
+    public void setEstablishmentTxt(String establishmentTxt) {
+        this.establishmentTxt.setText(establishmentTxt);
+    }
+
+    public void setCourseTxt(String courseTxt) {
+        this.courseTxt.setText(courseTxt);
+    }
+
+    public void setCourseLocationTxt(String courseLocationTxt) {
+        this.courseLocationTxt.setText(courseLocationTxt);
+    }
+
+    public void setCourseYearFromTxt(String courseYearFromTxt) {
+        this.courseYearFromTxt.setText(courseYearFromTxt);
+    }
+
+    public void setCourseYearToTxt(String courseYearToTxt) {
+        this.courseYearToTxt.setText(courseYearToTxt);
+    }
+
+    public void setCourseEstablishmentTxt(String courseEstablishmentTxt) {
+        this.courseEstablishmentTxt.setText(courseEstablishmentTxt);
+    }
+
+    public void setCompanyNameTxt(String companyNameTxt) {
+        this.companyNameTxt.setText(companyNameTxt);
+    }
+
+    public void setJobTitleTxt(String jobTitleTxt) {
+        this.jobTitleTxt.setText(jobTitleTxt);
+    }
+
+    public void setDateFromTxt(String dateFromTxt) {
+        this.dateFromTxt.setText(dateFromTxt);
+    }
+
+    public void setDateToTxt(String dateToTxt) {
+        this.dateToTxt.setText(dateToTxt);
+    }
+
+    public void setParagraphTxt(String paragraphTxt) {
+        this.paragraphTxt.setText(paragraphTxt);
+    }
+
+    public void setAchievementsTxt(String achievementsTxt) {
+        this.achievementsTxt.setText(achievementsTxt);
     }
 }

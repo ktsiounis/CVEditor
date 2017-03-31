@@ -10,22 +10,6 @@ import javafx.stage.Stage;
 
 public class CV extends Application {
 
-    private ObservableList<Skills> skills = FXCollections.observableArrayList();
-    private ObservableList<CareerSummary> careerSummaries = FXCollections.observableArrayList();
-    private ObservableList<Education> educations = FXCollections.observableArrayList();
-
-    public ObservableList<Skills> getSkills() {
-        return skills;
-    }
-
-    public ObservableList<CareerSummary> getCareerSummaries() {
-        return careerSummaries;
-    }
-
-    public ObservableList<Education> getEducations() {
-        return educations;
-    }
-
     @Override
     public void start(Stage primaryStage) throws Exception{
 

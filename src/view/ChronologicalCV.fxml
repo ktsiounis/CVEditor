@@ -68,7 +68,7 @@
             <ButtonBar layoutX="8.0" layoutY="627.0" prefHeight="40.0" prefWidth="266.0">
                <buttons>
                   <Button mnemonicParsing="false" onAction="#addToProfessionalExpTable" text="Add" />
-                  <Button mnemonicParsing="false" text="Delete" />
+                  <Button mnemonicParsing="false" onAction="#deleteProfessionalExperience" text="Delete" />
                </buttons>
             </ButtonBar>
             <Label layoutX="8.0" layoutY="1115.0" text="5.EDUCATION AND TRAINING" underline="true">

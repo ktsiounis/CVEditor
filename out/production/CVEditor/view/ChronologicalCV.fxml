@@ -4,7 +4,6 @@
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
@@ -68,8 +67,8 @@
             </Label>
             <ButtonBar layoutX="8.0" layoutY="627.0" prefHeight="40.0" prefWidth="266.0">
                <buttons>
-                  <Button mnemonicParsing="false" text="Add" />
-                  <Button mnemonicParsing="false" text="Delete" />
+                  <Button mnemonicParsing="false" onAction="#addToProfessionalExpTable" text="Add" />
+                  <Button mnemonicParsing="false" onAction="#deleteProfessionalExperience" text="Delete" />
                </buttons>
             </ButtonBar>
             <Label layoutX="8.0" layoutY="1115.0" text="5.EDUCATION AND TRAINING" underline="true">
@@ -108,9 +107,9 @@
                </font>
             </Label>
             <TextArea layoutX="10.0" layoutY="1605.0" prefHeight="81.0" prefWidth="383.0" />
-            <TextField layoutX="447.0" layoutY="531.0" promptText="(Company Name)" />
-            <TextField layoutX="447.0" layoutY="564.0" promptText="(Job Title)" />
-            <TextField layoutX="447.0" layoutY="596.0" promptText="(Date)" />
+            <TextField fx:id="companyNameTxt" layoutX="447.0" layoutY="531.0" promptText="(Company Name)" />
+            <TextField fx:id="jobTitleTxt" layoutX="447.0" layoutY="564.0" promptText="(Job Title)" />
+            <TextField fx:id="dateFromTxt" layoutX="447.0" layoutY="596.0" promptText="(Date From)" />
             <TextField fx:id="qualificationTxt" layoutX="451.0" layoutY="1142.0" promptText="(Qualification)" />
             <TextField fx:id="locationTxt" layoutX="451.0" layoutY="1174.0" promptText="(Location)" />
             <TextField fx:id="educationDateTxt" layoutX="451.0" layoutY="1205.0" promptText="(Date)" />
@@ -120,38 +119,10 @@
             <TextField fx:id="courseLocationTxt" layoutX="459.0" layoutY="1379.0" promptText="(Location)" />
             <TextField fx:id="courseDateTxt" layoutX="459.0" layoutY="1418.0" promptText="(Date)" />
             <TextField accessibleRole="TEXT" alignment="TOP_LEFT" layoutX="6.0" layoutY="374.0" prefHeight="100.0" prefWidth="491.0" />
-            <Label layoutX="8.0" layoutY="667.0" text="4.1 Paragraph of responsibilities" underline="true">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <TextField accessibleRole="TEXT" alignment="TOP_LEFT" layoutX="6.0" layoutY="694.0" prefHeight="100.0" prefWidth="491.0" />
-            <TextField layoutX="319.0" layoutY="808.0" promptText="(Company Name)" />
-            <ButtonBar layoutX="8.0" layoutY="800.0" prefHeight="40.0" prefWidth="266.0">
-               <buttons>
-                  <Button mnemonicParsing="false" text="Add" />
-                  <Button mnemonicParsing="false" text="Delete" />
-               </buttons>
-            </ButtonBar>
-            <TableView layoutX="14.0" layoutY="866.0" prefHeight="114.0" prefWidth="441.0">
-               <columns>
-                  <TableColumn prefWidth="210.0" text="Achievement" />
-                  <TableColumn prefWidth="230.0" text="Company name" />
-               </columns>
-            </TableView>
-            <Label layoutX="8.0" layoutY="840.0" text="4.2 List of achievements" underline="true">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <ButtonBar layoutX="19.0" layoutY="988.0" prefHeight="40.0" prefWidth="266.0">
-               <buttons>
-                  <Button mnemonicParsing="false" text="Add" />
-                  <Button mnemonicParsing="false" text="Delete" />
-               </buttons>
-            </ButtonBar>
-            <TextField layoutX="385.0" layoutY="988.0" promptText="(Achievement)" />
-            <TextField layoutX="385.0" layoutY="1028.0" promptText="(Company Name)" />
+            <ButtonBar layoutX="8.0" layoutY="800.0" prefHeight="40.0" prefWidth="266.0" />
+            <ButtonBar layoutX="19.0" layoutY="988.0" prefHeight="40.0" prefWidth="266.0" />
+            <TextField fx:id="achievementsTxt" layoutX="385.0" layoutY="988.0" promptText="(Achievement)" />
+            <TableView fx:id="profExperienceTable" editable="true" layoutX="8.0" layoutY="505.0" prefHeight="124.0" prefWidth="434.0" />
          </children>
       </AnchorPane>
    </content>
