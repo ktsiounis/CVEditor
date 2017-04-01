@@ -1,5 +1,3 @@
-package Tests;
-
 import controller.CombinedCVController;
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -30,30 +28,39 @@ public class CombinedCVControllerTest{
 
     @Test
     public void addToEducationTable() throws Exception {
+        combined.initialize(null,null);
+        combined.setEducationYearFromTxt("2000");
+        combined.setEducationYearToTxt("2012");
+        combined.setEstablishmentTxt("Establishment");
+        combined.setQualificationTxt("qualification");
+        combined.setLocationTxt("Ioannina");
+        combined.addToEducationTable();
+        assertEquals("Item never added in education table",1, combined.getEducationList().size());
     }
 
     @Test
     public void addToCourseTable() throws Exception {
+        combined.initialize(null,null);
+        combined.setCourseYearFromTxt("2000");
+        combined.setCourseYearToTxt("2012");
+        combined.setCourseEstablishmentTxt("Establishment");
+        combined.setCourseTxt("course");
+        combined.setCourseLocationTxt("Ioannina");
+        combined.addToCourseTable();
+        assertEquals("Item never added in course table",1, combined.getCourseList().size());
     }
 
     @Test
     public void addToProfessionalExpTable() throws Exception {
-    }
-
-    @Test
-    public void deleteSkill() throws Exception {
-    }
-
-    @Test
-    public void deleteEducation() throws Exception {
-    }
-
-    @Test
-    public void deleteCourse() throws Exception {
-    }
-
-    @Test
-    public void deleteProfessionalExperience() throws Exception {
+        combined.initialize(null,null);
+        combined.setCompanyNameTxt("company");
+        combined.setAchievementsTxt("ach1,ach2");
+        combined.setDateFromTxt("2014");
+        combined.setDateToTxt("2016");
+        combined.setJobTitleTxt("job");
+        combined.setParagraphTxt("paragraph");
+        combined.addToProfessionalExpTable();
+        assertEquals("Item never added in professional table", 1, combined.getProfessionalExperiences().size());
     }
 
     @BeforeClass

@@ -121,7 +121,7 @@
             <TextField accessibleRole="TEXT" alignment="TOP_LEFT" layoutX="6.0" layoutY="374.0" prefHeight="100.0" prefWidth="491.0" />
             <ButtonBar layoutX="8.0" layoutY="800.0" prefHeight="40.0" prefWidth="266.0" />
             <ButtonBar layoutX="19.0" layoutY="988.0" prefHeight="40.0" prefWidth="266.0" />
-            <TextField fx:id="achievementsTxt" layoutX="385.0" layoutY="988.0" promptText="(Achievement)" />
+            <TextField fx:id="achievementsTxt" layoutX="437.0" layoutY="635.0" promptText="(Achievement)" />
             <TableView fx:id="profExperienceTable" editable="true" layoutX="8.0" layoutY="505.0" prefHeight="124.0" prefWidth="434.0" />
          </children>
       </AnchorPane>

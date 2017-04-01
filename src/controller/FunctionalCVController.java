@@ -51,7 +51,7 @@ public class FunctionalCVController extends CommonFunctions implements Initializ
         this.courseEstablishmentTxt = new TextField();
         this.skillTxt = new TextField();
         this.experienceTxt = new TextField();
-        this.companyTxt = new TextField();
+        this.companyNameTxt = new TextField();
         this.skillsList = FXCollections.observableArrayList();
         this.careerSummaryList = FXCollections.observableArrayList();
         this.educationList = FXCollections.observableArrayList();

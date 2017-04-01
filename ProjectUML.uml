@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>controller</OriginalElement>
+  <nodes>
+    <node x="238.0" y="382.0">model.CV</node>
+    <node x="301.92499999999995" y="189.0">controller.CommonFunctions</node>
+    <node x="420.92499999999995" y="0.0">model.Course</node>
+    <node x="265.31642857142845" y="308.0">controller.CombinedCVController</node>
+    <node x="547.1361428571428" y="308.0">controller.FunctionalCVController</node>
+    <node x="240.92499999999998" y="0.0">model.Education</node>
+    <node x="1.25" y="308.0">controller.ChronologicalCVControler</node>
+    <node x="540.9891428571427" y="0.0">model.Skills</node>
+    <node x="0.0" y="382.0">controller.SelectionWindowController</node>
+    <node x="101.92499999999995" y="189.0">model.ProfessionalExperience</node>
+    <node x="649.825" y="189.0">model.CareerSummary</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="controller.CombinedCVController" target="model.Course">
+      <point x="25.80000000000001" y="-14.5" />
+      <point x="377.1164285714284" y="258.0" />
+      <point x="463.42499999999995" y="258.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="controller.FunctionalCVController" target="controller.CommonFunctions">
+      <point x="-77.39999999999998" y="-14.5" />
+      <point x="555.7361428571428" y="248.0" />
+      <point x="427.7583333333333" y="248.0" />
+      <point x="50.33333333333337" y="14.5" />
+    </edge>
+    <edge source="controller.CombinedCVController" target="model.Education">
+      <point x="-8.600000000000023" y="-14.5" />
+      <point x="342.7164285714284" y="238.0" />
+      <point x="291.42499999999995" y="238.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="controller.FunctionalCVController" target="model.Course">
+      <point x="-25.799999999999955" y="-14.5" />
+      <point x="607.3361428571428" y="288.0" />
+      <point x="598.0891428571427" y="288.0" />
+      <point x="598.0891428571427" y="79.0" />
+      <point x="487.7107142857143" y="79.0" />
+      <point x="24.285714285714278" y="14.5" />
+    </edge>
+    <edge source="controller.CombinedCVController" target="model.ProfessionalExperience">
+      <point x="-43.0" y="-14.5" />
+      <point x="308.31642857142845" y="258.0" />
+      <point x="255.92499999999995" y="258.0" />
+      <point x="70.0" y="14.5" />
+    </edge>
+    <edge source="controller.CombinedCVController" target="model.Skills">
+      <point x="60.19999999999999" y="-14.5" />
+      <point x="411.5164285714284" y="278.0" />
+      <point x="524.175" y="278.0" />
+      <point x="524.175" y="159.0" />
+      <point x="563.1891428571428" y="159.0" />
+      <point x="-14.799999999999955" y="14.5" />
+    </edge>
+    <edge source="controller.CommonFunctions" target="model.Education">
+      <point x="-50.33333333333337" y="-14.5" />
+      <point x="327.0916666666666" y="109.0" />
+      <point x="305.8535714285714" y="109.0" />
+      <point x="14.428571428571445" y="14.5" />
+    </edge>
+    <edge source="controller.ChronologicalCVControler" target="model.Education">
+      <point x="-58.75" y="-14.5" />
+      <point x="35.81285714285707" y="109.0" />
+      <point x="262.56785714285706" y="109.0" />
+      <point x="-28.85714285714289" y="14.5" />
+    </edge>
+    <edge source="controller.CommonFunctions" target="model.Course">
+      <point x="0.0" y="-14.5" />
+      <point x="377.42499999999995" y="139.0" />
+      <point x="451.28214285714284" y="139.0" />
+      <point x="-12.14285714285711" y="14.5" />
+    </edge>
+    <edge source="controller.FunctionalCVController" target="model.Skills">
+      <point x="8.600000000000023" y="-14.5" />
+      <point x="641.7361428571428" y="268.0" />
+      <point x="628.325" y="268.0" />
+      <point x="628.325" y="59.0" />
+      <point x="592.7891428571427" y="59.0" />
+      <point x="14.799999999999955" y="14.5" />
+    </edge>
+    <edge source="controller.CombinedCVController" target="controller.CommonFunctions">
+      <point x="8.600000000000023" y="-14.5" />
+      <point x="359.91642857142847" y="248.0" />
+      <point x="377.42499999999995" y="248.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="controller.ChronologicalCVControler" target="model.ProfessionalExperience">
+      <point x="35.25" y="-14.5" />
+      <point x="130.5" y="288.0" />
+      <point x="143.92499999999995" y="288.0" />
+      <point x="-42.0" y="14.5" />
+    </edge>
+    <edge source="controller.CommonFunctions" target="model.Skills">
+      <point x="50.333333333333314" y="-14.5" />
+      <point x="427.7583333333333" y="149.0" />
+      <point x="548.3891428571427" y="149.0" />
+      <point x="-29.600000000000023" y="14.5" />
+    </edge>
+    <edge source="controller.FunctionalCVController" target="model.CareerSummary">
+      <point x="77.39999999999998" y="-14.5" />
+      <point x="710.5361428571427" y="288.0" />
+      <point x="760.6583333333334" y="288.0" />
+      <point x="44.33333333333337" y="14.5" />
+    </edge>
+    <edge source="controller.ChronologicalCVControler" target="model.Course">
+      <point x="-35.25" y="-14.5" />
+      <point x="60.0" y="288.0" />
+      <point x="56.40228571428571" y="288.0" />
+      <point x="56.40228571428571" y="119.0" />
+      <point x="426.9964285714285" y="119.0" />
+      <point x="-36.428571428571445" y="14.5" />
+    </edge>
+    <edge source="controller.FunctionalCVController" target="model.Education">
+      <point x="-43.0" y="-14.5" />
+      <point x="590.1361428571428" y="288.0" />
+      <point x="587.0891428571427" y="288.0" />
+      <point x="587.0891428571427" y="89.0" />
+      <point x="334.7107142857143" y="89.0" />
+      <point x="43.28571428571428" y="14.5" />
+    </edge>
+    <edge source="controller.ChronologicalCVControler" target="controller.CommonFunctions">
+      <point x="82.25" y="-14.5" />
+      <point x="177.5" y="288.0" />
+      <point x="327.0916666666667" y="288.0" />
+      <point x="-50.333333333333314" y="14.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="393.5" y="205.5" />
+  <SelectedNodes>
+    <node>controller.ChronologicalCVControler</node>
+  </SelectedNodes>
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>public</VISIBILITY>
+</Diagram>
+
