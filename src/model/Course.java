@@ -10,15 +10,13 @@ public class Course {
     private final SimpleStringProperty course;
     private final SimpleStringProperty establishment;
     private final SimpleStringProperty location;
-    private final SimpleStringProperty yearFrom;
-    private final SimpleStringProperty yearTo;
+    private final SimpleStringProperty date;
 
-    public Course(String course, String establishment, String location, String yearFrom, String yearTo) {
+    public Course(String course, String establishment, String location, String date) {
         this.course = new SimpleStringProperty(course);
         this.establishment = new SimpleStringProperty(establishment);
         this.location = new SimpleStringProperty(location);
-        this.yearFrom = new SimpleStringProperty(yearFrom);
-        this.yearTo = new SimpleStringProperty(yearTo);
+        this.date = new SimpleStringProperty(date);
     }
 
     public void setCourse(String course) {
@@ -33,12 +31,8 @@ public class Course {
         this.location.set(location);
     }
 
-    public void setYearFrom(String yearFrom) {
-        this.yearFrom.set(yearFrom);
-    }
-
-    public void setYearTo(String yearTo) {
-        this.yearTo.set(yearTo);
+    public void setDate(String date) {
+        this.date.set(date);
     }
 
     public String getCourse() {
@@ -66,20 +60,12 @@ public class Course {
         return location;
     }
 
-    public String getYearFrom() {
-        return yearFrom.get();
+    public String getDate() {
+        return date.get();
     }
 
-    public String getYearTo() {
-        return yearTo.get();
-    }
-
-    public SimpleStringProperty yearFromProperty() {
-        return yearFrom;
-    }
-
-    public SimpleStringProperty yearToProperty() {
-        return yearTo;
+    public SimpleStringProperty dateProperty() {
+        return date;
     }
 
 }

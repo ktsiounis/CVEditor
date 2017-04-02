@@ -9,14 +9,13 @@ import javafx.collections.ObservableList;
  */
 public class ProfessionalExperience {
 
-    private SimpleStringProperty companyName, jobTitle, dateFrom, dateTo, paragraph;
+    private SimpleStringProperty companyName, jobTitle, date, paragraph;
     private SimpleListProperty<String> achievements;
 
-    public ProfessionalExperience(String companyName, String jobTitle, String dateFrom, String dateTo, String paragraph, ObservableList<String> achievements) {
+    public ProfessionalExperience(String companyName, String jobTitle, String date, String paragraph, ObservableList<String> achievements) {
         this.companyName = new SimpleStringProperty(companyName);
         this.jobTitle = new SimpleStringProperty(jobTitle);
-        this.dateFrom = new SimpleStringProperty(dateFrom);
-        this.dateTo = new SimpleStringProperty(dateTo);
+        this.date = new SimpleStringProperty(date);
         this.paragraph = new SimpleStringProperty(paragraph);
         this.achievements = new SimpleListProperty<>(achievements);
     }
@@ -29,12 +28,8 @@ public class ProfessionalExperience {
         this.jobTitle.set(jobTitle);
     }
 
-    public void setDateFrom(String dateFrom) {
-        this.dateFrom.set(dateFrom);
-    }
-
-    public void setDateTo(String dateTo) {
-        this.dateTo.set(dateTo);
+    public void setDate(String date) {
+        this.date.set(date);
     }
 
     public void setParagraph(String paragraph) {
@@ -62,20 +57,12 @@ public class ProfessionalExperience {
         return jobTitle;
     }
 
-    public String getDateFrom() {
-        return dateFrom.get();
+    public String getDate() {
+        return date.get();
     }
 
-    public SimpleStringProperty dateFromProperty() {
-        return dateFrom;
-    }
-
-    public String getDateTo() {
-        return dateTo.get();
-    }
-
-    public SimpleStringProperty dateToProperty() {
-        return dateTo;
+    public SimpleStringProperty dateProperty() {
+        return date;
     }
 
     public String getParagraph() {

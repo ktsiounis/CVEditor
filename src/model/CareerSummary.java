@@ -10,15 +10,13 @@ public class CareerSummary {
 
     private final SimpleStringProperty company;
     private final SimpleStringProperty jobTitle;
-    private final SimpleIntegerProperty yearFrom;
-    private final SimpleIntegerProperty yearTo;
+    private final SimpleStringProperty date;
 
 
-    public CareerSummary(String company, String jobTitle, Integer yearFrom, Integer yearTo) {
+    public CareerSummary(String company, String jobTitle, String date) {
         this.company = new SimpleStringProperty(company);
         this.jobTitle = new SimpleStringProperty(jobTitle);
-        this.yearFrom = new SimpleIntegerProperty(yearFrom);
-        this.yearTo = new SimpleIntegerProperty(yearTo);
+        this.date = new SimpleStringProperty(date);
     }
 
     public void setCompany(String company) {
@@ -29,12 +27,8 @@ public class CareerSummary {
         this.jobTitle.set(jobTitle);
     }
 
-    public void setYearFrom(int yearFrom) {
-        this.yearFrom.set(yearFrom);
-    }
-
-    public void setYearTo(int yearTo) {
-        this.yearTo.set(yearTo);
+    public void setDate(String date) {
+        this.date.set(date);
     }
 
     public String getCompany() {
@@ -54,19 +48,11 @@ public class CareerSummary {
         return jobTitle;
     }
 
-    public int getYearFrom() {
-        return yearFrom.get();
+    public String getDate() {
+        return date.get();
     }
 
-    public int getYearTo() {
-        return yearTo.get();
-    }
-
-    public SimpleIntegerProperty yearFromProperty() {
-        return yearFrom;
-    }
-
-    public SimpleIntegerProperty yearToProperty() {
-        return yearTo;
+    public SimpleStringProperty dateProperty() {
+        return date;
     }
 }

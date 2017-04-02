@@ -28,8 +28,7 @@ public class FunctionalCVControllerTest {
     @Test
     public void addToCareerSummaryTable() throws Exception {
         functional.initialize(null, null);
-        functional.setCareerYearFromTxt("2017");
-        functional.setCareerYearToTxt("2018");
+        functional.setCareerDateTxt("2017-2018");
         functional.setCompanyNameTxt("company");
         functional.setJobTitleTxt("Manager");
         functional.addToCareerSummaryTable();
@@ -39,8 +38,7 @@ public class FunctionalCVControllerTest {
     @Test
     public void addToEducationTable() throws Exception {
         functional.initialize(null,null);
-        functional.setEducationYearFromTxt("2000");
-        functional.setEducationYearToTxt("2012");
+        functional.setEducationDateTxt("2000-2004");
         functional.setEstablishmentTxt("Establishment");
         functional.setQualificationTxt("qualification");
         functional.setLocationTxt("Ioannina");
@@ -51,8 +49,7 @@ public class FunctionalCVControllerTest {
     @Test
     public void addToCourseTable() throws Exception {
         functional.initialize(null,null);
-        functional.setCourseYearFromTxt("2000");
-        functional.setCourseYearToTxt("2012");
+        functional.setCourseDateTxt("2000-2012");
         functional.setCourseEstablishmentTxt("Establishment");
         functional.setCourseTxt("course");
         functional.setCourseLocationTxt("Ioannina");

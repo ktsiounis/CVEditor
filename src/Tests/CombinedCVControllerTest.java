@@ -21,7 +21,7 @@ public class CombinedCVControllerTest{
         combined.initialize(null, null);
         combined.setSkillTxt("skill");
         combined.setCompanyTxt("company");
-        combined.setExperienceTxt("experience");
+        combined.setExperienceTxt("experiences");
         combined.addToSkillsTable();
         assertEquals("Item never added in skills table",1, combined.getSkillsList().size());
     }
@@ -29,8 +29,7 @@ public class CombinedCVControllerTest{
     @Test
     public void addToEducationTable() throws Exception {
         combined.initialize(null,null);
-        combined.setEducationYearFromTxt("2000");
-        combined.setEducationYearToTxt("2012");
+        combined.setEducationDateTxt("2000-2008");
         combined.setEstablishmentTxt("Establishment");
         combined.setQualificationTxt("qualification");
         combined.setLocationTxt("Ioannina");
@@ -41,8 +40,7 @@ public class CombinedCVControllerTest{
     @Test
     public void addToCourseTable() throws Exception {
         combined.initialize(null,null);
-        combined.setCourseYearFromTxt("2000");
-        combined.setCourseYearToTxt("2012");
+        combined.setCourseDateTxt("2000-2016");
         combined.setCourseEstablishmentTxt("Establishment");
         combined.setCourseTxt("course");
         combined.setCourseLocationTxt("Ioannina");
@@ -55,8 +53,7 @@ public class CombinedCVControllerTest{
         combined.initialize(null,null);
         combined.setCompanyNameTxt("company");
         combined.setAchievementsTxt("ach1,ach2");
-        combined.setDateFromTxt("2014");
-        combined.setDateToTxt("2016");
+        combined.setDateTxt("2014-2016");
         combined.setJobTitleTxt("job");
         combined.setParagraphTxt("paragraph");
         combined.addToProfessionalExpTable();

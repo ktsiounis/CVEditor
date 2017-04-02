@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ChronologicalCVControler">
+<ScrollPane xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ChronologicalCVControler">
    <content>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1700.0" prefWidth="600.0">
          <children>
@@ -35,20 +35,20 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <TextField layoutX="111.0" layoutY="105.0" prefHeight="25.0" prefWidth="201.0" />
+            <TextField fx:id="addressTxt" layoutX="111.0" layoutY="105.0" prefHeight="25.0" prefWidth="201.0" />
             <Label layoutX="19.0" layoutY="146.0" text="Telephone :">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <TextField layoutX="114.0" layoutY="146.0" prefHeight="25.0" prefWidth="165.0" promptText="(Home)" />
-            <TextField layoutX="303.0" layoutY="146.0" prefHeight="25.0" prefWidth="165.0" promptText="(Mobile)" />
+            <TextField fx:id="telehomeTxt" layoutX="114.0" layoutY="146.0" prefHeight="25.0" prefWidth="165.0" promptText="(Home)" />
+            <TextField fx:id="telemobTxt" layoutX="303.0" layoutY="146.0" prefHeight="25.0" prefWidth="165.0" promptText="(Mobile)" />
             <Label layoutX="28.0" layoutY="195.0" text="Email :">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <TextField layoutX="111.0" layoutY="195.0" prefHeight="25.0" prefWidth="201.0" />
+            <TextField fx:id="emailTxt" layoutX="111.0" layoutY="195.0" prefHeight="25.0" prefWidth="201.0" />
             <Label layoutY="347.0" text="3.CORE STRENGTHS" underline="true">
                <font>
                   <Font size="18.0" />
@@ -65,64 +65,65 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <ButtonBar layoutX="8.0" layoutY="627.0" prefHeight="40.0" prefWidth="266.0">
+            <ButtonBar layoutX="8.0" layoutY="713.0" prefHeight="40.0" prefWidth="266.0">
                <buttons>
                   <Button mnemonicParsing="false" onAction="#addToProfessionalExpTable" text="Add" />
                   <Button mnemonicParsing="false" onAction="#deleteProfessionalExperience" text="Delete" />
                </buttons>
             </ButtonBar>
-            <Label layoutX="8.0" layoutY="1115.0" text="5.EDUCATION AND TRAINING" underline="true">
+            <Label layoutX="1.0" layoutY="778.0" text="5.EDUCATION AND TRAINING" underline="true">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <TableView fx:id="educationTable" layoutX="-1.0" layoutY="1142.0" prefHeight="114.0" prefWidth="446.0" />
-            <ButtonBar layoutX="27.0" layoutY="1256.0" prefHeight="40.0" prefWidth="266.0">
-               <buttons>
-                  <Button mnemonicParsing="false" onAction="#addToEducationTable" text="Add" />
-                  <Button mnemonicParsing="false" onAction="#deleteEducation" text="Delete" />
-               </buttons>
-            </ButtonBar>
-            <Label layoutX="8.0" layoutY="1289.0" text="6.FURTHER COURSES" underline="true">
+            <TableView fx:id="educationTable" layoutX="2.0" layoutY="807.0" prefHeight="114.0" prefWidth="522.0" />
+            <Label layoutX="8.0" layoutY="1048.0" text="6.FURTHER COURSES" underline="true">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <TableView fx:id="courseTable" layoutX="-1.0" layoutY="1316.0" prefHeight="114.0" prefWidth="452.0" />
-            <ButtonBar layoutX="27.0" layoutY="1430.0" prefHeight="40.0" prefWidth="266.0">
+            <TableView fx:id="courseTable" layoutX="1.0" layoutY="1075.0" prefHeight="114.0" prefWidth="541.0" />
+            <ButtonBar layoutX="16.0" layoutY="1270.0" prefHeight="40.0" prefWidth="266.0">
                <buttons>
                   <Button mnemonicParsing="false" onAction="#addToCourseTable" text="Add" />
                   <Button mnemonicParsing="false" onAction="#deleteCourse" text="Delete" />
                </buttons>
             </ButtonBar>
-            <Label layoutX="-1.0" layoutY="1470.0" text="7.ADDITIONAL INFORMATION" underline="true">
+            <Label layoutY="1310.0" text="7.ADDITIONAL INFORMATION" underline="true">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <TextArea layoutX="10.0" layoutY="1497.0" prefHeight="81.0" prefWidth="383.0" />
-            <Label layoutX="-1.0" layoutY="1578.0" text="8.INTERESTS" underline="true">
+            <TextArea layoutX="11.0" layoutY="1337.0" prefHeight="81.0" prefWidth="383.0" />
+            <Label layoutY="1418.0" text="8.INTERESTS" underline="true">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <TextArea layoutX="10.0" layoutY="1605.0" prefHeight="81.0" prefWidth="383.0" />
-            <TextField fx:id="companyNameTxt" layoutX="447.0" layoutY="531.0" promptText="(Company Name)" />
-            <TextField fx:id="jobTitleTxt" layoutX="447.0" layoutY="564.0" promptText="(Job Title)" />
-            <TextField fx:id="dateFromTxt" layoutX="447.0" layoutY="596.0" promptText="(Date From)" />
-            <TextField fx:id="qualificationTxt" layoutX="451.0" layoutY="1142.0" promptText="(Qualification)" />
-            <TextField fx:id="locationTxt" layoutX="451.0" layoutY="1174.0" promptText="(Location)" />
-            <TextField fx:id="educationDateTxt" layoutX="451.0" layoutY="1205.0" promptText="(Date)" />
-            <TextField fx:id="establishmentTxt" layoutX="451.0" layoutY="1244.0" promptText="(Establishment)" />
-            <TextField fx:id="courseTxt" layoutX="459.0" layoutY="1316.0" promptText="(Course)" />
-            <TextField fx:id="courseEstablishmentTxt" layoutX="459.0" layoutY="1348.0" promptText="(Establishment)" />
-            <TextField fx:id="courseLocationTxt" layoutX="459.0" layoutY="1379.0" promptText="(Location)" />
-            <TextField fx:id="courseDateTxt" layoutX="459.0" layoutY="1418.0" promptText="(Date)" />
+            <TextArea layoutX="11.0" layoutY="1445.0" prefHeight="81.0" prefWidth="383.0" />
+            <TextField fx:id="companyNameTxt" layoutX="6.0" layoutY="639.0" promptText="(Company Name)" />
+            <TextField fx:id="jobTitleTxt" layoutX="167.0" layoutY="639.0" promptText="(Job Title)" />
+            <TextField fx:id="dateTxt" layoutX="319.0" layoutY="639.0" promptText="(Date) e.g. 1999-2000" />
+            <TextField fx:id="qualificationTxt" layoutX="5.0" layoutY="930.0" promptText="(Qualification)" />
+            <TextField fx:id="locationTxt" layoutX="160.0" layoutY="930.0" promptText="(Location)" />
+            <TextField fx:id="educationDateTxt" layoutX="319.0" layoutY="930.0" promptText="(Date) e.g. 1999-2000" />
+            <TextField fx:id="establishmentTxt" layoutX="160.0" layoutY="963.0" promptText="(Establishment)" />
+            <TextField fx:id="courseTxt" layoutY="1196.0" promptText="(Course)" />
+            <TextField fx:id="courseEstablishmentTxt" layoutX="160.0" layoutY="1196.0" promptText="(Establishment)" />
+            <TextField fx:id="courseLocationTxt" layoutX="319.0" layoutY="1196.0" promptText="(Location)" />
+            <TextField fx:id="courseDateTxt" layoutX="160.0" layoutY="1231.0" promptText="(Date) e.g. 1999-2000" />
             <TextField accessibleRole="TEXT" alignment="TOP_LEFT" layoutX="6.0" layoutY="374.0" prefHeight="100.0" prefWidth="491.0" />
             <ButtonBar layoutX="8.0" layoutY="800.0" prefHeight="40.0" prefWidth="266.0" />
             <ButtonBar layoutX="19.0" layoutY="988.0" prefHeight="40.0" prefWidth="266.0" />
-            <TextField fx:id="achievementsTxt" layoutX="437.0" layoutY="635.0" promptText="(Achievement)" />
-            <TableView fx:id="profExperienceTable" editable="true" layoutX="8.0" layoutY="505.0" prefHeight="124.0" prefWidth="434.0" />
+            <TableView fx:id="profExperienceTable" editable="true" layoutX="-2.0" layoutY="507.0" prefHeight="124.0" prefWidth="519.0" />
+            <TextField fx:id="paragraphTxt" layoutX="86.0" layoutY="672.0" promptText="(Paragraph)" />
+            <TextField fx:id="achievementsTxt" layoutX="245.0" layoutY="672.0" prefHeight="25.0" prefWidth="175.0" promptText="(Achievements)e.g. ach1,ach2" />
+            <ButtonBar layoutX="8.0" layoutY="1008.0" prefHeight="40.0" prefWidth="266.0">
+               <buttons>
+                  <Button mnemonicParsing="false" onAction="#addToEducationTable" text="Add" />
+                  <Button mnemonicParsing="false" onAction="#deleteEducation" text="Delete" />
+               </buttons>
+            </ButtonBar>
          </children>
       </AnchorPane>
    </content>

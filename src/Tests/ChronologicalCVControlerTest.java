@@ -18,8 +18,7 @@ public class ChronologicalCVControlerTest {
     @Test
     public void addToEducationTable() throws Exception {
         chronological.initialize(null,null);
-        chronological.setEducationYearFromTxt("2000");
-        chronological.setEducationYearToTxt("2012");
+        chronological.setEducationDateTxt("2000-2009");
         chronological.setEstablishmentTxt("Establishment");
         chronological.setQualificationTxt("qualification");
         chronological.setLocationTxt("Ioannina");
@@ -30,8 +29,7 @@ public class ChronologicalCVControlerTest {
     @Test
     public void addToCourseTable() throws Exception {
         chronological.initialize(null,null);
-        chronological.setCourseYearFromTxt("2000");
-        chronological.setCourseYearToTxt("2012");
+        chronological.setCourseDateTxt("2000-2005");
         chronological.setCourseEstablishmentTxt("Establishment");
         chronological.setCourseTxt("course");
         chronological.setCourseLocationTxt("Ioannina");
@@ -44,8 +42,7 @@ public class ChronologicalCVControlerTest {
         chronological.initialize(null,null);
         chronological.setCompanyNameTxt("company");
         chronological.setAchievementsTxt("ach1,ach2");
-        chronological.setDateFromTxt("2014");
-        chronological.setDateToTxt("2016");
+        chronological.setDateTxt("2014-2017");
         chronological.setJobTitleTxt("job");
         chronological.setParagraphTxt("paragraph");
         chronological.addToProfessionalExpTable();

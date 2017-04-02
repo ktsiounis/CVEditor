@@ -1,18 +1,14 @@
 package controller;
 
-import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 import model.Course;
 import model.Education;
 import model.ProfessionalExperience;
-
 import java.net.URL;
-import java.util.Arrays;
 import java.util.ResourceBundle;
 
 /**
@@ -28,22 +24,19 @@ public class ChronologicalCVControler extends CommonFunctions implements Initial
     private TableView<ProfessionalExperience> profExperienceTable;
 
     @FXML
-    private TextField qualificationTxt, locationTxt, educationYearFromTxt, educationYearToTxt, establishmentTxt;
+    private TextField qualificationTxt, locationTxt, educationDateTxt, establishmentTxt;
     @FXML
-    private TextField courseTxt, courseLocationTxt, courseYearFromTxt, courseYearToTxt, courseEstablishmentTxt;
+    private TextField courseTxt, courseLocationTxt, courseDateTxt, courseEstablishmentTxt;
     @FXML
-    private TextField companyNameTxt, jobTitleTxt, dateFromTxt, dateToTxt, paragraphTxt, achievementsTxt;
+    private TextField companyNameTxt, jobTitleTxt, dateTxt, paragraphTxt, achievementsTxt;
 
     private ObservableList<Education> educationList;
     private ObservableList<Course> courseList;
     private ObservableList<ProfessionalExperience> professionalExperiences;
 
     public ChronologicalCVControler() {
-        this.educationYearFromTxt = new TextField();
-        this.educationYearToTxt = new TextField();
-        this.courseYearFromTxt = new TextField();
-        this.courseYearToTxt = new TextField();
-        this.dateToTxt = new TextField();
+        this.educationDateTxt = new TextField();
+        this.courseDateTxt = new TextField();
         this.paragraphTxt = new TextField();
         this.qualificationTxt = new TextField();
         this.locationTxt = new TextField();
@@ -51,7 +44,7 @@ public class ChronologicalCVControler extends CommonFunctions implements Initial
         this.courseTxt = new TextField();
         this.courseLocationTxt = new TextField();
         this.courseEstablishmentTxt = new TextField();
-        this.dateFromTxt = new TextField();
+        this.dateTxt = new TextField();
         this.jobTitleTxt = new TextField();
         this.achievementsTxt = new TextField();
         this.companyNameTxt = new TextField();
@@ -67,64 +60,19 @@ public class ChronologicalCVControler extends CommonFunctions implements Initial
     public void initialize(URL location, ResourceBundle resources) {
         configureEducationTable(educationTable, educationList);
         configureCourseTable(courseTable, courseList);
-        configureProfessionalExperienceTable();
+        configureProfessionalExperienceTable(profExperienceTable, professionalExperiences);
     }
 
     public void addToEducationTable(){
-        addEducation(qualificationTxt, locationTxt, educationYearFromTxt, educationYearToTxt,establishmentTxt, educationList);
+        addEducation(qualificationTxt, locationTxt, educationDateTxt, establishmentTxt, educationList);
     }
 
     public void addToCourseTable(){
-        addCourse(courseTxt, courseLocationTxt, courseYearFromTxt, courseYearToTxt, courseEstablishmentTxt, courseList);
+        addCourse(courseTxt, courseLocationTxt, courseDateTxt, courseEstablishmentTxt, courseList);
     }
 
     public void addToProfessionalExpTable(){
-        if(!companyNameTxt.getText().isEmpty() && !jobTitleTxt.getText().isEmpty() && !dateFromTxt.getText().isEmpty() && !achievementsTxt.getText().isEmpty()) {
-            String[] achievements = achievementsTxt.getText().split(",");
-            ProfessionalExperience exp = new ProfessionalExperience(companyNameTxt.getText(), jobTitleTxt.getText(),
-                    dateFromTxt.getText(), "2018", "paragraph",
-                    FXCollections.observableArrayList(Arrays.asList(achievements)));
-            professionalExperiences.add(exp);
-            companyNameTxt.clear();
-            jobTitleTxt.clear();
-            dateFromTxt.clear();
-            achievementsTxt.clear();
-        }
-        else{
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText("Please fill the empty fields");
-            alert.showAndWait();
-        }
-    }
-
-    public void configureProfessionalExperienceTable(){
-        TableColumn<ProfessionalExperience, String> companyNameCol = new TableColumn<>("Company Name");
-        companyNameCol.setMinWidth(124);
-        companyNameCol.setCellValueFactory(new PropertyValueFactory<>("companyName"));
-
-        TableColumn<ProfessionalExperience, String> jobTitleCol = new TableColumn<>("Job Title");
-        jobTitleCol.setMinWidth(124);
-        jobTitleCol.setCellValueFactory(new PropertyValueFactory<>("jobTitle"));
-
-        TableColumn<ProfessionalExperience, String> dateFromCol = new TableColumn<>("Date From");
-        dateFromCol.setMinWidth(124);
-        dateFromCol.setCellValueFactory(new PropertyValueFactory<>("dateFrom"));
-
-        TableColumn<ProfessionalExperience, String> dateToCol = new TableColumn<>("Date To");
-        dateToCol.setMinWidth(124);
-        dateToCol.setCellValueFactory(new PropertyValueFactory<>("dateTo"));
-
-        TableColumn<ProfessionalExperience, String> paragraphCol = new TableColumn<>("Responsibilities Paragraph");
-        paragraphCol.setMinWidth(135);
-        paragraphCol.setCellValueFactory(new PropertyValueFactory<>("paragraph"));
-
-        TableColumn<ProfessionalExperience, String> achievementsCol = new TableColumn<>("Achievements");
-        achievementsCol.setMinWidth(124);
-        achievementsCol.setCellValueFactory(new PropertyValueFactory<>("achievements"));
-
-        profExperienceTable.getColumns().addAll(companyNameCol, jobTitleCol, dateFromCol, dateToCol, paragraphCol, achievementsCol);
-        profExperienceTable.setItems(professionalExperiences);
+        addProfessionalExperience(companyNameTxt, jobTitleTxt, dateTxt, achievementsTxt, paragraphTxt, professionalExperiences);
     }
 
     public void deleteEducation(){
@@ -162,12 +110,8 @@ public class ChronologicalCVControler extends CommonFunctions implements Initial
         this.locationTxt.setText(locationTxt);
     }
 
-    public void setEducationYearFromTxt(String educationYearFromTxt) {
-        this.educationYearFromTxt.setText(educationYearFromTxt);
-    }
-
-    public void setEducationYearToTxt(String educationYearToTxt) {
-        this.educationYearToTxt.setText(educationYearToTxt);
+    public void setEducationDateTxt(String educationDateTxt) {
+        this.educationDateTxt.setText(educationDateTxt);
     }
 
     public void setEstablishmentTxt(String establishmentTxt) {
@@ -182,12 +126,8 @@ public class ChronologicalCVControler extends CommonFunctions implements Initial
         this.courseLocationTxt.setText(courseLocationTxt);
     }
 
-    public void setCourseYearFromTxt(String courseYearFromTxt) {
-        this.courseYearFromTxt.setText(courseYearFromTxt);
-    }
-
-    public void setCourseYearToTxt(String courseYearToTxt) {
-        this.courseYearToTxt.setText(courseYearToTxt);
+    public void setCourseDateTxt(String courseDateTxt) {
+        this.courseDateTxt.setText(courseDateTxt);
     }
 
     public void setCourseEstablishmentTxt(String courseEstablishmentTxt) {
@@ -202,12 +142,8 @@ public class ChronologicalCVControler extends CommonFunctions implements Initial
         this.jobTitleTxt.setText(jobTitleTxt);
     }
 
-    public void setDateFromTxt(String dateFromTxt) {
-        this.dateFromTxt.setText(dateFromTxt);
-    }
-
-    public void setDateToTxt(String dateToTxt) {
-        this.dateToTxt.setText(dateToTxt);
+    public void setDateTxt(String dateTxt) {
+        this.dateTxt.setText(dateTxt);
     }
 
     public void setParagraphTxt(String paragraphTxt) {

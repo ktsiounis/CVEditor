@@ -1,5 +1,6 @@
 package controller;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
@@ -7,6 +8,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.*;
+
+import java.util.Arrays;
 
 /**
  * Created by Ntinos on 30/3/2017.
@@ -30,28 +33,6 @@ public class CommonFunctions {
         skillsTable.setItems(skillsList);
     }
 
-    public void configureCareerSummaryTable(TableView<CareerSummary> careerSummaryTable, ObservableList<CareerSummary> careerSummaryList){
-        TableColumn<CareerSummary, String> companyNameColumn = new TableColumn<>("Company name");
-        companyNameColumn.setMinWidth(124);
-        companyNameColumn.setCellValueFactory(new PropertyValueFactory<>("company"));
-
-        TableColumn<CareerSummary, String> jobTitleColumn = new TableColumn<>("Job Title");
-        jobTitleColumn.setMinWidth(124);
-        jobTitleColumn.setCellValueFactory(new PropertyValueFactory<>("jobTitle"));
-
-        TableColumn<CareerSummary, String> yearFromColumn = new TableColumn<>("Year From");
-        yearFromColumn.setMinWidth(124);
-        yearFromColumn.setCellValueFactory(new PropertyValueFactory<>("yearFrom"));
-
-        TableColumn<CareerSummary, String> yearToColumn = new TableColumn<>("Year To");
-        yearToColumn.setMinWidth(124);
-        yearToColumn.setCellValueFactory(new PropertyValueFactory<>("yearTo"));
-
-        careerSummaryTable.getColumns().addAll(companyNameColumn, jobTitleColumn, yearFromColumn, yearToColumn);
-        careerSummaryTable.setItems(careerSummaryList);
-
-    }
-
     public void configureEducationTable(TableView<Education> educationTable, ObservableList<Education> educationList){
         TableColumn<Education, String> qualificationColumn = new TableColumn<>("Qualification");
         qualificationColumn.setMinWidth(124);
@@ -65,15 +46,11 @@ public class CommonFunctions {
         establishmentColumn.setMinWidth(124);
         establishmentColumn.setCellValueFactory(new PropertyValueFactory<>("establishment"));
 
-        TableColumn<Education, String> yearFromColumn = new TableColumn<>("Year From");
-        yearFromColumn.setMinWidth(124);
-        yearFromColumn.setCellValueFactory(new PropertyValueFactory<>("yearFrom"));
+        TableColumn<Education, String> dateColumn = new TableColumn<>("Date");
+        dateColumn.setMinWidth(124);
+        dateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
 
-        TableColumn<Education, String> yearToColumn = new TableColumn<>("Year To");
-        yearToColumn.setMinWidth(124);
-        yearToColumn.setCellValueFactory(new PropertyValueFactory<>("yearTo"));
-
-        educationTable.getColumns().addAll(qualificationColumn, establishmentColumn, locationColumn, yearFromColumn, yearToColumn);
+        educationTable.getColumns().addAll(qualificationColumn, establishmentColumn, locationColumn, dateColumn);
         educationTable.setItems(educationList);
 
     }
@@ -91,17 +68,38 @@ public class CommonFunctions {
         establishmentColumn.setMinWidth(124);
         establishmentColumn.setCellValueFactory(new PropertyValueFactory<>("establishment"));
 
-        TableColumn<Course, String> yearFromColumn = new TableColumn<>("Year From");
-        yearFromColumn.setMinWidth(124);
-        yearFromColumn.setCellValueFactory(new PropertyValueFactory<>("yearFrom"));
+        TableColumn<Course, String> dateColumn = new TableColumn<>("Date");
+        dateColumn.setMinWidth(124);
+        dateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
 
-        TableColumn<Course, String> yearToColumn = new TableColumn<>("Year To");
-        yearToColumn.setMinWidth(124);
-        yearToColumn.setCellValueFactory(new PropertyValueFactory<>("yearTo"));
-
-        courseTable.getColumns().addAll(courseColumn, establishmentColumn, locationColumn, yearFromColumn, yearToColumn);
+        courseTable.getColumns().addAll(courseColumn, establishmentColumn, locationColumn, dateColumn);
         courseTable.setItems(courseList);
 
+    }
+
+    public void configureProfessionalExperienceTable(TableView<ProfessionalExperience> profExperienceTable, ObservableList<ProfessionalExperience> professionalExperiences){
+        TableColumn<ProfessionalExperience, String> companyNameCol = new TableColumn<>("Company Name");
+        companyNameCol.setMinWidth(124);
+        companyNameCol.setCellValueFactory(new PropertyValueFactory<>("companyName"));
+
+        TableColumn<ProfessionalExperience, String> jobTitleCol = new TableColumn<>("Job Title");
+        jobTitleCol.setMinWidth(124);
+        jobTitleCol.setCellValueFactory(new PropertyValueFactory<>("jobTitle"));
+
+        TableColumn<ProfessionalExperience, String> dateCol = new TableColumn<>("Date");
+        dateCol.setMinWidth(124);
+        dateCol.setCellValueFactory(new PropertyValueFactory<>("date"));
+
+        TableColumn<ProfessionalExperience, String> paragraphCol = new TableColumn<>("Responsibilities Paragraph");
+        paragraphCol.setMinWidth(135);
+        paragraphCol.setCellValueFactory(new PropertyValueFactory<>("paragraph"));
+
+        TableColumn<ProfessionalExperience, String> achievementsCol = new TableColumn<>("Achievements");
+        achievementsCol.setMinWidth(124);
+        achievementsCol.setCellValueFactory(new PropertyValueFactory<>("achievements"));
+
+        profExperienceTable.getColumns().addAll(companyNameCol, jobTitleCol, dateCol, paragraphCol, achievementsCol);
+        profExperienceTable.setItems(professionalExperiences);
     }
 
     public void addSkill(TextField skillTxt, TextField experienceTxt, TextField companyTxt, ObservableList skillsList){
@@ -120,15 +118,14 @@ public class CommonFunctions {
         }
     }
 
-    public void addEducation(TextField qualificationTxt, TextField locationTxt, TextField educationYearFromTxt, TextField educationYearToTxt, TextField establishmentTxt, ObservableList educationList){
-        if(!(qualificationTxt.getText().isEmpty()) && !(locationTxt.getText().isEmpty()) && !(educationYearFromTxt.getText().isEmpty()) && !(educationYearToTxt.getText().isEmpty()) && !(establishmentTxt.getText().isEmpty())) {
-            Education education = new Education(qualificationTxt.getText(), establishmentTxt.getText(), locationTxt.getText(), educationYearFromTxt.getText(), educationYearToTxt.getText());
+    public void addEducation(TextField qualificationTxt, TextField locationTxt, TextField educationDateTxt, TextField establishmentTxt, ObservableList educationList){
+        if(!(qualificationTxt.getText().isEmpty()) && !(locationTxt.getText().isEmpty()) && !(educationDateTxt.getText().isEmpty()) && !(establishmentTxt.getText().isEmpty())) {
+            Education education = new Education(qualificationTxt.getText(), establishmentTxt.getText(), locationTxt.getText(), educationDateTxt.getText());
             educationList.add(education);
             qualificationTxt.clear();
             establishmentTxt.clear();
             locationTxt.clear();
-            educationYearFromTxt.clear();
-            educationYearToTxt.clear();
+            educationDateTxt.clear();
         }
         else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -138,17 +135,36 @@ public class CommonFunctions {
         }
     }
 
-    public void addCourse(TextField courseTxt, TextField courseLocationTxt, TextField courseYearFromTxt, TextField courseYearToTxt, TextField courseEstablishmentTxt, ObservableList courseList){
-        if(!(courseTxt.getText().isEmpty()) && !(courseLocationTxt.getText().isEmpty()) && !(courseYearFromTxt.getText().isEmpty()) && !(courseYearToTxt.getText().isEmpty()) && !(courseEstablishmentTxt.getText().isEmpty())) {
-            Course course = new Course(courseTxt.getText(), courseEstablishmentTxt.getText(), courseLocationTxt.getText(), courseYearFromTxt.getText(), courseYearToTxt.getText());
+    public void addCourse(TextField courseTxt, TextField courseLocationTxt, TextField courseDateTxt, TextField courseEstablishmentTxt, ObservableList courseList){
+        if(!(courseTxt.getText().isEmpty()) && !(courseLocationTxt.getText().isEmpty()) && !(courseDateTxt.getText().isEmpty()) && !(courseEstablishmentTxt.getText().isEmpty())) {
+            Course course = new Course(courseTxt.getText(), courseEstablishmentTxt.getText(), courseLocationTxt.getText(), courseDateTxt.getText());
             courseList.add(course);
             courseTxt.clear();
             courseEstablishmentTxt.clear();
             courseLocationTxt.clear();
-            courseYearFromTxt.clear();
-            courseYearToTxt.clear();
+            courseDateTxt.clear();
         }
         else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Please fill the empty fields");
+            alert.showAndWait();
+        }
+    }
+
+    public void addProfessionalExperience(TextField companyNameTxt, TextField jobTitleTxt, TextField dateTxt, TextField achievementsTxt, TextField paragraphTxt, ObservableList professionalExperiences){
+        if(!companyNameTxt.getText().isEmpty() && !jobTitleTxt.getText().isEmpty() && !dateTxt.getText().isEmpty() && !achievementsTxt.getText().isEmpty() && !paragraphTxt.getText().isEmpty()) {
+            String[] achievements = achievementsTxt.getText().split(",");
+            ProfessionalExperience exp = new ProfessionalExperience(companyNameTxt.getText(), jobTitleTxt.getText(),
+                    dateTxt.getText(), paragraphTxt.getText(), FXCollections.observableArrayList(Arrays.asList(achievements)));
+            professionalExperiences.add(exp);
+            companyNameTxt.clear();
+            jobTitleTxt.clear();
+            dateTxt.clear();
+            achievementsTxt.clear();
+            paragraphTxt.clear();
+        }
+        else{
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("Please fill the empty fields");

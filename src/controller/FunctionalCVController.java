@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import model.*;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -21,11 +22,11 @@ public class FunctionalCVController extends CommonFunctions implements Initializ
     private TableView<Course> courseTable;
 
     @FXML
-    private TextField qualificationTxt, locationTxt, educationYearFromTxt, educationYearToTxt, establishmentTxt;
+    private TextField qualificationTxt, locationTxt, educationDateTxt, establishmentTxt;
     @FXML
-    private TextField companyNameTxt, jobTitleTxt, careerYearFromTxt, careerYearToTxt;
+    private TextField companyNameTxt, jobTitleTxt, careerDateTxt;
     @FXML
-    private TextField courseTxt, courseLocationTxt, courseYearFromTxt, courseYearToTxt, courseEstablishmentTxt;
+    private TextField courseTxt, courseLocationTxt, courseDateTxt, courseEstablishmentTxt;
     @FXML
     private TextField skillTxt, experienceTxt, companyTxt;
 
@@ -35,12 +36,9 @@ public class FunctionalCVController extends CommonFunctions implements Initializ
     private ObservableList<Course> courseList;
 
     public FunctionalCVController() {
-        this.educationYearFromTxt = new TextField();
-        this.educationYearToTxt = new TextField();
-        this.careerYearFromTxt = new TextField();
-        this.careerYearToTxt = new TextField();
-        this.courseYearFromTxt = new TextField();
-        this.courseYearToTxt = new TextField();
+        this.educationDateTxt = new TextField();
+        this.careerDateTxt = new TextField();
+        this.careerDateTxt = new TextField();
         this.qualificationTxt = new TextField();
         this.locationTxt = new TextField();
         this.establishmentTxt = new TextField();
@@ -49,6 +47,7 @@ public class FunctionalCVController extends CommonFunctions implements Initializ
         this.courseTxt = new TextField();
         this.courseLocationTxt = new TextField();
         this.courseEstablishmentTxt = new TextField();
+        this.courseDateTxt = new TextField();
         this.skillTxt = new TextField();
         this.experienceTxt = new TextField();
         this.companyNameTxt = new TextField();
@@ -71,18 +70,35 @@ public class FunctionalCVController extends CommonFunctions implements Initializ
 
     }
 
+    public void configureCareerSummaryTable(TableView<CareerSummary> careerSummaryTable, ObservableList<CareerSummary> careerSummaryList){
+        TableColumn<CareerSummary, String> companyNameColumn = new TableColumn<>("Company name");
+        companyNameColumn.setMinWidth(124);
+        companyNameColumn.setCellValueFactory(new PropertyValueFactory<>("company"));
+
+        TableColumn<CareerSummary, String> jobTitleColumn = new TableColumn<>("Job Title");
+        jobTitleColumn.setMinWidth(124);
+        jobTitleColumn.setCellValueFactory(new PropertyValueFactory<>("jobTitle"));
+
+        TableColumn<CareerSummary, String> dateColumn = new TableColumn<>("Date");
+        dateColumn.setMinWidth(124);
+        dateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
+
+        careerSummaryTable.getColumns().addAll(companyNameColumn, jobTitleColumn, dateColumn);
+        careerSummaryTable.setItems(careerSummaryList);
+
+    }
+
     public void addToSkillsTable(){
         addSkill(skillTxt, experienceTxt, companyTxt, skillsList);
     }
 
     public void addToCareerSummaryTable(){
-        if(!(companyNameTxt.getText().isEmpty()) && !(jobTitleTxt.getText().isEmpty()) && !(careerYearFromTxt.getText().isEmpty()) && !(careerYearToTxt.getText().isEmpty())) {
-            CareerSummary careerSummary = new CareerSummary(companyNameTxt.getText(), jobTitleTxt.getText(), Integer.parseInt(careerYearFromTxt.getText()), Integer.parseInt(careerYearToTxt.getText()));
+        if(!(companyNameTxt.getText().isEmpty()) && !(jobTitleTxt.getText().isEmpty()) && !(careerDateTxt.getText().isEmpty())) {
+            CareerSummary careerSummary = new CareerSummary(companyNameTxt.getText(), jobTitleTxt.getText(), careerDateTxt.getText());
             careerSummaryList.add(careerSummary);
             companyNameTxt.clear();
             jobTitleTxt.clear();
-            careerYearFromTxt.clear();
-            careerYearToTxt.clear();
+            careerDateTxt.clear();
         }
         else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -93,11 +109,11 @@ public class FunctionalCVController extends CommonFunctions implements Initializ
     }
 
     public void addToEducationTable(){
-        addEducation(qualificationTxt, locationTxt, educationYearFromTxt, educationYearToTxt,establishmentTxt, educationList);
+        addEducation(qualificationTxt, locationTxt, educationDateTxt,establishmentTxt, educationList);
     }
 
     public void addToCourseTable(){
-        addCourse(courseTxt, courseLocationTxt, courseYearFromTxt, courseYearToTxt, courseEstablishmentTxt, courseList);
+        addCourse(courseTxt, courseLocationTxt, courseDateTxt, courseEstablishmentTxt, courseList);
     }
 
     public void deleteSkill(){
@@ -144,12 +160,8 @@ public class FunctionalCVController extends CommonFunctions implements Initializ
         this.locationTxt.setText(locationTxt);
     }
 
-    public void setEducationYearFromTxt(String educationYearFromTxt) {
-        this.educationYearFromTxt.setText(educationYearFromTxt);
-    }
-
-    public void setEducationYearToTxt(String educationYearToTxt) {
-        this.educationYearToTxt.setText(educationYearToTxt);
+    public void setEducationDateTxt(String educationDateTxt) {
+        this.educationDateTxt.setText(educationDateTxt);
     }
 
     public void setEstablishmentTxt(String establishmentTxt) {
@@ -164,12 +176,8 @@ public class FunctionalCVController extends CommonFunctions implements Initializ
         this.jobTitleTxt.setText(jobTitleTxt);
     }
 
-    public void setCareerYearFromTxt(String careerYearFromTxt) {
-        this.careerYearFromTxt.setText(careerYearFromTxt);
-    }
-
-    public void setCareerYearToTxt(String careerYearToTxt) {
-        this.careerYearToTxt.setText(careerYearToTxt);
+    public void setCareerDateTxt(String careerYearFromTxt) {
+        this.careerDateTxt.setText(careerYearFromTxt);
     }
 
     public void setCourseTxt(String courseTxt) {
@@ -180,12 +188,8 @@ public class FunctionalCVController extends CommonFunctions implements Initializ
         this.courseLocationTxt.setText(courseLocationTxt);
     }
 
-    public void setCourseYearFromTxt(String courseYearFromTxt) {
-        this.courseYearFromTxt.setText(courseYearFromTxt);
-    }
-
-    public void setCourseYearToTxt(String courseYearToTxt) {
-        this.courseYearToTxt.setText(courseYearToTxt);
+    public void setCourseDateTxt(String courseDateTxt) {
+        this.courseDateTxt.setText(courseDateTxt);
     }
 
     public void setCourseEstablishmentTxt(String courseEstablishmentTxt) {
