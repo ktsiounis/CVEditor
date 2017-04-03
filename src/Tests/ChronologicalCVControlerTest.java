@@ -49,6 +49,56 @@ public class ChronologicalCVControlerTest {
         assertEquals("Item never added in professional table", 1, chronological.getProfessionalExperiences().size());
     }
 
+    @Test
+    public void educationDateOrder(){
+        chronological.initialize(null,null);
+        chronological.setEducationDateTxt("2000-2005");
+        chronological.setEstablishmentTxt("Establishment");
+        chronological.setQualificationTxt("qualification");
+        chronological.setLocationTxt("Ioannina");
+        chronological.addToEducationTable();
+        chronological.setEducationDateTxt("2005-2006");
+        chronological.setEstablishmentTxt("Establishment");
+        chronological.setQualificationTxt("qualification");
+        chronological.setLocationTxt("Ioannina");
+        chronological.addToEducationTable();
+        assertEquals("The second item's date isn't grater than the first's",2, chronological.getEducationList().size());
+    }
+
+    @Test
+    public void courseDateOrder(){
+        chronological.initialize(null,null);
+        chronological.setCourseDateTxt("2000-2011");
+        chronological.setCourseEstablishmentTxt("Establishment");
+        chronological.setCourseTxt("course");
+        chronological.setCourseLocationTxt("Ioannina");
+        chronological.addToCourseTable();
+        chronological.setCourseDateTxt("2012-2014");
+        chronological.setCourseEstablishmentTxt("Establishment");
+        chronological.setCourseTxt("course");
+        chronological.setCourseLocationTxt("Ioannina");
+        chronological.addToCourseTable();
+        assertEquals("The second item's date isn't grater than the first's",2, chronological.getCourseList().size());
+    }
+
+    @Test
+    public void profExpDateOrder(){
+        chronological.initialize(null,null);
+        chronological.setCompanyNameTxt("company");
+        chronological.setAchievementsTxt("ach1,ach2");
+        chronological.setDateTxt("2014-2017");
+        chronological.setJobTitleTxt("job");
+        chronological.setParagraphTxt("paragraph");
+        chronological.addToProfessionalExpTable();
+        chronological.setCompanyNameTxt("company");
+        chronological.setAchievementsTxt("ach1,ach2");
+        chronological.setDateTxt("2017-2018");
+        chronological.setJobTitleTxt("job");
+        chronological.setParagraphTxt("paragraph");
+        chronological.addToProfessionalExpTable();
+        assertEquals("The second item's date isn't grater than the first's", 2, chronological.getProfessionalExperiences().size());
+    }
+
     @BeforeClass
     public static void initJFX() {
         t = new Thread("JavaFX Init Thread") {

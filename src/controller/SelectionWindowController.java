@@ -16,6 +16,30 @@ import java.io.IOException;
  * Created by dtsiounis on 27/03/2017.
  */
 public class SelectionWindowController {
+    public void setFunctionalCVchoice(Boolean choice) {
+        this.functionalCVchoice.setSelected(choice);
+    }
+
+    public void setChronologicalCVchoice(Boolean choice) {
+        this.chronologicalCVchoice.setSelected(choice);
+    }
+
+    public void setCombinedCVchoice(Boolean choice) {
+        this.combinedCVchoice.setSelected(choice);
+    }
+
+    public RadioButton getFunctionalCVchoice() {
+
+        return functionalCVchoice;
+    }
+
+    public RadioButton getChronologicalCVchoice() {
+        return chronologicalCVchoice;
+    }
+
+    public RadioButton getCombinedCVchoice() {
+        return combinedCVchoice;
+    }
 
     @FXML
     private RadioButton functionalCVchoice, chronologicalCVchoice, combinedCVchoice;
