@@ -118,57 +118,87 @@ public class CommonFunctions {
         }
     }
 
-    public void addEducation(TextField qualificationTxt, TextField locationTxt, TextField educationDateTxt, TextField establishmentTxt, ObservableList educationList){
-        if(!(qualificationTxt.getText().isEmpty()) && !(locationTxt.getText().isEmpty()) && !(educationDateTxt.getText().isEmpty()) && !(establishmentTxt.getText().isEmpty())) {
-            Education education = new Education(qualificationTxt.getText(), establishmentTxt.getText(), locationTxt.getText(), educationDateTxt.getText());
-            educationList.add(education);
-            qualificationTxt.clear();
-            establishmentTxt.clear();
-            locationTxt.clear();
-            educationDateTxt.clear();
-        }
-        else {
+    public void addEducation(TextField qualificationTxt, TextField locationTxt, TextField educationDateTxt, TextField establishmentTxt, ObservableList<Education> educationList){
+        String[] lastItemsDate = {"0","0"};
+        if(educationList.size()>0) lastItemsDate = educationList.get(educationList.size()-1).getDate().split("-");
+        String[] currentItemsDate = educationDateTxt.getText().split("-");
+        if(Integer.parseInt(lastItemsDate[1]) > Integer.parseInt(currentItemsDate[0])){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
-            alert.setHeaderText("Please fill the empty fields");
+            alert.setHeaderText("Please add a recent date item");
             alert.showAndWait();
+        }
+        else {
+            if (!(qualificationTxt.getText().isEmpty()) && !(locationTxt.getText().isEmpty()) && !(educationDateTxt.getText().isEmpty()) && !(establishmentTxt.getText().isEmpty())) {
+                Education education = new Education(qualificationTxt.getText(), establishmentTxt.getText(), locationTxt.getText(), educationDateTxt.getText());
+                educationList.add(education);
+                qualificationTxt.clear();
+                establishmentTxt.clear();
+                locationTxt.clear();
+                educationDateTxt.clear();
+            } else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText("Please fill the empty fields");
+                alert.showAndWait();
+            }
         }
     }
 
-    public void addCourse(TextField courseTxt, TextField courseLocationTxt, TextField courseDateTxt, TextField courseEstablishmentTxt, ObservableList courseList){
-        if(!(courseTxt.getText().isEmpty()) && !(courseLocationTxt.getText().isEmpty()) && !(courseDateTxt.getText().isEmpty()) && !(courseEstablishmentTxt.getText().isEmpty())) {
-            Course course = new Course(courseTxt.getText(), courseEstablishmentTxt.getText(), courseLocationTxt.getText(), courseDateTxt.getText());
-            courseList.add(course);
-            courseTxt.clear();
-            courseEstablishmentTxt.clear();
-            courseLocationTxt.clear();
-            courseDateTxt.clear();
-        }
-        else {
+    public void addCourse(TextField courseTxt, TextField courseLocationTxt, TextField courseDateTxt, TextField courseEstablishmentTxt, ObservableList<Course> courseList){
+        String[] lastItemsDate = {"0","0"};
+        if(courseList.size()>0) lastItemsDate = courseList.get(courseList.size()-1).getDate().split("-");
+        String[] currentItemsDate = courseDateTxt.getText().split("-");
+        if(Integer.parseInt(lastItemsDate[1]) > Integer.parseInt(currentItemsDate[0])){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
-            alert.setHeaderText("Please fill the empty fields");
+            alert.setHeaderText("Please add a recent date item");
             alert.showAndWait();
+        }
+        else {
+            if (!(courseTxt.getText().isEmpty()) && !(courseLocationTxt.getText().isEmpty()) && !(courseDateTxt.getText().isEmpty()) && !(courseEstablishmentTxt.getText().isEmpty())) {
+                Course course = new Course(courseTxt.getText(), courseEstablishmentTxt.getText(), courseLocationTxt.getText(), courseDateTxt.getText());
+                courseList.add(course);
+                courseTxt.clear();
+                courseEstablishmentTxt.clear();
+                courseLocationTxt.clear();
+                courseDateTxt.clear();
+            } else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText("Please fill the empty fields");
+                alert.showAndWait();
+            }
         }
     }
 
-    public void addProfessionalExperience(TextField companyNameTxt, TextField jobTitleTxt, TextField dateTxt, TextField achievementsTxt, TextField paragraphTxt, ObservableList professionalExperiences){
-        if(!companyNameTxt.getText().isEmpty() && !jobTitleTxt.getText().isEmpty() && !dateTxt.getText().isEmpty() && !achievementsTxt.getText().isEmpty() && !paragraphTxt.getText().isEmpty()) {
-            String[] achievements = achievementsTxt.getText().split(",");
-            ProfessionalExperience exp = new ProfessionalExperience(companyNameTxt.getText(), jobTitleTxt.getText(),
-                    dateTxt.getText(), paragraphTxt.getText(), FXCollections.observableArrayList(Arrays.asList(achievements)));
-            professionalExperiences.add(exp);
-            companyNameTxt.clear();
-            jobTitleTxt.clear();
-            dateTxt.clear();
-            achievementsTxt.clear();
-            paragraphTxt.clear();
-        }
-        else{
+    public void addProfessionalExperience(TextField companyNameTxt, TextField jobTitleTxt, TextField dateTxt, TextField achievementsTxt, TextField paragraphTxt, ObservableList<ProfessionalExperience> professionalExperiences){
+        String[] lastItemsDate = {"0","0"};
+        if(professionalExperiences.size()>0) lastItemsDate = professionalExperiences.get(professionalExperiences.size()-1).getDate().split("-");
+        String[] currentItemsDate = dateTxt.getText().split("-");
+        if(Integer.parseInt(lastItemsDate[1]) > Integer.parseInt(currentItemsDate[0])){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
-            alert.setHeaderText("Please fill the empty fields");
+            alert.setHeaderText("Please add a recent date item");
             alert.showAndWait();
+        }
+        else {
+            if (!companyNameTxt.getText().isEmpty() && !jobTitleTxt.getText().isEmpty() && !dateTxt.getText().isEmpty() && !achievementsTxt.getText().isEmpty() && !paragraphTxt.getText().isEmpty()) {
+                String[] achievements = achievementsTxt.getText().split(",");
+                ProfessionalExperience exp = new ProfessionalExperience(companyNameTxt.getText(), jobTitleTxt.getText(),
+                        dateTxt.getText(), paragraphTxt.getText(), FXCollections.observableArrayList(Arrays.asList(achievements)));
+                professionalExperiences.add(exp);
+                companyNameTxt.clear();
+                jobTitleTxt.clear();
+                dateTxt.clear();
+                achievementsTxt.clear();
+                paragraphTxt.clear();
+            } else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText("Please fill the empty fields");
+                alert.showAndWait();
+            }
         }
     }
 }

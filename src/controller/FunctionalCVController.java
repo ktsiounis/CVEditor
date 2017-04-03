@@ -93,18 +93,28 @@ public class FunctionalCVController extends CommonFunctions implements Initializ
     }
 
     public void addToCareerSummaryTable(){
-        if(!(companyNameTxt.getText().isEmpty()) && !(jobTitleTxt.getText().isEmpty()) && !(careerDateTxt.getText().isEmpty())) {
-            CareerSummary careerSummary = new CareerSummary(companyNameTxt.getText(), jobTitleTxt.getText(), careerDateTxt.getText());
-            careerSummaryList.add(careerSummary);
-            companyNameTxt.clear();
-            jobTitleTxt.clear();
-            careerDateTxt.clear();
-        }
-        else {
+        String[] lastItemsDate = {"0","0"};
+        if(careerSummaryList.size()>0) lastItemsDate = careerSummaryList.get(careerSummaryList.size()-1).getDate().split("-");
+        String[] currentItemsDate = careerDateTxt.getText().split("-");
+        if(Integer.parseInt(lastItemsDate[1]) > Integer.parseInt(currentItemsDate[0])){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
-            alert.setHeaderText("Please fill the empty fields");
+            alert.setHeaderText("Please add a recent date item");
             alert.showAndWait();
+        }
+        else {
+            if (!(companyNameTxt.getText().isEmpty()) && !(jobTitleTxt.getText().isEmpty()) && !(careerDateTxt.getText().isEmpty())) {
+                CareerSummary careerSummary = new CareerSummary(companyNameTxt.getText(), jobTitleTxt.getText(), careerDateTxt.getText());
+                careerSummaryList.add(careerSummary);
+                companyNameTxt.clear();
+                jobTitleTxt.clear();
+                careerDateTxt.clear();
+            } else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText("Please fill the empty fields");
+                alert.showAndWait();
+            }
         }
     }
 
