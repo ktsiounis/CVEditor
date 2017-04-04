@@ -1,6 +1,5 @@
 import controller.CombinedCVController;
 import javafx.application.Application;
-import javafx.stage.Stage;
 import model.CV;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
