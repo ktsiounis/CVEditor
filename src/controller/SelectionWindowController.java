@@ -8,7 +8,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.RadioButton;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import model.CV;
 
 import java.io.IOException;
 

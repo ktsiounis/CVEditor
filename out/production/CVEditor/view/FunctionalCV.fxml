@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FunctionalCVController">
+<ScrollPane xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FunctionalCVController">
    <content>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1550.0" prefWidth="600.0">
          <children>
@@ -129,6 +129,7 @@
             <TextField fx:id="courseEstablishmentTxt" layoutX="160.0" layoutY="1207.0" promptText="(Establishment)" />
             <TextField fx:id="courseLocationTxt" layoutX="320.0" layoutY="1207.0" promptText="(Location)" />
             <TextField fx:id="courseDateTxt" layoutX="160.0" layoutY="1240.0" promptText="(Date) e.g. 1999-2000" />
+            <Button fx:id="saveBtn" layoutX="271.0" layoutY="1523.0" mnemonicParsing="false" onAction="#saveBtnPressed" text="Save" />
          </children>
       </AnchorPane>
    </content>

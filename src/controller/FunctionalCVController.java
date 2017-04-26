@@ -7,6 +7,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.*;
+
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -216,5 +219,21 @@ public class FunctionalCVController extends CommonFunctions implements Initializ
 
     public void setCompanyTxt(String companyTxt) {
         this.companyTxt.setText(companyTxt);
+    }
+
+    public void saveBtnPressed(){
+
+        try{
+            System.out.println("Save button pressed");
+            PrintWriter writer = new PrintWriter("testLatex.tex");
+            writer.println("\\begin(document)");
+            writer.println("\\item Test bullet item");
+            writer.println("\\end(document)");
+            writer.close();
+
+        } catch (IOException e){
+
+        }
+
     }
 }
