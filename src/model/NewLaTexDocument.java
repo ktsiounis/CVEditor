@@ -104,6 +104,9 @@ public class NewLaTexDocument {
     }
 
     public void printChronologicalBullets(PrintWriter writer){
+        writer.println("\\textbf{3. CORE STRENGTHS}\\\\");
+        writer.println(coreStrength + "\\\\\n");
+
         writer.println("\\textbf{5. EDUCATION AND TRAINING}\\\\");
         if(educationList.size()>0) {
             writer.println("\\begin{itemize}");
