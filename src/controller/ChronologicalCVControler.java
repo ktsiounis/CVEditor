@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import model.Course;
 import model.Education;
+import model.NewLaTexDocument;
 import model.ProfessionalExperience;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -29,6 +30,8 @@ public class ChronologicalCVControler extends CommonFunctions implements Initial
     private TextField courseTxt, courseLocationTxt, courseDateTxt, courseEstablishmentTxt;
     @FXML
     private TextField companyNameTxt, jobTitleTxt, dateTxt, paragraphTxt, achievementsTxt;
+    @FXML
+    private TextField nameTxt, addressTxt, telehomeTxt, telemobTxt, emailTxt, professionalProfile, additionalInfoTxt, interestsTxt, coreStrengthTxt;
 
     private ObservableList<Education> educationList;
     private ObservableList<Course> courseList;
@@ -152,5 +155,12 @@ public class ChronologicalCVControler extends CommonFunctions implements Initial
 
     public void setAchievementsTxt(String achievementsTxt) {
         this.achievementsTxt.setText(achievementsTxt);
+    }
+
+    public void saveBtnPressed(){
+        NewLaTexDocument laTexDocument = new NewLaTexDocument(null, null, educationList, courseList, professionalExperiences,
+                nameTxt.getText(), addressTxt.getText(), telehomeTxt.getText(), telemobTxt.getText(),
+                emailTxt.getText(), professionalProfile.getText(), additionalInfoTxt.getText(), interestsTxt.getText(), coreStrengthTxt.getText());
+        laTexDocument.produceLaTex("testFile", "chronological");
     }
 }

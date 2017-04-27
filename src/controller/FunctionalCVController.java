@@ -32,6 +32,8 @@ public class FunctionalCVController extends CommonFunctions implements Initializ
     private TextField courseTxt, courseLocationTxt, courseDateTxt, courseEstablishmentTxt;
     @FXML
     private TextField skillTxt, experienceTxt, companyTxt;
+    @FXML
+    private TextField nameTxt, addressTxt, telehomeTxt, telemobTxt, emailTxt, professionalProfile, additionalInfoTxt, interestsTxt;
 
     private ObservableList<Skills> skillsList;
     private ObservableList<CareerSummary> careerSummaryList;
@@ -222,18 +224,9 @@ public class FunctionalCVController extends CommonFunctions implements Initializ
     }
 
     public void saveBtnPressed(){
-
-        try{
-            System.out.println("Save button pressed");
-            PrintWriter writer = new PrintWriter("testLatex.tex");
-            writer.println("\\begin(document)");
-            writer.println("\\item Test bullet item");
-            writer.println("\\end(document)");
-            writer.close();
-
-        } catch (IOException e){
-
-        }
-
+        NewLaTexDocument laTexDocument = new NewLaTexDocument(skillsList, careerSummaryList, educationList, courseList, null,
+                                                              nameTxt.getText(), addressTxt.getText(), telehomeTxt.getText(), telemobTxt.getText(),
+                                                              emailTxt.getText(), professionalProfile.getText(), additionalInfoTxt.getText(), interestsTxt.getText(), null);
+        laTexDocument.produceLaTex("testFile", "functional");
     }
 }

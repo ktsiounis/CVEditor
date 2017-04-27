@@ -5,7 +5,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -54,7 +53,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <TextField accessibleRole="TEXT" alignment="TOP_LEFT" layoutX="6.0" layoutY="247.0" prefHeight="100.0" prefWidth="491.0" />
+            <TextField fx:id="professionalProfile" accessibleRole="TEXT" alignment="TOP_LEFT" layoutX="6.0" layoutY="247.0" prefHeight="100.0" prefWidth="491.0" />
             <Label layoutX="1.0" layoutY="220.0" text="2.PROFESSIONAL PROFILE" underline="true">
                <font>
                   <Font size="18.0" />
@@ -108,13 +107,13 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <TextArea layoutX="11.0" layoutY="1332.0" prefHeight="81.0" prefWidth="383.0" />
+            <TextField fx:id="additionalInfoTxt" alignment="TOP_LEFT" layoutX="11.0" layoutY="1332.0" prefHeight="81.0" prefWidth="383.0" />
             <Label layoutX="1.0" layoutY="1413.0" text="8.INTERESTS" underline="true">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <TextArea layoutX="11.0" layoutY="1440.0" prefHeight="81.0" prefWidth="383.0" />
+            <TextField fx:id="interestsTxt" alignment="TOP_LEFT" layoutX="11.0" layoutY="1440.0" prefHeight="81.0" prefWidth="383.0" />
             <TextField fx:id="skillTxt" layoutX="5.0" layoutY="500.0" promptText="(Skills)" />
             <TextField fx:id="experienceTxt" layoutX="160.0" layoutY="500.0" promptText="(Experience)" />
             <TextField fx:id="companyTxt" layoutX="319.0" layoutY="500.0" promptText="(Company)" />
@@ -129,7 +128,7 @@
             <TextField fx:id="courseEstablishmentTxt" layoutX="160.0" layoutY="1207.0" promptText="(Establishment)" />
             <TextField fx:id="courseLocationTxt" layoutX="320.0" layoutY="1207.0" promptText="(Location)" />
             <TextField fx:id="courseDateTxt" layoutX="160.0" layoutY="1240.0" promptText="(Date) e.g. 1999-2000" />
-            <Button fx:id="saveBtn" layoutX="271.0" layoutY="1523.0" mnemonicParsing="false" onAction="#saveBtnPressed" text="Save" />
+            <Button fx:id="saveBtn" layoutX="536.0" layoutY="1524.0" mnemonicParsing="false" onAction="#saveBtnPressed" text="Save" />
          </children>
       </AnchorPane>
    </content>

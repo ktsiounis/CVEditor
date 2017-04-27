@@ -6,10 +6,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import model.Course;
-import model.Education;
-import model.ProfessionalExperience;
-import model.Skills;
+import model.*;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -35,6 +33,8 @@ public class CombinedCVController extends CommonFunctions implements Initializab
     private TextField skillTxt, experienceTxt, companyTxt;
     @FXML
     private TextField companyNameTxt, jobTitleTxt, dateTxt, paragraphTxt, achievementsTxt;
+    @FXML
+    private TextField nameTxt, addressTxt, telehomeTxt, telemobTxt, emailTxt, professionalProfile, additionalInfoTxt, interestsTxt;
 
     private ObservableList<Education> educationList;
     private ObservableList<Course> courseList;
@@ -190,5 +190,12 @@ public class CombinedCVController extends CommonFunctions implements Initializab
 
     public void setAchievementsTxt(String achievementsTxt) {
         this.achievementsTxt.setText(achievementsTxt);
+    }
+
+    public void saveBtnPressed(){
+        NewLaTexDocument laTexDocument = new NewLaTexDocument(skillsList, null, educationList, courseList, professionalExperiences,
+                nameTxt.getText(), addressTxt.getText(), telehomeTxt.getText(), telemobTxt.getText(),
+                emailTxt.getText(), professionalProfile.getText(), additionalInfoTxt.getText(), interestsTxt.getText(), null);
+        laTexDocument.produceLaTex("testFile", "combined");
     }
 }
