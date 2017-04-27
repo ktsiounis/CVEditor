@@ -9,7 +9,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CVEditor/model/Skills.class" afterPath="$PROJECT_DIR$/out/production/CVEditor/model/Skills.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CVEditor/view/FunctionalCV.fxml" afterPath="$PROJECT_DIR$/out/production/CVEditor/view/FunctionalCV.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/NewLaTexDocument.java" afterPath="$PROJECT_DIR$/src/model/NewLaTexDocument.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -967,7 +966,7 @@
       <workItem from="1493307204116" duration="144000" />
       <workItem from="1493307394547" duration="1163000" />
       <workItem from="1493308578809" duration="7378000" />
-      <workItem from="1493322957821" duration="6244000" />
+      <workItem from="1493322957821" duration="6275000" />
     </task>
     <task id="LOCAL-00001" summary="Added the add and delete feature for every table">
       <created>1490647808456</created>
@@ -1004,7 +1003,14 @@
       <option name="project" value="LOCAL" />
       <updated>1493330080510</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Made some progress with the latex building">
+      <created>1493330346572</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1493330346572</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1040,7 +1046,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59384000" />
+    <option name="totallyTimeSpent" value="59415000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
