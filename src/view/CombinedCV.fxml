@@ -54,7 +54,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <TextField accessibleRole="TEXT" alignment="TOP_LEFT" layoutX="6.0" layoutY="247.0" prefHeight="100.0" prefWidth="491.0" />
+            <TextField fx:id="professionalProfile" accessibleRole="TEXT" alignment="TOP_LEFT" layoutX="6.0" layoutY="247.0" prefHeight="100.0" prefWidth="491.0" />
             <Label layoutX="1.0" layoutY="220.0" text="2.PROFESSIONAL PROFILE" underline="true">
                <font>
                   <Font size="18.0" />
@@ -108,13 +108,13 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <TextArea layoutX="11.0" layoutY="1387.0" prefHeight="81.0" prefWidth="383.0" />
+            <TextArea fx:id="additionalInfoTxt" layoutX="11.0" layoutY="1387.0" prefHeight="81.0" prefWidth="383.0" />
             <Label layoutY="1468.0" text="8.INTERESTS" underline="true">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <TextArea layoutX="11.0" layoutY="1495.0" prefHeight="81.0" prefWidth="383.0" />
+            <TextArea fx:id="interestsTxt" layoutX="11.0" layoutY="1495.0" prefHeight="81.0" prefWidth="383.0" />
             <TextField fx:id="skillTxt" layoutX="5.0" layoutY="498.0" promptText="(Skills)" />
             <TextField fx:id="experienceTxt" layoutX="169.0" layoutY="498.0" promptText="(Experience)" />
             <TextField fx:id="companyTxt" layoutX="339.0" layoutY="498.0" promptText="(Company)" />

@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import model.*;
@@ -193,9 +194,12 @@ public class CombinedCVController extends CommonFunctions implements Initializab
     }
 
     public void saveBtnPressed(){
-        NewLaTexDocument laTexDocument = new NewLaTexDocument(skillsList, null, educationList, courseList, professionalExperiences,
+        CreateLaTexDocument laTexDocument = new CreateLaTexDocument(skillsList, null, educationList, courseList, professionalExperiences,
                 nameTxt.getText(), addressTxt.getText(), telehomeTxt.getText(), telemobTxt.getText(),
                 emailTxt.getText(), professionalProfile.getText(), additionalInfoTxt.getText(), interestsTxt.getText(), null);
         laTexDocument.produceLaTex("testFile", "combined");
+        Alert completion = new Alert(Alert.AlertType.INFORMATION);
+        completion.setHeaderText("The LaTex CV created successfully");
+        completion.showAndWait();
     }
 }

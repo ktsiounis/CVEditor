@@ -7,7 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import model.Course;
 import model.Education;
-import model.NewLaTexDocument;
+import model.CreateLaTexDocument;
 import model.ProfessionalExperience;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -158,9 +158,12 @@ public class ChronologicalCVControler extends CommonFunctions implements Initial
     }
 
     public void saveBtnPressed(){
-        NewLaTexDocument laTexDocument = new NewLaTexDocument(null, null, educationList, courseList, professionalExperiences,
+        CreateLaTexDocument laTexDocument = new CreateLaTexDocument(null, null, educationList, courseList, professionalExperiences,
                 nameTxt.getText(), addressTxt.getText(), telehomeTxt.getText(), telemobTxt.getText(),
                 emailTxt.getText(), professionalProfile.getText(), additionalInfoTxt.getText(), interestsTxt.getText(), coreStrengthTxt.getText());
         laTexDocument.produceLaTex("testFile", "chronological");
+        Alert completion = new Alert(Alert.AlertType.INFORMATION);
+        completion.setHeaderText("The LaTex CV created successfully");
+        completion.showAndWait();
     }
 }

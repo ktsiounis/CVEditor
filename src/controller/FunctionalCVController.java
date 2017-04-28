@@ -8,8 +8,6 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.*;
 
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -224,9 +222,12 @@ public class FunctionalCVController extends CommonFunctions implements Initializ
     }
 
     public void saveBtnPressed(){
-        NewLaTexDocument laTexDocument = new NewLaTexDocument(skillsList, careerSummaryList, educationList, courseList, null,
+        CreateLaTexDocument laTexDocument = new CreateLaTexDocument(skillsList, careerSummaryList, educationList, courseList, null,
                                                               nameTxt.getText(), addressTxt.getText(), telehomeTxt.getText(), telemobTxt.getText(),
                                                               emailTxt.getText(), professionalProfile.getText(), additionalInfoTxt.getText(), interestsTxt.getText(), null);
         laTexDocument.produceLaTex("testFile", "functional");
+        Alert completion = new Alert(Alert.AlertType.INFORMATION);
+        completion.setHeaderText("The LaTex CV created successfully");
+        completion.showAndWait();
     }
 }
