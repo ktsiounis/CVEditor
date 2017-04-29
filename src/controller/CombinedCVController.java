@@ -4,12 +4,12 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import model.*;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 /**
@@ -194,11 +194,41 @@ public class CombinedCVController extends CommonFunctions implements Initializab
     }
 
     public void saveBtnPressed(){
-        CreateLaTexDocument laTexDocument = new CreateLaTexDocument(skillsList, null, educationList, courseList, professionalExperiences,
-                nameTxt.getText(), addressTxt.getText(), telehomeTxt.getText(), telemobTxt.getText(),
-                emailTxt.getText(), professionalProfile.getText(), additionalInfoTxt.getText(), interestsTxt.getText(), null);
-        laTexDocument.produceLaTex("testFile", "combined");
+        TextInputDialog textInputDialog = new TextInputDialog();
+        ChoiceDialog<String> choiceDialog;
+        Alert alert = new Alert(Alert.AlertType.ERROR);
         Alert completion = new Alert(Alert.AlertType.INFORMATION);
+        List<String> choices = new ArrayList<>();
+        String fileName, fileType;
+
+        textInputDialog.setTitle("File Name");
+        textInputDialog.setContentText("Please enter the file's name: ");
+        fileName = textInputDialog.showAndWait().get();
+        while(fileName.equals("")){
+            alert.setHeaderText("File's name can't be blank");
+            alert.showAndWait();
+            fileName = textInputDialog.showAndWait().get();
+        }
+
+        choices.add(".tex");
+        choices.add(".txt");
+        choiceDialog = new ChoiceDialog<>(" ", choices);
+        choiceDialog.setTitle("File's Type");
+        choiceDialog.setHeaderText("Please choose the file's type");
+        fileType = choiceDialog.showAndWait().get();
+        while (fileType.equals(" ")){
+            alert.setHeaderText("File's type can't be blank");
+            alert.showAndWait();
+            fileType = choiceDialog.showAndWait().get();
+        }
+
+        if(fileType.equals(".tex")) {
+            CreateLaTexDocument laTexDocument = new CreateLaTexDocument(skillsList, null, educationList, courseList, professionalExperiences,
+                    nameTxt.getText(), addressTxt.getText(), telehomeTxt.getText(), telemobTxt.getText(),
+                    emailTxt.getText(), professionalProfile.getText(), additionalInfoTxt.getText(), interestsTxt.getText(), null);
+            laTexDocument.produceLaTex("testFile", "combined");
+        }
+
         completion.setHeaderText("The LaTex CV created successfully");
         completion.showAndWait();
     }

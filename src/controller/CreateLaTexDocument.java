@@ -1,7 +1,8 @@
-package model;
+package controller;
 
 import controller.FunctionalCVController;
 import javafx.collections.ObservableList;
+import model.*;
 
 import java.io.FileWriter;
 import java.io.IOException;

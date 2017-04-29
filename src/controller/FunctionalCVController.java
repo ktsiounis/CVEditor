@@ -9,6 +9,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import model.*;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class FunctionalCVController extends CommonFunctions implements Initializable{
@@ -222,11 +224,41 @@ public class FunctionalCVController extends CommonFunctions implements Initializ
     }
 
     public void saveBtnPressed(){
-        CreateLaTexDocument laTexDocument = new CreateLaTexDocument(skillsList, careerSummaryList, educationList, courseList, null,
-                                                              nameTxt.getText(), addressTxt.getText(), telehomeTxt.getText(), telemobTxt.getText(),
-                                                              emailTxt.getText(), professionalProfile.getText(), additionalInfoTxt.getText(), interestsTxt.getText(), null);
-        laTexDocument.produceLaTex("testFile", "functional");
+        TextInputDialog textInputDialog = new TextInputDialog();
+        ChoiceDialog<String> choiceDialog;
+        Alert alert = new Alert(Alert.AlertType.ERROR);
         Alert completion = new Alert(Alert.AlertType.INFORMATION);
+        List<String> choices = new ArrayList<>();
+        String fileName, fileType;
+
+        textInputDialog.setTitle("File Name");
+        textInputDialog.setContentText("Please enter the file's name: ");
+        fileName = textInputDialog.showAndWait().get();
+        while(fileName.equals("")){
+            alert.setHeaderText("File's name can't be blank");
+            alert.showAndWait();
+            fileName = textInputDialog.showAndWait().get();
+        }
+
+        choices.add(".tex");
+        choices.add(".txt");
+        choiceDialog = new ChoiceDialog<>(" ", choices);
+        choiceDialog.setTitle("File's Type");
+        choiceDialog.setHeaderText("Please choose the file's type");
+        fileType = choiceDialog.showAndWait().get();
+        while (fileType.equals(" ")){
+            alert.setHeaderText("File's type can't be blank");
+            alert.showAndWait();
+            fileType = choiceDialog.showAndWait().get();
+        }
+
+        if(fileType.equals(".tex")) {
+            CreateLaTexDocument laTexDocument = new CreateLaTexDocument(skillsList, careerSummaryList, educationList, courseList, null,
+                    nameTxt.getText(), addressTxt.getText(), telehomeTxt.getText(), telemobTxt.getText(),
+                    emailTxt.getText(), professionalProfile.getText(), additionalInfoTxt.getText(), interestsTxt.getText(), null);
+            laTexDocument.produceLaTex(fileName, "functional");
+        }
+
         completion.setHeaderText("The LaTex CV created successfully");
         completion.showAndWait();
     }
