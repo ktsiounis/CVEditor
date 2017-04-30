@@ -2,12 +2,17 @@ package controller;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.*;
+import javafx.stage.FileChooser;
 import model.Course;
 import model.Education;
 import model.ProfessionalExperience;
+
+import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -158,43 +163,28 @@ public class ChronologicalCVControler extends CommonFunctions implements Initial
         this.achievementsTxt.setText(achievementsTxt);
     }
 
-    public void saveBtnPressed(){
-        TextInputDialog textInputDialog = new TextInputDialog();
-        ChoiceDialog<String> choiceDialog;
-        Alert alert = new Alert(Alert.AlertType.ERROR);
+    public void saveBtnPressed(ActionEvent event){
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Save file");
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("LaTex File (*.tex)", "*.tex"), new FileChooser.ExtensionFilter("Plain Text File (*.txt)", "*.txt"));
+        File file = fileChooser.showSaveDialog(((Node)event.getSource()).getScene().getWindow());
         Alert completion = new Alert(Alert.AlertType.INFORMATION);
-        List<String> choices = new ArrayList<>();
-        String fileName, fileType;
 
-        textInputDialog.setTitle("File Name");
-        textInputDialog.setContentText("Please enter the file's name: ");
-        fileName = textInputDialog.showAndWait().get();
-        while(fileName.equals("")){
-            alert.setHeaderText("File's name can't be blank");
-            alert.showAndWait();
-            fileName = textInputDialog.showAndWait().get();
+        if(file!=null) {
+            if (file.getName().contains(".tex")) {
+                CreateLaTexDocument laTexDocument = new CreateLaTexDocument(null, null, educationList, courseList, professionalExperiences,
+                        nameTxt.getText(), addressTxt.getText(), telehomeTxt.getText(), telemobTxt.getText(),
+                        emailTxt.getText(), professionalProfile.getText(), additionalInfoTxt.getText(), interestsTxt.getText(), coreStrengthTxt.getText());
+                laTexDocument.produceLaTex(file, "chronological");
+            }
+            else {
+                CreateTxtDocument txtDocument = new CreateTxtDocument(null, null, educationList, courseList, professionalExperiences,
+                        nameTxt.getText(), addressTxt.getText(), telehomeTxt.getText(), telemobTxt.getText(),
+                        emailTxt.getText(), professionalProfile.getText(), additionalInfoTxt.getText(), interestsTxt.getText(), coreStrengthTxt.getText());
+                txtDocument.produceTxtFile(file, "chronological");
+            }
+            completion.setHeaderText("The LaTex CV created successfully");
+            completion.showAndWait();
         }
-
-        choices.add(".tex");
-        choices.add(".txt");
-        choiceDialog = new ChoiceDialog<>(" ", choices);
-        choiceDialog.setTitle("File's Type");
-        choiceDialog.setHeaderText("Please choose the file's type");
-        fileType = choiceDialog.showAndWait().get();
-        while (fileType.equals(" ")){
-            alert.setHeaderText("File's type can't be blank");
-            alert.showAndWait();
-            fileType = choiceDialog.showAndWait().get();
-        }
-
-        if(fileType.equals(".tex")) {
-            CreateLaTexDocument laTexDocument = new CreateLaTexDocument(null, null, educationList, courseList, professionalExperiences,
-                    nameTxt.getText(), addressTxt.getText(), telehomeTxt.getText(), telemobTxt.getText(),
-                    emailTxt.getText(), professionalProfile.getText(), additionalInfoTxt.getText(), interestsTxt.getText(), coreStrengthTxt.getText());
-            laTexDocument.produceLaTex("testFile", "chronological");
-        }
-
-        completion.setHeaderText("The LaTex CV created successfully");
-        completion.showAndWait();
     }
 }

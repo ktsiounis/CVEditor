@@ -4,9 +4,7 @@ import controller.FunctionalCVController;
 import javafx.collections.ObservableList;
 import model.*;
 
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 
 /**
  * Created by Ntinos on 27/4/2017.
@@ -37,20 +35,22 @@ public class CreateLaTexDocument {
         this.coreStrength = coreStrength;
     }
 
-    public void produceLaTex(String filename, String type){
+    public void produceLaTex(File file, String type){
         try{
-            PrintWriter writer = new PrintWriter(filename + ".tex");
-            writer.println("\\documentclass{letter}\n");
+            FileWriter writer = new FileWriter(file);
 
-            writer.println("\\begin{document}");
+            writer.write("\\documentclass{letter}" + System.lineSeparator());
 
-            writer.println("\\textbf{1. GENERAL INFORMATION}\\\\");
-            writer.println("Name: " + name + "\\\\");
-            writer.println("Address: " + address + "\\\\");
-            writer.println("Telephone: (Home)" + homeTel + " (Mobile)" + mobileTel + "\\\\");
-            writer.println("Email: " + email + "\\\\\n");
-            writer.println("\\textbf{2. PROFESSIONAL PROFILE}\\\\");
-            writer.println(professionalProfile + "\\\\\n");
+
+            writer.write("\\begin{document}" + System.lineSeparator());
+
+            writer.write("\\textbf{1. GENERAL INFORMATION}\\\\" + System.lineSeparator());
+            writer.write("Name: " + name + "\\\\" + System.lineSeparator());
+            writer.write("Address: " + address + "\\\\" + System.lineSeparator());
+            writer.write("Telephone: (Home)" + homeTel + " (Mobile)" + mobileTel + "\\\\" + System.lineSeparator());
+            writer.write("Email: " + email + "\\\\" + System.lineSeparator());
+            writer.write("\\textbf{2. PROFESSIONAL PROFILE}\\\\" + System.lineSeparator());
+            writer.write(professionalProfile + "\\\\" + System.lineSeparator());
 
             if(type == "functional"){
                 printFunctionalBullets(writer);
@@ -62,26 +62,38 @@ public class CreateLaTexDocument {
                 printCombinedBullets(writer);
             }
 
-            writer.println("\\textbf{5. EDUCATION AND TRAINING}");
+            writer.write("\\textbf{5. EDUCATION AND TRAINING}" + System.lineSeparator());
             if(educationList.size()>0) {
-                writer.println("\\begin{itemize}");
-                educationList.forEach(education -> writer.println("\\item " + education.getQualification() + ", " + education.getEstablishment() + ", " + education.getLocation() + ", " + education.getDate()));
-                writer.println("\\end{itemize}");
+                writer.write("\\begin{itemize}" + System.lineSeparator());
+                educationList.forEach(education -> {
+                    try {
+                        writer.write("\\item " + education.getQualification() + ", " + education.getEstablishment() + ", " + education.getLocation() + ", " + education.getDate() + System.lineSeparator());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                });
+                writer.write("\\end{itemize}" + System.lineSeparator());
             }
 
-            writer.println("\\textbf{6. FURTHER COURSES}");
+            writer.write("\\textbf{6. FURTHER COURSES}" + System.lineSeparator());
             if(courseList.size()>0) {
-                writer.println("\\begin{itemize}");
-                courseList.forEach(course -> writer.println("\\item " + course.getCourse() + ", " + course.getEstablishment() + ", " + course.getLocation() + ", " + course.getDate()));
-                writer.println("\\end{itemize}");
+                writer.write("\\begin{itemize}" + System.lineSeparator());
+                courseList.forEach(course -> {
+                    try {
+                        writer.write("\\item " + course.getCourse() + ", " + course.getEstablishment() + ", " + course.getLocation() + ", " + course.getDate() + System.lineSeparator());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                });
+                writer.write("\\end{itemize}" + System.lineSeparator());
             }
 
-            writer.println("\\textbf{7. ADDITIONAL INFORMATION}\\\\");
-            writer.println(additionalInfo + "\\\\\n");
-            writer.println("\\textbf{8. INTERESTS}\\\\");
-            writer.println(interests);
+            writer.write("\\textbf{7. ADDITIONAL INFORMATION}\\\\" + System.lineSeparator());
+            writer.write(additionalInfo + "\\\\" + System.lineSeparator());
+            writer.write("\\textbf{8. INTERESTS}\\\\" + System.lineSeparator());
+            writer.write(interests + System.lineSeparator());
 
-            writer.println("\\end{document}");
+            writer.write("\\end{document}" + System.lineSeparator());
             writer.close();
 
         } catch (IOException e) {
@@ -89,73 +101,112 @@ public class CreateLaTexDocument {
         }
     }
 
-    public void printFunctionalBullets(PrintWriter writer){
-        writer.println("\\textbf{3. SKILLS AND EXPERIENCE}");
+    public void printFunctionalBullets(FileWriter writer) throws IOException {
+        writer.write("\\textbf{3. SKILLS AND EXPERIENCE}" + System.lineSeparator());
         if(skillsList.size()>0){
-            writer.println("\\begin{itemize}");
-            skillsList.forEach(skill -> writer.println("\\item " + skill.getSkill() + " and " + skill.getExperience() + " on " + skill.getCompany()));
-            writer.println("\\end{itemize}");
+            writer.write("\\begin{itemize}" + System.lineSeparator());
+            skillsList.forEach(skill -> {
+                try {
+                    writer.write("\\item " + skill.getSkill() + " and " + skill.getExperience() + " on " + skill.getCompany() + System.lineSeparator());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            });
+            writer.write("\\end{itemize}" + System.lineSeparator());
         }
 
-        writer.println("\\textbf{4. CAREER SUMMARY}\\\\");
+        writer.write("\\textbf{4. CAREER SUMMARY}" + System.lineSeparator());
         if(careerSummaryList.size()>0) {
-            writer.println("\\begin{itemize}");
-            careerSummaryList.forEach(careerSummary -> writer.println("\\item " + careerSummary.getCompany() + ", " + careerSummary.getJobTitle() + ", " + careerSummary.getDate()));
-            writer.println("\\end{itemize}");
-        }
-    }
-
-    public void printChronologicalBullets(PrintWriter writer){
-        writer.println("\\textbf{3. CORE STRENGTHS}\\\\");
-        writer.println(coreStrength + "\\\\\n");
-
-        writer.println("\\textbf{4. PROFESSIONAL EXPERIENCE}");
-        if(professionalExperiences.size()>0){
-            writer.println("\\begin{itemize}");
-            professionalExperiences.forEach((ProfessionalExperience experience) -> {
-                writer.println("\\item " + experience.getCompanyName() + ", " + experience.getJobTitle() + ", " + experience.getDate());
-                writer.println("\\begin{itemize}");
-                if(experience.getParagraph()!=" "){
-                    writer.println("\\item Paragraph of responsibilities:\n" + experience.getParagraph());
+            writer.write("\\begin{itemize}" + System.lineSeparator());
+            careerSummaryList.forEach(careerSummary -> {
+                try {
+                    writer.write("\\item " + careerSummary.getCompany() + ", " + careerSummary.getJobTitle() + ", " + careerSummary.getDate() + System.lineSeparator());
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
-                if(experience.getAchievements().size()>0){
-                    writer.println("\\item List of achievements:");
-                    writer.println("\\begin{itemize}");
-                    experience.getAchievements().forEach(achievement -> writer.println("\\item " + achievement));
-                    writer.println("\\end{itemize}");
-                }
-                writer.println("\\end{itemize}");
             });
-            writer.println("\\end{itemize}");
+            writer.write("\\end{itemize}" + System.lineSeparator());
         }
     }
 
-    public void printCombinedBullets(PrintWriter writer){
-        writer.println("\\textbf{3. SKILLS AND EXPERIENCE}");
+    public void printChronologicalBullets(FileWriter writer) throws IOException {
+        writer.write("\\textbf{3. CORE STRENGTHS}\\\\" + System.lineSeparator());
+        writer.write(coreStrength + "\\\\" + System.lineSeparator());
+
+        writer.write("\\textbf{4. PROFESSIONAL EXPERIENCE}" + System.lineSeparator());
+        if(professionalExperiences.size()>0){
+            writer.write("\\begin{itemize}" + System.lineSeparator());
+            professionalExperiences.forEach((ProfessionalExperience experience) -> {
+                try {
+                    writer.write("\\item " + experience.getCompanyName() + ", " + experience.getJobTitle() + ", " + experience.getDate() + System.lineSeparator());
+                    writer.write("\\begin{itemize}" + System.lineSeparator());
+                    if (experience.getParagraph() != " ") {
+                        writer.write("\\item Paragraph of responsibilities:" + System.lineSeparator() + experience.getParagraph() + System.lineSeparator());
+                    }
+                    if (experience.getAchievements().size() > 0) {
+                        writer.write("\\item List of achievements:" + System.lineSeparator());
+                        writer.write("\\begin{itemize}" + System.lineSeparator());
+                        experience.getAchievements().forEach(achievement -> {
+                            try {
+                                writer.write("\\item " + achievement + System.lineSeparator());
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        });
+                        writer.write("\\end{itemize}" + System.lineSeparator());
+                    }
+                    writer.write("\\end{itemize}" + System.lineSeparator());
+                }
+                catch (IOException e){
+
+                }
+            });
+            writer.write("\\end{itemize}" + System.lineSeparator());
+        }
+    }
+
+    public void printCombinedBullets(FileWriter writer) throws IOException {
+        writer.write("\\textbf{3. SKILLS AND EXPERIENCE}" + System.lineSeparator());
         if(skillsList.size()>0){
-            writer.println("\\begin{itemize}");
-            skillsList.forEach(skill -> writer.println("\\item " + skill.getSkill() + " and " + skill.getExperience() + " on " + skill.getCompany()));
-            writer.println("\\end{itemize}");
+            writer.write("\\begin{itemize}" + System.lineSeparator());
+            skillsList.forEach(skill -> {
+                try {
+                    writer.write("\\item " + skill.getSkill() + " and " + skill.getExperience() + " on " + skill.getCompany() + System.lineSeparator());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            });
+            writer.write("\\end{itemize}" + System.lineSeparator());
         }
 
-        writer.println("\\textbf{4. PROFESSIONAL EXPERIENCE}");
+        writer.write("\\textbf{4. PROFESSIONAL EXPERIENCE}" + System.lineSeparator());
         if(professionalExperiences.size()>0){
-            writer.println("\\begin{itemize}");
+            writer.write("\\begin{itemize}" + System.lineSeparator());
             professionalExperiences.forEach((ProfessionalExperience experience) -> {
-                writer.println("\\item " + experience.getCompanyName() + ", " + experience.getJobTitle() + ", " + experience.getDate());
-                writer.println("\\begin{itemize}");
-                if(experience.getParagraph()!=" "){
-                    writer.println("\\item Paragraph of responsibilities:\n" + experience.getParagraph());
+                try {
+                    writer.write("\\item " + experience.getCompanyName() + ", " + experience.getJobTitle() + ", " + experience.getDate() + System.lineSeparator());
+                    writer.write("\\begin{itemize}" + System.lineSeparator());
+                    if (experience.getParagraph() != " ") {
+                        writer.write("\\item Paragraph of responsibilities:" + System.lineSeparator() + experience.getParagraph() + System.lineSeparator());
+                    }
+                    if (experience.getAchievements().size() > 0) {
+                        writer.write("\\item List of achievements:" + System.lineSeparator());
+                        writer.write("\\begin{itemize}" + System.lineSeparator());
+                        experience.getAchievements().forEach(achievement -> {
+                            try {
+                                writer.write("\\item " + achievement + System.lineSeparator());
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        });
+                        writer.write("\\end{itemize}" + System.lineSeparator());
+                    }
+                    writer.write("\\end{itemize}" + System.lineSeparator());
+                }catch (IOException e){
+
                 }
-                if(experience.getAchievements().size()>0){
-                    writer.println("\\item List of achievements:");
-                    writer.println("\\begin{itemize}");
-                    experience.getAchievements().forEach(achievement -> writer.println("\\item " + achievement));
-                    writer.println("\\end{itemize}");
-                }
-                writer.println("\\end{itemize}");
             });
-            writer.println("\\end{itemize}");
+            writer.write("\\end{itemize}" + System.lineSeparator());
         }
     }
 }
