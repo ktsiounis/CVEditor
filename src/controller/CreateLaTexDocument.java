@@ -45,7 +45,7 @@ public class CreateLaTexDocument {
             writer.write("\\begin{document}" + System.lineSeparator());
 
             writer.write("\\textbf{1. GENERAL INFORMATION}\\\\" + System.lineSeparator());
-            writer.write("Name: " + name + "\\\\" + System.lineSeparator());
+            writer.write("• Name: " + name + "\\\\" + System.lineSeparator());
             writer.write("Address: " + address + "\\\\" + System.lineSeparator());
             writer.write("Telephone: (Home)" + homeTel + " (Mobile)" + mobileTel + "\\\\" + System.lineSeparator());
             writer.write("Email: " + email + "\\\\" + System.lineSeparator());
