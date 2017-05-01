@@ -48,9 +48,28 @@ public class CreateTxtDocument {
         text.setFont(Font.font(null ,FontWeight.BOLD,14));
 
         try{
-            FileWriter writer = new FileWriter(file);
-            writer.write("Hello");
-            System.out.println(text.getText());
+            PrintWriter writer = new PrintWriter(file);
+
+            writer.println("1.  GENERAL INFORMATION\n");
+            writer.println("Name: " + name);
+            writer.println("Address: " + address);
+            writer.println("Telephone: (Home)" + homeTel + "    (Mobile)" + mobileTel);
+            writer.println("Email: " + email + "\n");
+            writer.println("2.  PROFESSIONAL PROFILE\n");
+            writer.println("    " + professionalProfile + "\n");
+
+
+
+            writer.println("5.  EDUCATION AND TRAINING\n");
+            educationList.forEach(education -> writer.println("• " + education.getQualification() + ", " + education.getEstablishment() + ", " + education.getLocation() + ", " + education.getDate()));
+            writer.println("\n6.  FURTHER COURSES\n");
+            courseList.forEach(course -> writer.println("• " + course.getCourse() + ", " + course.getEstablishment() + ", " + course.getLocation() + ", " + course.getDate()));
+            writer.println("\n7.  ADDITIONAL INFORMATION\n");
+            writer.println("    " + additionalInfo + "\n");
+            writer.println("8.  INTERESTS\n");
+            writer.println("    " + interests);
+
+            writer.close();
         }
         catch (IOException e){
             e.printStackTrace();
