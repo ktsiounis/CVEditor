@@ -10,8 +10,12 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.FileChooser;
 import model.*;
 import javafx.event.ActionEvent;
+
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
 import java.util.ResourceBundle;
 
 public class FunctionalCVController extends CommonFunctions implements Initializable{
@@ -73,7 +77,6 @@ public class FunctionalCVController extends CommonFunctions implements Initializ
         configureCareerSummaryTable(careerSummaryTable, careerSummaryList);
         configureEducationTable(educationTable, educationList);
         configureCourseTable(courseTable, courseList);
-
     }
 
     public void configureCareerSummaryTable(TableView<CareerSummary> careerSummaryTable, ObservableList<CareerSummary> careerSummaryList){
@@ -247,6 +250,13 @@ public class FunctionalCVController extends CommonFunctions implements Initializ
             }
             completion.setHeaderText("The LaTex CV created successfully");
             completion.showAndWait();
+            try {
+                BufferedReader reader = new BufferedReader(Files.newBufferedReader(file.toPath()));
+                System.out.println(reader.readLine());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
         }
     }
 }

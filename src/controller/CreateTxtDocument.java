@@ -6,9 +6,9 @@ import model.*;
 
 import javafx.scene.text.Text;
 import javafx.scene.text.Font;
-import java.io.File;
-import java.io.IOException;
-import java.io.PrintWriter;
+
+import java.io.*;
+import java.nio.file.Files;
 
 /**
  * Created by Ntinos on 30/4/2017.
@@ -84,12 +84,12 @@ public class CreateTxtDocument {
     }
 
     public void printFunctionalBullets(PrintWriter writer){
-        writer.println("3.    SKILLS AND EXPERIENCE");
+        writer.println("3.  SKILLS AND EXPERIENCE");
         if(skillsList.size()>0){
             skillsList.forEach(skill -> writer.println("\t• " + skill.getSkill() + " and " + skill.getExperience() + " on " + skill.getCompany()));
         }
 
-        writer.println("4.    CAREER SUMMARY");
+        writer.println("4.  CAREER SUMMARY");
         if(careerSummaryList.size()>0){
             careerSummaryList.forEach(careerSummary -> writer.println("\t• " + careerSummary.getCompany() + ", " + careerSummary.getJobTitle() + ", " + careerSummary.getDate()));
         }
@@ -115,7 +115,7 @@ public class CreateTxtDocument {
     }
 
     public void printCombinedBullets(PrintWriter writer){
-        writer.println("3.    SKILLS AND EXPERIENCE");
+        writer.println("3.  SKILLS AND EXPERIENCE");
         if(skillsList.size()>0){
             skillsList.forEach(skill -> writer.println("\t• " + skill.getSkill() + " and " + skill.getExperience() + " on " + skill.getCompany()));
         }
