@@ -52,10 +52,10 @@ public class CreateLaTexDocument {
             writer.write("\\textbf{2. PROFESSIONAL PROFILE}\\\\" + System.lineSeparator());
             writer.write(professionalProfile + "\\\\" + System.lineSeparator());
 
-            if(type == "functional"){
+            if(type.equals("functional")){
                 printFunctionalBullets(writer);
             }
-            else if(type == "chronological"){
+            else if(type.equals("chronological")){
                 printChronologicalBullets(writer);
             }
             else{

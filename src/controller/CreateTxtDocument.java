@@ -6,10 +6,7 @@ import model.*;
 
 import javafx.scene.text.Text;
 import javafx.scene.text.Font;
-
-import java.awt.*;
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -43,9 +40,6 @@ public class CreateTxtDocument {
     }
 
     public void produceTxtFile(File file, String type){
-        Text text = new Text();
-        text.setText("1. GENERAL INFORMATION");
-        text.setFont(Font.font(null ,FontWeight.BOLD,14));
 
         try{
             PrintWriter writer = new PrintWriter(file);
@@ -56,24 +50,88 @@ public class CreateTxtDocument {
             writer.println("Telephone: (Home)" + homeTel + "    (Mobile)" + mobileTel);
             writer.println("Email: " + email + "\n");
             writer.println("2.  PROFESSIONAL PROFILE\n");
-            writer.println("    " + professionalProfile + "\n");
+            writer.println(" " + professionalProfile + "\n");
 
-
+            if(type.equals("functional")){
+                printFunctionalBullets(writer);
+            }
+            else if(type.equals("chronological")){
+                printChronologicalBullets(writer);
+            }
+            else{
+                printCombinedBullets(writer);
+            }
 
             writer.println("5.  EDUCATION AND TRAINING\n");
-            educationList.forEach(education -> writer.println("• " + education.getQualification() + ", " + education.getEstablishment() + ", " + education.getLocation() + ", " + education.getDate()));
+            if(educationList.size()>0) {
+                educationList.forEach(education -> writer.println("\t• " + education.getQualification() + ", " + education.getEstablishment() + ", " + education.getLocation() + ", " + education.getDate()));
+            }
             writer.println("\n6.  FURTHER COURSES\n");
-            courseList.forEach(course -> writer.println("• " + course.getCourse() + ", " + course.getEstablishment() + ", " + course.getLocation() + ", " + course.getDate()));
+            if(courseList.size()>0) {
+                courseList.forEach(course -> writer.println("\t• " + course.getCourse() + ", " + course.getEstablishment() + ", " + course.getLocation() + ", " + course.getDate()));
+            }
+
             writer.println("\n7.  ADDITIONAL INFORMATION\n");
-            writer.println("    " + additionalInfo + "\n");
+            writer.println(" " + additionalInfo + "\n");
             writer.println("8.  INTERESTS\n");
-            writer.println("    " + interests);
+            writer.println(" " + interests);
 
             writer.close();
         }
         catch (IOException e){
             e.printStackTrace();
         }
+    }
 
+    public void printFunctionalBullets(PrintWriter writer){
+        writer.println("3.    SKILLS AND EXPERIENCE");
+        if(skillsList.size()>0){
+            skillsList.forEach(skill -> writer.println("\t• " + skill.getSkill() + " and " + skill.getExperience() + " on " + skill.getCompany()));
+        }
+
+        writer.println("4.    CAREER SUMMARY");
+        if(careerSummaryList.size()>0){
+            careerSummaryList.forEach(careerSummary -> writer.println("\t• " + careerSummary.getCompany() + ", " + careerSummary.getJobTitle() + ", " + careerSummary.getDate()));
+        }
+    }
+
+    public void printChronologicalBullets(PrintWriter writer){
+        writer.println("3.  CORE STRENGTHS");
+        writer.println(" " + coreStrength);
+
+        writer.println("4.  PROFESSIONAL EXPERIENCE");
+        if(professionalExperiences.size()>0){
+            professionalExperiences.forEach(experience -> {
+                writer.println("\t• " + experience.getCompanyName() + ", " + experience.getJobTitle() + ", " + experience.getDate());
+                if(!experience.getParagraph().equals(" ")){
+                    writer.println("\t\t• Paragraph of responsibilities: " + experience.getParagraph());
+                }
+                if(experience.getAchievements().size()>0){
+                    writer.println("\t\t• List of achievements:");
+                    experience.getAchievements().forEach(achievement -> writer.println("\t\t\t• " + achievement));
+                }
+            });
+        }
+    }
+
+    public void printCombinedBullets(PrintWriter writer){
+        writer.println("3.    SKILLS AND EXPERIENCE");
+        if(skillsList.size()>0){
+            skillsList.forEach(skill -> writer.println("\t• " + skill.getSkill() + " and " + skill.getExperience() + " on " + skill.getCompany()));
+        }
+
+        writer.println("4.  PROFESSIONAL EXPERIENCE");
+        if(professionalExperiences.size()>0){
+            professionalExperiences.forEach(experience -> {
+                writer.println("\t• " + experience.getCompanyName() + ", " + experience.getJobTitle() + ", " + experience.getDate());
+                if(!experience.getParagraph().equals(" ")){
+                    writer.println("\t\t• Paragraph of responsibilities: " + experience.getParagraph());
+                }
+                if(experience.getAchievements().size()>0){
+                    writer.println("\t\t• List of achievements:");
+                    experience.getAchievements().forEach(achievement -> writer.println("\t\t\t• " + achievement));
+                }
+            });
+        }
     }
 }
