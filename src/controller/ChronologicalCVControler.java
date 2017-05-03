@@ -13,10 +13,12 @@ import model.Education;
 import model.ProfessionalExperience;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 
 /**
  * Created by dtsiounis on 27/03/2017.
@@ -70,6 +72,14 @@ public class ChronologicalCVControler extends CommonFunctions implements Initial
         configureEducationTable(educationTable, educationList);
         configureCourseTable(courseTable, courseList);
         configureProfessionalExperienceTable(profExperienceTable, professionalExperiences);
+        if(SelectionWindowController.getLoad()){
+            try {
+                Scanner scanner = new Scanner(SelectionWindowController.getFile());
+                loadInfo(scanner);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public void addToEducationTable(){
@@ -186,5 +196,11 @@ public class ChronologicalCVControler extends CommonFunctions implements Initial
             completion.setHeaderText("The LaTex CV created successfully");
             completion.showAndWait();
         }
+    }
+
+    public void loadInfo(Scanner scanner){
+
+        nameTxt.setText(scanner.nextLine());
+        addressTxt.setText(scanner.nextLine());
     }
 }

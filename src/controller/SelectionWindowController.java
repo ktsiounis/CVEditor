@@ -29,7 +29,8 @@ public class SelectionWindowController {
 
     @FXML
     private RadioButton functionalCVchoice, chronologicalCVchoice, combinedCVchoice;
-    public static Boolean load = false;
+    private static Boolean load = false;
+    private static File file;
 
     public void createNewButtonPressed(ActionEvent event) throws IOException {
         if(functionalCVchoice.isSelected()){
@@ -64,9 +65,10 @@ public class SelectionWindowController {
 
     public void openExistedButtonPressed(ActionEvent event) throws IOException {
         FileChooser fileChooser = new FileChooser();
-        File file = fileChooser.showOpenDialog(((Node)event.getSource()).getScene().getWindow());
+        file = fileChooser.showOpenDialog(((Node)event.getSource()).getScene().getWindow());
 
         if(file != null){
+            load = true;
             if(file.getName().contains(".tex")){
                 System.out.println("It's a tex file");
                 Scanner reader = new Scanner(file);
@@ -77,7 +79,6 @@ public class SelectionWindowController {
 
                 if(lines.contains("\\textbf{3. SKILLS AND EXPERIENCE}") && lines.contains("\\textbf{4. CAREER SUMMARY}")){
                     System.out.println("It's functional");
-                    load = true;
                     functionalCVchoice.setSelected(true);
                     createNewButtonPressed(event);
                 }
@@ -133,5 +134,13 @@ public class SelectionWindowController {
                 alert.showAndWait();
             }
         }
+    }
+
+    public static File getFile() {
+        return file;
+    }
+
+    public static Boolean getLoad() {
+        return load;
     }
 }

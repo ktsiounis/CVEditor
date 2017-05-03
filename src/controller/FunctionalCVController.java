@@ -13,10 +13,14 @@ import javafx.event.ActionEvent;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Files;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 
 public class FunctionalCVController extends CommonFunctions implements Initializable{
 
@@ -77,6 +81,14 @@ public class FunctionalCVController extends CommonFunctions implements Initializ
         configureCareerSummaryTable(careerSummaryTable, careerSummaryList);
         configureEducationTable(educationTable, educationList);
         configureCourseTable(courseTable, courseList);
+        if(SelectionWindowController.getLoad()){
+            try {
+                Scanner scanner = new Scanner(SelectionWindowController.getFile());
+                loadInfo(scanner);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public void configureCareerSummaryTable(TableView<CareerSummary> careerSummaryTable, ObservableList<CareerSummary> careerSummaryList){
@@ -257,6 +269,29 @@ public class FunctionalCVController extends CommonFunctions implements Initializ
                 e.printStackTrace();
             }
 
+        }
+    }
+
+    public void loadInfo(Scanner scanner){
+        List<String> lines = new ArrayList<>();
+        while(scanner.hasNextLine()){
+            lines.add(scanner.nextLine());
+        }
+
+        for(int i=0; i<lines.size(); i++) {
+            if(lines.get(i).contains("Name:")) {
+                nameTxt.setText(lines.get(i).split(": ")[1]);
+            }
+            if(lines.get(i).contains("7.  ADDITIONAL INFO")){
+                i++;
+                while (!lines.get(i).equals("8.  INTERESTS")) {
+                    additionalInfoTxt.setText(additionalInfoTxt.getText() + lines.get(i));
+                    i++;
+                }
+            }
+            if (lines.get(i).equals("8.  INTERESTS")){
+
+            }
         }
     }
 }

@@ -44,12 +44,12 @@ public class CreateLaTexDocument {
 
             writer.write("\\begin{document}" + System.lineSeparator());
 
-            writer.write("\\textbf{1. GENERAL INFORMATION}\\\\" + System.lineSeparator());
-            writer.write("• Name: " + name + "\\\\" + System.lineSeparator());
+            writer.write("\\textbf{1.  GENERAL INFORMATION}\\\\" + System.lineSeparator());
+            writer.write("Name: " + name + "\\\\" + System.lineSeparator());
             writer.write("Address: " + address + "\\\\" + System.lineSeparator());
             writer.write("Telephone: (Home)" + homeTel + " (Mobile)" + mobileTel + "\\\\" + System.lineSeparator());
             writer.write("Email: " + email + "\\\\" + System.lineSeparator());
-            writer.write("\\textbf{2. PROFESSIONAL PROFILE}\\\\" + System.lineSeparator());
+            writer.write("\\textbf{2.  PROFESSIONAL PROFILE}\\\\" + System.lineSeparator());
             writer.write(professionalProfile + "\\\\" + System.lineSeparator());
 
             if(type.equals("functional")){
@@ -62,7 +62,7 @@ public class CreateLaTexDocument {
                 printCombinedBullets(writer);
             }
 
-            writer.write("\\textbf{5. EDUCATION AND TRAINING}" + System.lineSeparator());
+            writer.write("\\textbf{5.  EDUCATION AND TRAINING}" + System.lineSeparator());
             if(educationList.size()>0) {
                 writer.write("\\begin{itemize}" + System.lineSeparator());
                 educationList.forEach(education -> {
@@ -75,7 +75,7 @@ public class CreateLaTexDocument {
                 writer.write("\\end{itemize}" + System.lineSeparator());
             }
 
-            writer.write("\\textbf{6. FURTHER COURSES}" + System.lineSeparator());
+            writer.write("\\textbf{6.  FURTHER COURSES}" + System.lineSeparator());
             if(courseList.size()>0) {
                 writer.write("\\begin{itemize}" + System.lineSeparator());
                 courseList.forEach(course -> {
@@ -88,9 +88,9 @@ public class CreateLaTexDocument {
                 writer.write("\\end{itemize}" + System.lineSeparator());
             }
 
-            writer.write("\\textbf{7. ADDITIONAL INFORMATION}\\\\" + System.lineSeparator());
+            writer.write("\\textbf{7.  ADDITIONAL INFORMATION}\\\\" + System.lineSeparator());
             writer.write(additionalInfo + "\\\\" + System.lineSeparator());
-            writer.write("\\textbf{8. INTERESTS}\\\\" + System.lineSeparator());
+            writer.write("\\textbf{8.  INTERESTS}\\\\" + System.lineSeparator());
             writer.write(interests + System.lineSeparator());
 
             writer.write("\\end{document}" + System.lineSeparator());
@@ -102,7 +102,7 @@ public class CreateLaTexDocument {
     }
 
     public void printFunctionalBullets(FileWriter writer) throws IOException {
-        writer.write("\\textbf{3. SKILLS AND EXPERIENCE}" + System.lineSeparator());
+        writer.write("\\textbf{3.  SKILLS AND EXPERIENCE}" + System.lineSeparator());
         if(skillsList.size()>0){
             writer.write("\\begin{itemize}" + System.lineSeparator());
             skillsList.forEach(skill -> {
@@ -115,7 +115,7 @@ public class CreateLaTexDocument {
             writer.write("\\end{itemize}" + System.lineSeparator());
         }
 
-        writer.write("\\textbf{4. CAREER SUMMARY}" + System.lineSeparator());
+        writer.write("\\textbf{4.  CAREER SUMMARY}" + System.lineSeparator());
         if(careerSummaryList.size()>0) {
             writer.write("\\begin{itemize}" + System.lineSeparator());
             careerSummaryList.forEach(careerSummary -> {
@@ -130,10 +130,10 @@ public class CreateLaTexDocument {
     }
 
     public void printChronologicalBullets(FileWriter writer) throws IOException {
-        writer.write("\\textbf{3. CORE STRENGTHS}\\\\" + System.lineSeparator());
+        writer.write("\\textbf{3.  CORE STRENGTHS}\\\\" + System.lineSeparator());
         writer.write(coreStrength + "\\\\" + System.lineSeparator());
 
-        writer.write("\\textbf{4. PROFESSIONAL EXPERIENCE}" + System.lineSeparator());
+        writer.write("\\textbf{4.  PROFESSIONAL EXPERIENCE}" + System.lineSeparator());
         if(professionalExperiences.size()>0){
             writer.write("\\begin{itemize}" + System.lineSeparator());
             professionalExperiences.forEach((ProfessionalExperience experience) -> {
@@ -166,7 +166,7 @@ public class CreateLaTexDocument {
     }
 
     public void printCombinedBullets(FileWriter writer) throws IOException {
-        writer.write("\\textbf{3. SKILLS AND EXPERIENCE}" + System.lineSeparator());
+        writer.write("\\textbf{3.  SKILLS AND EXPERIENCE}" + System.lineSeparator());
         if(skillsList.size()>0){
             writer.write("\\begin{itemize}" + System.lineSeparator());
             skillsList.forEach(skill -> {
@@ -179,7 +179,7 @@ public class CreateLaTexDocument {
             writer.write("\\end{itemize}" + System.lineSeparator());
         }
 
-        writer.write("\\textbf{4. PROFESSIONAL EXPERIENCE}" + System.lineSeparator());
+        writer.write("\\textbf{4.  PROFESSIONAL EXPERIENCE}" + System.lineSeparator());
         if(professionalExperiences.size()>0){
             writer.write("\\begin{itemize}" + System.lineSeparator());
             professionalExperiences.forEach((ProfessionalExperience experience) -> {
