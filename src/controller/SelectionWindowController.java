@@ -29,7 +29,7 @@ public class SelectionWindowController {
 
     @FXML
     private RadioButton functionalCVchoice, chronologicalCVchoice, combinedCVchoice;
-    private static Boolean load = false;
+    private static Boolean txtLoad = false, texLoad = false;
     private static File file;
 
     public void createNewButtonPressed(ActionEvent event) throws IOException {
@@ -68,11 +68,11 @@ public class SelectionWindowController {
         file = fileChooser.showOpenDialog(((Node)event.getSource()).getScene().getWindow());
 
         if(file != null){
-            load = true;
             if(file.getName().contains(".tex")){
-                System.out.println("It's a tex file");
+                texLoad = true;
                 Scanner reader = new Scanner(file);
                 List<String> lines = new ArrayList<>();
+
                 while (reader.hasNextLine()){
                     lines.add(reader.nextLine());
                 }
@@ -99,9 +99,10 @@ public class SelectionWindowController {
                 }
             }
             else if(file.getName().contains(".txt")){
-                System.out.println("It's a txt file");
+                txtLoad = true;
                 Scanner reader = new Scanner(file);
                 List<String> lines = new ArrayList<>();
+
                 while (reader.hasNextLine()){
                     lines.add(reader.nextLine());
                 }
@@ -140,7 +141,11 @@ public class SelectionWindowController {
         return file;
     }
 
-    public static Boolean getLoad() {
-        return load;
+    public static Boolean getTxtLoad() {
+        return txtLoad;
+    }
+
+    public static Boolean getTexLoad() {
+        return texLoad;
     }
 }

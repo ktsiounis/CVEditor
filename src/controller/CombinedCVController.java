@@ -81,10 +81,18 @@ public class CombinedCVController extends CommonFunctions implements Initializab
         configureEducationTable(educationTable, educationList);
         configureCourseTable(courseTable, courseList);
         configureProfessionalExperienceTable(profExperienceTable, professionalExperiences);
-        if(SelectionWindowController.getLoad()){
+        if(SelectionWindowController.getTxtLoad()){
             try {
                 Scanner scanner = new Scanner(SelectionWindowController.getFile());
-                loadInfo(scanner);
+                loadTxtInfo(scanner);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+        else if(SelectionWindowController.getTexLoad()){
+            try {
+                Scanner scanner = new Scanner(SelectionWindowController.getFile());
+                loadTexInfo(scanner);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -232,7 +240,13 @@ public class CombinedCVController extends CommonFunctions implements Initializab
         }
     }
 
-    public void loadInfo(Scanner scanner){
+    public void loadTxtInfo(Scanner scanner){
+
+        nameTxt.setText(scanner.nextLine());
+        addressTxt.setText(scanner.nextLine());
+    }
+
+    public void loadTexInfo(Scanner scanner){
 
         nameTxt.setText(scanner.nextLine());
         addressTxt.setText(scanner.nextLine());
