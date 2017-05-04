@@ -8,17 +8,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.stage.FileChooser;
-import model.Course;
-import model.Education;
-import model.ProfessionalExperience;
+import model.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.lang.reflect.Array;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ResourceBundle;
-import java.util.Scanner;
+import java.nio.file.Files;
+import java.util.*;
 
 /**
  * Created by dtsiounis on 27/03/2017.
@@ -73,20 +71,14 @@ public class ChronologicalCVControler extends CommonFunctions implements Initial
         configureCourseTable(courseTable, courseList);
         configureProfessionalExperienceTable(profExperienceTable, professionalExperiences);
         if(SelectionWindowController.getTxtLoad()){
-            try {
-                Scanner scanner = new Scanner(SelectionWindowController.getFile());
-                loadTxtInfo(scanner);
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
+            TxtParser txtParser = new TxtParser(nameTxt, addressTxt, telehomeTxt, telemobTxt, emailTxt, professionalProfile, additionalInfoTxt, interestsTxt, educationList, courseList);
+            txtParser.loadTxtInfo(SelectionWindowController.getFile());
+            loadChronologicalTxtInfo(SelectionWindowController.getFile());
         }
         else if(SelectionWindowController.getTexLoad()){
-            try {
-                Scanner scanner = new Scanner(SelectionWindowController.getFile());
-                loadTexInfo(scanner);
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
+            LaTexParser texParser = new LaTexParser(nameTxt, addressTxt, telehomeTxt, telemobTxt, emailTxt, professionalProfile, additionalInfoTxt, interestsTxt, educationList, courseList);
+            texParser.loadTexInfo(SelectionWindowController.getFile());
+            loadTexInfo(SelectionWindowController.getFile());
         }
     }
 
@@ -190,13 +182,13 @@ public class ChronologicalCVControler extends CommonFunctions implements Initial
 
         if(file!=null) {
             if (file.getName().contains(".tex")) {
-                CreateLaTexDocument laTexDocument = new CreateLaTexDocument(null, null, educationList, courseList, professionalExperiences,
+                LaTexDocumentCreator laTexDocument = new LaTexDocumentCreator(null, null, educationList, courseList, professionalExperiences,
                         nameTxt.getText(), addressTxt.getText(), telehomeTxt.getText(), telemobTxt.getText(),
                         emailTxt.getText(), professionalProfile.getText(), additionalInfoTxt.getText(), interestsTxt.getText(), coreStrengthTxt.getText());
                 laTexDocument.produceLaTex(file, "chronological");
             }
             else {
-                CreateTxtDocument txtDocument = new CreateTxtDocument(null, null, educationList, courseList, professionalExperiences,
+                TxtDocumentCreator txtDocument = new TxtDocumentCreator(null, null, educationList, courseList, professionalExperiences,
                         nameTxt.getText(), addressTxt.getText(), telehomeTxt.getText(), telemobTxt.getText(),
                         emailTxt.getText(), professionalProfile.getText(), additionalInfoTxt.getText(), interestsTxt.getText(), coreStrengthTxt.getText());
                 txtDocument.produceTxtFile(file, "chronological");
@@ -206,13 +198,50 @@ public class ChronologicalCVControler extends CommonFunctions implements Initial
         }
     }
 
-    public void loadTxtInfo(Scanner scanner){
+    public void loadChronologicalTxtInfo(File file){
+        List<String> lines = null;
+        try {
+            lines = Files.readAllLines(file.toPath());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-        nameTxt.setText(scanner.nextLine());
-        addressTxt.setText(scanner.nextLine());
+        for(int i=0; i<lines.size(); i++) {
+            if(lines.get(i).contains("3.")){
+                i++;
+                while (!lines.get(i).contains("4.")) {
+                    coreStrengthTxt.setText(coreStrengthTxt.getText() + lines.get(i));
+                    i++;
+                }
+            }
+            if(lines.get(i).contains("4.")){
+                i++;
+                while (!lines.get(i).contains("5.")) {
+                    String[] firstLine = lines.get(i).split(", ");
+                    if(firstLine.length>1) {
+                        firstLine[0] = firstLine[0].replace("\t• ", "");
+                        String companyName = firstLine[0], jobTitle = firstLine[1], date = firstLine[2], paragraph = "";
+                        i++;
+                        while (!lines.get(i).contains("List of")) {
+                            paragraph = paragraph + lines.get(i);
+                            i++;
+                        }
+                        paragraph = paragraph.replace("\t\t• Paragraph of responsibilities: ", "");
+                        i++;
+                        List<String> achievements = new ArrayList<>();
+                        while (lines.get(i).contains("\t\t\t")) {
+                            achievements.add(lines.get(i).replace("\t\t\t• ", ""));
+                            i++;
+                        }
+                        professionalExperiences.add(new ProfessionalExperience(companyName, jobTitle, date, paragraph, FXCollections.observableArrayList(achievements)));
+                    }
+                }
+            }
+        }
+
     }
 
-    public void loadTexInfo(Scanner scanner){
+    public void loadTexInfo(File file){
 
     }
 }

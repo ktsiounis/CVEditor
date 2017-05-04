@@ -12,7 +12,9 @@ import model.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -82,20 +84,14 @@ public class CombinedCVController extends CommonFunctions implements Initializab
         configureCourseTable(courseTable, courseList);
         configureProfessionalExperienceTable(profExperienceTable, professionalExperiences);
         if(SelectionWindowController.getTxtLoad()){
-            try {
-                Scanner scanner = new Scanner(SelectionWindowController.getFile());
-                loadTxtInfo(scanner);
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
+            TxtParser txtParser = new TxtParser(nameTxt, addressTxt, telehomeTxt, telemobTxt, emailTxt, professionalProfile, additionalInfoTxt, interestsTxt, educationList, courseList);
+            txtParser.loadTxtInfo(SelectionWindowController.getFile());
+            loadCombinedTxtInfo(SelectionWindowController.getFile());
         }
-        else if(SelectionWindowController.getTexLoad()){
-            try {
-                Scanner scanner = new Scanner(SelectionWindowController.getFile());
-                loadTexInfo(scanner);
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
+        else if(SelectionWindowController.getTexLoad()) {
+            LaTexParser texParser = new LaTexParser(nameTxt, addressTxt, telehomeTxt, telemobTxt, emailTxt, professionalProfile, additionalInfoTxt, interestsTxt, educationList, courseList);
+            texParser.loadTexInfo(SelectionWindowController.getFile());
+            loadTexInfo(SelectionWindowController.getFile());
         }
     }
 
@@ -224,13 +220,13 @@ public class CombinedCVController extends CommonFunctions implements Initializab
 
         if(file!=null) {
             if (file.getName().contains(".tex")) {
-                CreateLaTexDocument laTexDocument = new CreateLaTexDocument(skillsList, null, educationList, courseList, professionalExperiences,
+                LaTexDocumentCreator laTexDocument = new LaTexDocumentCreator(skillsList, null, educationList, courseList, professionalExperiences,
                         nameTxt.getText(), addressTxt.getText(), telehomeTxt.getText(), telemobTxt.getText(),
                         emailTxt.getText(), professionalProfile.getText(), additionalInfoTxt.getText(), interestsTxt.getText(), null);
                 laTexDocument.produceLaTex(file, "combined");
             }
             else{
-                CreateTxtDocument txtDocument = new CreateTxtDocument(skillsList, null, educationList, courseList, professionalExperiences,
+                TxtDocumentCreator txtDocument = new TxtDocumentCreator(skillsList, null, educationList, courseList, professionalExperiences,
                         nameTxt.getText(), addressTxt.getText(), telehomeTxt.getText(), telemobTxt.getText(),
                         emailTxt.getText(), professionalProfile.getText(), additionalInfoTxt.getText(), interestsTxt.getText(), null);
                 txtDocument.produceTxtFile(file, "combined");
@@ -240,15 +236,54 @@ public class CombinedCVController extends CommonFunctions implements Initializab
         }
     }
 
-    public void loadTxtInfo(Scanner scanner){
+    public void loadCombinedTxtInfo(File file){
+        List<String> lines = null;
+        try {
+            lines = Files.readAllLines(file.toPath());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-        nameTxt.setText(scanner.nextLine());
-        addressTxt.setText(scanner.nextLine());
+        for(int i=0; i<lines.size(); i++) {
+            if(lines.get(i).contains("3.")){
+                i++;
+                while (!lines.get(i).contains("4. ")) {
+                    String[] skillItem = lines.get(i).split(" and ");
+                    if(skillItem.length>0) {
+                        skillItem[0] = skillItem[0].replace("\t• ", "");
+                        skillsList.add(new Skills(skillItem[0], skillItem[1].split(" on ")[0], skillItem[1].split(" on ")[1]));
+                    }
+                    i++;
+                }
+            }
+
+            if(lines.get(i).contains("4. ")){
+                i++;
+                while (!lines.get(i).contains("5. ")) {
+                    String[] firstLine = lines.get(i).split(", ");
+                    if(firstLine.length>1) {
+                        firstLine[0] = firstLine[0].replace("\t• ", "");
+                        String companyName = firstLine[0], jobTitle = firstLine[1], date = firstLine[2], paragraph = "";
+                        i++;
+                        while (!lines.get(i).contains("List of ")) {
+                            paragraph = paragraph + lines.get(i);
+                            i++;
+                        }
+                        paragraph = paragraph.replace("\t\t• Paragraph of responsibilities: ", "");
+                        i++;
+                        List<String> achievements = new ArrayList<>();
+                        while (lines.get(i).contains("\t\t\t")) {
+                            achievements.add(lines.get(i).replace("\t\t\t• ", ""));
+                            i++;
+                        }
+                        professionalExperiences.add(new ProfessionalExperience(companyName, jobTitle, date, paragraph, FXCollections.observableArrayList(achievements)));
+                    }
+                }
+            }
+        }
     }
 
-    public void loadTexInfo(Scanner scanner){
+    public void loadTexInfo(File file){
 
-        nameTxt.setText(scanner.nextLine());
-        addressTxt.setText(scanner.nextLine());
     }
 }

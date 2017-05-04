@@ -79,20 +79,14 @@ public class FunctionalCVController extends CommonFunctions implements Initializ
         configureEducationTable(educationTable, educationList);
         configureCourseTable(courseTable, courseList);
         if(SelectionWindowController.getTxtLoad()){
-            try {
-                Scanner scanner = new Scanner(SelectionWindowController.getFile());
-                loadTxtInfo(scanner);
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
+            TxtParser txtParser = new TxtParser(nameTxt, addressTxt, telehomeTxt, telemobTxt, emailTxt, professionalProfile, additionalInfoTxt, interestsTxt, educationList, courseList);
+            txtParser.loadTxtInfo(SelectionWindowController.getFile());
+            loadFunctionalTxtInfo(SelectionWindowController.getFile());
         }
         else if(SelectionWindowController.getTexLoad()){
-            try {
-                Scanner scanner = new Scanner(SelectionWindowController.getFile());
-                loadTexInfo(scanner);
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
+            LaTexParser texParser = new LaTexParser(nameTxt, addressTxt, telehomeTxt, telemobTxt, emailTxt, professionalProfile, additionalInfoTxt, interestsTxt, educationList, courseList);
+            texParser.loadTexInfo(SelectionWindowController.getFile());
+            loadTexInfo(SelectionWindowController.getFile());
         }
     }
 
@@ -254,13 +248,13 @@ public class FunctionalCVController extends CommonFunctions implements Initializ
 
         if(file!=null) {
             if (file.getName().contains(".tex")) {
-                CreateLaTexDocument laTexDocument = new CreateLaTexDocument(skillsList, careerSummaryList, educationList, courseList, null,
+                LaTexDocumentCreator laTexDocument = new LaTexDocumentCreator(skillsList, careerSummaryList, educationList, courseList, null,
                         nameTxt.getText(), addressTxt.getText(), telehomeTxt.getText(), telemobTxt.getText(),
                         emailTxt.getText(), professionalProfile.getText(), additionalInfoTxt.getText(), interestsTxt.getText(), null);
                 laTexDocument.produceLaTex(file, "functional");
             }
             else{
-                CreateTxtDocument txtDocument = new CreateTxtDocument(skillsList, careerSummaryList, educationList, courseList, null,
+                TxtDocumentCreator txtDocument = new TxtDocumentCreator(skillsList, careerSummaryList, educationList, courseList, null,
                         nameTxt.getText(), addressTxt.getText(), telehomeTxt.getText(), telemobTxt.getText(),
                         emailTxt.getText(), professionalProfile.getText(), additionalInfoTxt.getText(), interestsTxt.getText(), null);
                 txtDocument.produceTxtFile(file, "functional");
@@ -277,42 +271,15 @@ public class FunctionalCVController extends CommonFunctions implements Initializ
         }
     }
 
-    public void loadTxtInfo(Scanner scanner){
-        List<String> lines = new ArrayList<>();
-        while(scanner.hasNextLine()){
-            lines.add(scanner.nextLine());
+    public void loadFunctionalTxtInfo(File file){
+        List<String> lines = null;
+        try {
+            lines = Files.readAllLines(file.toPath());
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
-        lines.forEach(line -> {
-            if(line.contains("Name") && line.split(": ").length>1){
-                nameTxt.setText(line.split(": ")[1]);
-
-            }
-            else if(line.contains("Address") && line.split(": ").length>1){
-                addressTxt.setText(line.split(": ")[1]);
-            }
-            else if(line.contains("Telephone")){
-                String numbers = line.split(": ")[1];
-                String home = numbers.split("    ")[0];
-                home = home.replace("(Home)","");
-                String mobile = numbers.split("    ")[1];
-                mobile = mobile.replace("(Mobile)","");
-                telehomeTxt.setText(home);
-                telemobTxt.setText(mobile);
-            }
-            else if(line.contains("Email") && line.split(": ").length>1){
-                emailTxt.setText(line.split(": ")[1]);
-            }
-        });
-
         for(int i=0; i<lines.size(); i++) {
-            if(lines.get(i).contains("2.")) {
-                i++;
-                while (!lines.get(i).contains("3.")) {
-                    professionalProfile.setText(professionalProfile.getText() + lines.get(i));
-                    i++;
-                }
-            }
             if(lines.get(i).contains("3.")){
                 i++;
                 while (!lines.get(i).contains("4.")) {
@@ -335,46 +302,10 @@ public class FunctionalCVController extends CommonFunctions implements Initializ
                     i++;
                 }
             }
-            if(lines.get(i).contains("5.")){
-                i++;
-                while (!lines.get(i).contains("6.")) {
-                    String[] educationItem = lines.get(i).split(", ");
-                    if(educationItem.length>1){
-                        educationItem[0] = educationItem[0].replace("\t• ", "");
-                        educationList.add(new Education(educationItem[0], educationItem[1], educationItem[2], educationItem[3]));
-                    }
-                    i++;
-                }
-            }
-            if(lines.get(i).contains("6.")){
-                i++;
-                while (!lines.get(i).contains("7.")) {
-                    String[] courseItem = lines.get(i).split(", ");
-                    if(courseItem.length>1){
-                        courseItem[0] = courseItem[0].replace("\t• ", "");
-                        courseList.add(new Course(courseItem[0], courseItem[1], courseItem[2], courseItem[3]));
-                    }
-                    i++;
-                }
-            }
-            if(lines.get(i).contains("7.")){
-                i++;
-                while (!lines.get(i).contains("8.")) {
-                    additionalInfoTxt.setText(additionalInfoTxt.getText() + lines.get(i));
-                    i++;
-                }
-            }
-            if (lines.get(i).equals("8.  INTERESTS")){
-                i++;
-                while (i<lines.size()) {
-                    interestsTxt.setText(interestsTxt.getText() + lines.get(i));
-                    i++;
-                }
-            }
         }
     }
 
-    public void loadTexInfo(Scanner scanner){
+    public void loadTexInfo(File file){
 
     }
 }

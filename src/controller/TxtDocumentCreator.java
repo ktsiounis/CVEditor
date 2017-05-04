@@ -13,7 +13,7 @@ import java.nio.file.Files;
 /**
  * Created by Ntinos on 30/4/2017.
  */
-public class CreateTxtDocument {
+public class TxtDocumentCreator {
 
     private ObservableList<Skills> skillsList;
     private ObservableList<CareerSummary> careerSummaryList;
@@ -22,7 +22,7 @@ public class CreateTxtDocument {
     private ObservableList<ProfessionalExperience> professionalExperiences;
     private String name, address, homeTel, mobileTel, email, professionalProfile, additionalInfo, interests, coreStrength;
 
-    public CreateTxtDocument(ObservableList<Skills> skillsList, ObservableList<CareerSummary> careerSummaryList, ObservableList<Education> educationList, ObservableList<Course> courseList, ObservableList<ProfessionalExperience> professionalExperiences, String name, String address, String homeTel, String mobileTel, String email, String professionalProfile, String additionalInfo, String interests, String coreStrength) {
+    public TxtDocumentCreator(ObservableList<Skills> skillsList, ObservableList<CareerSummary> careerSummaryList, ObservableList<Education> educationList, ObservableList<Course> courseList, ObservableList<ProfessionalExperience> professionalExperiences, String name, String address, String homeTel, String mobileTel, String email, String professionalProfile, String additionalInfo, String interests, String coreStrength) {
         this.skillsList = skillsList;
         this.careerSummaryList = careerSummaryList;
         this.educationList = educationList;
@@ -53,13 +53,17 @@ public class CreateTxtDocument {
             writer.println(" " + professionalProfile + "\n");
 
             if(type.equals("functional")){
-                printFunctionalBullets(writer);
+                printSkills(writer);
+                printCareer(writer);
             }
             else if(type.equals("chronological")){
-                printChronologicalBullets(writer);
+                writer.println("3.  CORE STRENGTHS");
+                writer.println(" " + coreStrength);
+                printExperience(writer);
             }
             else{
-                printCombinedBullets(writer);
+                printSkills(writer);
+                printExperience(writer);
             }
 
             writer.println("5.  EDUCATION AND TRAINING\n");
@@ -83,43 +87,21 @@ public class CreateTxtDocument {
         }
     }
 
-    public void printFunctionalBullets(PrintWriter writer){
+    public void printSkills(PrintWriter writer){
         writer.println("3.  SKILLS AND EXPERIENCE");
         if(skillsList.size()>0){
             skillsList.forEach(skill -> writer.println("\t• " + skill.getSkill() + " and " + skill.getExperience() + " on " + skill.getCompany()));
         }
+    }
 
+    public void printCareer(PrintWriter writer){
         writer.println("4.  CAREER SUMMARY");
         if(careerSummaryList.size()>0){
             careerSummaryList.forEach(careerSummary -> writer.println("\t• " + careerSummary.getCompany() + ", " + careerSummary.getJobTitle() + ", " + careerSummary.getDate()));
         }
     }
 
-    public void printChronologicalBullets(PrintWriter writer){
-        writer.println("3.  CORE STRENGTHS");
-        writer.println(" " + coreStrength);
-
-        writer.println("4.  PROFESSIONAL EXPERIENCE");
-        if(professionalExperiences.size()>0){
-            professionalExperiences.forEach(experience -> {
-                writer.println("\t• " + experience.getCompanyName() + ", " + experience.getJobTitle() + ", " + experience.getDate());
-                if(!experience.getParagraph().equals(" ")){
-                    writer.println("\t\t• Paragraph of responsibilities: " + experience.getParagraph());
-                }
-                if(experience.getAchievements().size()>0){
-                    writer.println("\t\t• List of achievements:");
-                    experience.getAchievements().forEach(achievement -> writer.println("\t\t\t• " + achievement));
-                }
-            });
-        }
-    }
-
-    public void printCombinedBullets(PrintWriter writer){
-        writer.println("3.  SKILLS AND EXPERIENCE");
-        if(skillsList.size()>0){
-            skillsList.forEach(skill -> writer.println("\t• " + skill.getSkill() + " and " + skill.getExperience() + " on " + skill.getCompany()));
-        }
-
+    public void printExperience(PrintWriter writer){
         writer.println("4.  PROFESSIONAL EXPERIENCE");
         if(professionalExperiences.size()>0){
             professionalExperiences.forEach(experience -> {

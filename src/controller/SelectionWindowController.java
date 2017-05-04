@@ -77,17 +77,17 @@ public class SelectionWindowController {
                     lines.add(reader.nextLine());
                 }
 
-                if(lines.contains("\\textbf{3. SKILLS AND EXPERIENCE}") && lines.contains("\\textbf{4. CAREER SUMMARY}")){
+                if(lines.contains("\\textbf{3.  SKILLS AND EXPERIENCE}") && lines.contains("\\textbf{4.  CAREER SUMMARY}")){
                     System.out.println("It's functional");
                     functionalCVchoice.setSelected(true);
                     createNewButtonPressed(event);
                 }
-                else if(lines.contains("\\textbf{3. CORE STRENGTHS}\\\\") && lines.contains("\\textbf{4. PROFESSIONAL EXPERIENCE}")){
+                else if(lines.contains("\\textbf{3.  CORE STRENGTHS}\\\\") && lines.contains("\\textbf{4.  PROFESSIONAL EXPERIENCE}")){
                     System.out.println("It's a chronological");
                     chronologicalCVchoice.setSelected(true);
                     createNewButtonPressed(event);
                 }
-                else if(lines.contains("\\textbf{3. SKILLS AND EXPERIENCE}") && lines.contains("\\textbf{4. PROFESSIONAL EXPERIENCE}")){
+                else if(lines.contains("\\textbf{3.  SKILLS AND EXPERIENCE}") && lines.contains("\\textbf{4.  PROFESSIONAL EXPERIENCE}")){
                     System.out.println("It's a combined");
                     combinedCVchoice.setSelected(true);
                     createNewButtonPressed(event);

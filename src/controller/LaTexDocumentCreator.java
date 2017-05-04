@@ -9,7 +9,7 @@ import java.io.*;
 /**
  * Created by Ntinos on 27/4/2017.
  */
-public class CreateLaTexDocument {
+public class LaTexDocumentCreator {
 
     private ObservableList<Skills> skillsList;
     private ObservableList<CareerSummary> careerSummaryList;
@@ -18,7 +18,7 @@ public class CreateLaTexDocument {
     private ObservableList<ProfessionalExperience> professionalExperiences;
     private String name, address, homeTel, mobileTel, email, professionalProfile, additionalInfo, interests, coreStrength;
 
-    public CreateLaTexDocument(ObservableList<Skills> skillsList, ObservableList<CareerSummary> careerSummaryList, ObservableList<Education> educationList, ObservableList<Course> courseList, ObservableList<ProfessionalExperience> professionalExperiences, String name, String address, String homeTel, String mobileTel, String email, String professionalProfile, String additionalInfo, String interests, String coreStrength) {
+    public LaTexDocumentCreator(ObservableList<Skills> skillsList, ObservableList<CareerSummary> careerSummaryList, ObservableList<Education> educationList, ObservableList<Course> courseList, ObservableList<ProfessionalExperience> professionalExperiences, String name, String address, String homeTel, String mobileTel, String email, String professionalProfile, String additionalInfo, String interests, String coreStrength) {
         this.skillsList = skillsList;
         this.careerSummaryList = careerSummaryList;
         this.educationList = educationList;
@@ -53,13 +53,17 @@ public class CreateLaTexDocument {
             writer.write(professionalProfile + "\\\\" + System.lineSeparator());
 
             if(type.equals("functional")){
-                printFunctionalBullets(writer);
+                printSkills(writer);
+                printCareer(writer);
             }
             else if(type.equals("chronological")){
-                printChronologicalBullets(writer);
+                writer.write("\\textbf{3.  CORE STRENGTHS}\\\\" + System.lineSeparator());
+                writer.write(coreStrength + "\\\\" + System.lineSeparator());
+                printExperience(writer);
             }
             else{
-                printCombinedBullets(writer);
+                printSkills(writer);
+                printExperience(writer);
             }
 
             writer.write("\\textbf{5.  EDUCATION AND TRAINING}" + System.lineSeparator());
@@ -101,7 +105,7 @@ public class CreateLaTexDocument {
         }
     }
 
-    public void printFunctionalBullets(FileWriter writer) throws IOException {
+    public void printSkills(FileWriter writer) throws IOException {
         writer.write("\\textbf{3.  SKILLS AND EXPERIENCE}" + System.lineSeparator());
         if(skillsList.size()>0){
             writer.write("\\begin{itemize}" + System.lineSeparator());
@@ -114,7 +118,9 @@ public class CreateLaTexDocument {
             });
             writer.write("\\end{itemize}" + System.lineSeparator());
         }
+    }
 
+    public void printCareer(FileWriter writer) throws IOException {
         writer.write("\\textbf{4.  CAREER SUMMARY}" + System.lineSeparator());
         if(careerSummaryList.size()>0) {
             writer.write("\\begin{itemize}" + System.lineSeparator());
@@ -129,12 +135,9 @@ public class CreateLaTexDocument {
         }
     }
 
-    public void printChronologicalBullets(FileWriter writer) throws IOException {
-        writer.write("\\textbf{3.  CORE STRENGTHS}\\\\" + System.lineSeparator());
-        writer.write(coreStrength + "\\\\" + System.lineSeparator());
-
+    public void printExperience(FileWriter writer) throws IOException {
         writer.write("\\textbf{4.  PROFESSIONAL EXPERIENCE}" + System.lineSeparator());
-        if(professionalExperiences.size()>0){
+        if(professionalExperiences.size() > 0){
             writer.write("\\begin{itemize}" + System.lineSeparator());
             professionalExperiences.forEach((ProfessionalExperience experience) -> {
                 try {
@@ -158,51 +161,6 @@ public class CreateLaTexDocument {
                     writer.write("\\end{itemize}" + System.lineSeparator());
                 }
                 catch (IOException e){
-
-                }
-            });
-            writer.write("\\end{itemize}" + System.lineSeparator());
-        }
-    }
-
-    public void printCombinedBullets(FileWriter writer) throws IOException {
-        writer.write("\\textbf{3.  SKILLS AND EXPERIENCE}" + System.lineSeparator());
-        if(skillsList.size()>0){
-            writer.write("\\begin{itemize}" + System.lineSeparator());
-            skillsList.forEach(skill -> {
-                try {
-                    writer.write("\\item " + skill.getSkill() + " and " + skill.getExperience() + " on " + skill.getCompany() + System.lineSeparator());
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            });
-            writer.write("\\end{itemize}" + System.lineSeparator());
-        }
-
-        writer.write("\\textbf{4.  PROFESSIONAL EXPERIENCE}" + System.lineSeparator());
-        if(professionalExperiences.size()>0){
-            writer.write("\\begin{itemize}" + System.lineSeparator());
-            professionalExperiences.forEach((ProfessionalExperience experience) -> {
-                try {
-                    writer.write("\\item " + experience.getCompanyName() + ", " + experience.getJobTitle() + ", " + experience.getDate() + System.lineSeparator());
-                    writer.write("\\begin{itemize}" + System.lineSeparator());
-                    if (experience.getParagraph() != " ") {
-                        writer.write("\\item Paragraph of responsibilities:" + System.lineSeparator() + experience.getParagraph() + System.lineSeparator());
-                    }
-                    if (experience.getAchievements().size() > 0) {
-                        writer.write("\\item List of achievements:" + System.lineSeparator());
-                        writer.write("\\begin{itemize}" + System.lineSeparator());
-                        experience.getAchievements().forEach(achievement -> {
-                            try {
-                                writer.write("\\item " + achievement + System.lineSeparator());
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-                        });
-                        writer.write("\\end{itemize}" + System.lineSeparator());
-                    }
-                    writer.write("\\end{itemize}" + System.lineSeparator());
-                }catch (IOException e){
 
                 }
             });
