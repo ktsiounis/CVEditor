@@ -116,25 +116,19 @@ public class FunctionalCVController extends CommonFunctions implements Initializ
         String[] lastItemsDate = {"0","0"};
         if(careerSummaryList.size()>0) lastItemsDate = careerSummaryList.get(careerSummaryList.size()-1).getDate().split("-");
         String[] currentItemsDate = careerDateTxt.getText().split("-");
-        if(Integer.parseInt(lastItemsDate[1]) > Integer.parseInt(currentItemsDate[0])){
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText("Please add a recent date item");
-            alert.showAndWait();
-        }
-        else {
-            if (!(companyNameTxt.getText().isEmpty()) && !(jobTitleTxt.getText().isEmpty()) && !(careerDateTxt.getText().isEmpty())) {
+        if (!(companyNameTxt.getText().isEmpty()) && !(jobTitleTxt.getText().isEmpty()) && !(careerDateTxt.getText().isEmpty())) {
+            if(Integer.parseInt(lastItemsDate[1]) > Integer.parseInt(currentItemsDate[0])){
+                showDateOrderError();
+            }
+            else {
                 CareerSummary careerSummary = new CareerSummary(companyNameTxt.getText(), jobTitleTxt.getText(), careerDateTxt.getText());
                 careerSummaryList.add(careerSummary);
                 companyNameTxt.clear();
                 jobTitleTxt.clear();
                 careerDateTxt.clear();
-            } else {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Error");
-                alert.setHeaderText("Please fill the empty fields");
-                alert.showAndWait();
             }
+        } else {
+            showEmptyFieldsError();
         }
     }
 
@@ -148,22 +142,42 @@ public class FunctionalCVController extends CommonFunctions implements Initializ
 
     public void deleteSkill(){
         int selectedIndex = skillsTable.getSelectionModel().getSelectedIndex();
-        skillsTable.getItems().remove(selectedIndex);
+        if(selectedIndex != -1) {
+            skillsTable.getItems().remove(selectedIndex);
+        }
+        else {
+            showDeleteError();
+        }
     }
 
     public void deleteCareerSummary(){
         int selectedIndex = careerSummaryTable.getSelectionModel().getSelectedIndex();
-        careerSummaryTable.getItems().remove(selectedIndex);
+        if (selectedIndex != -1) {
+            careerSummaryTable.getItems().remove(selectedIndex);
+        }
+        else {
+            showDeleteError();
+        }
     }
 
     public void deleteEducation(){
         int selectedIndex = educationTable.getSelectionModel().getSelectedIndex();
-        educationTable.getItems().remove(selectedIndex);
+        if(selectedIndex != -1) {
+            educationTable.getItems().remove(selectedIndex);
+        }
+        else {
+            showDeleteError();
+        }
     }
 
     public void deleteCourse(){
         int selectedIndex = courseTable.getSelectionModel().getSelectedIndex();
-        courseTable.getItems().remove(selectedIndex);
+        if(selectedIndex != -1) {
+            courseTable.getItems().remove(selectedIndex);
+        }
+        else {
+            showDeleteError();
+        }
     }
 
     public ObservableList<Skills> getSkillsList() {
@@ -306,6 +320,35 @@ public class FunctionalCVController extends CommonFunctions implements Initializ
     }
 
     public void loadTexInfo(File file){
+        List<String> lines = null;
+        try {
+            lines = Files.readAllLines(file.toPath());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
+        for(int i=0; i<lines.size(); i++) {
+            if(lines.get(i).contains("3.")){
+                i++;
+                while (!lines.get(i).contains("4.")) {
+                    if(lines.get(i).contains("\\item")){
+                        String[] items = lines.get(i).split(" and ");
+                        skillsList.add(new Skills(items[0].replace("\\item ",""), items[1].split(" on ")[0], items[1].split(" on ")[1]));
+                    }
+                    i++;
+                }
+            }
+
+            if(lines.get(i).contains("4. ")){
+                i++;
+                while (!lines.get(i).contains("5. ")) {
+                    if(lines.get(i).contains("\\item")){
+                        String[] items = lines.get(i).split(", ");
+                        careerSummaryList.add(new CareerSummary(items[0].replace("\\item ",""), items[1], items[2]));
+                    }
+                    i++;
+                }
+            }
+        }
     }
 }

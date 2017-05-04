@@ -96,17 +96,32 @@ public class ChronologicalCVControler extends CommonFunctions implements Initial
 
     public void deleteEducation(){
         int selectedIndex = educationTable.getSelectionModel().getSelectedIndex();
-        educationTable.getItems().remove(selectedIndex);
+        if(selectedIndex != -1) {
+            educationTable.getItems().remove(selectedIndex);
+        }
+        else {
+            showDeleteError();
+        }
     }
 
     public void deleteCourse(){
         int selectedIndex = courseTable.getSelectionModel().getSelectedIndex();
-        courseTable.getItems().remove(selectedIndex);
+        if(selectedIndex != -1) {
+            courseTable.getItems().remove(selectedIndex);
+        }
+        else {
+            showDeleteError();
+        }
     }
 
     public void deleteProfessionalExperience(){
         int selectedIndex = profExperienceTable.getSelectionModel().getSelectedIndex();
-        profExperienceTable.getItems().remove(selectedIndex);
+        if(selectedIndex != -1) {
+            profExperienceTable.getItems().remove(selectedIndex);
+        }
+        else {
+            showDeleteError();
+        }
     }
 
     public ObservableList<Education> getEducationList() {
@@ -242,6 +257,46 @@ public class ChronologicalCVControler extends CommonFunctions implements Initial
     }
 
     public void loadTexInfo(File file){
+        List<String> lines = null;
+        try {
+            lines = Files.readAllLines(file.toPath());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
+        for(int i=0; i<lines.size(); i++) {
+            if(lines.get(i).contains("3.")){
+                i++;
+                while (!lines.get(i).contains("4. ")) {
+                    coreStrengthTxt.setText(coreStrengthTxt.getText() + lines.get(i));
+                    coreStrengthTxt.setText(coreStrengthTxt.getText().replace("//",""));
+                    i++;
+                }
+            }
+
+            if(lines.get(i).contains("4. ")){
+                i++;
+                while (!lines.get(i).contains("5. ")) {
+                    if(lines.get(i).contains("\\item")){
+                        String[] items = lines.get(i).split(", ");
+                        String company = items[0].replace("\\item ",""), job = items[1], date = items[2], paragraph = "";
+                        List<String> achievements = new ArrayList<>();
+                        i+=2;
+                        while (!lines.get(i).contains("List of")){
+                            paragraph = paragraph + lines.get(i);
+                            i++;
+                        }
+                        paragraph = paragraph.replace("\\item ","").replace("Paragraph of responsibilities:","");
+                        i+=2;
+                        while (lines.get(i).contains("\\item")){
+                            achievements.add(lines.get(i).replace("\\item ",""));
+                            i++;
+                        }
+                        professionalExperiences.add(new ProfessionalExperience(company, job, date, paragraph, FXCollections.observableArrayList(achievements)));
+                    }
+                    i++;
+                }
+            }
+        }
     }
 }

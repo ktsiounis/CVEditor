@@ -113,22 +113,42 @@ public class CombinedCVController extends CommonFunctions implements Initializab
 
     public void deleteSkill(){
         int selectedIndex = skillsTable.getSelectionModel().getSelectedIndex();
-        skillsTable.getItems().remove(selectedIndex);
+        if(selectedIndex != -1) {
+            skillsTable.getItems().remove(selectedIndex);
+        }
+        else {
+            showDeleteError();
+        }
     }
 
     public void deleteEducation(){
         int selectedIndex = educationTable.getSelectionModel().getSelectedIndex();
-        educationTable.getItems().remove(selectedIndex);
+        if(selectedIndex != -1) {
+            educationTable.getItems().remove(selectedIndex);
+        }
+        else {
+            showDeleteError();
+        }
     }
 
     public void deleteCourse(){
         int selectedIndex = courseTable.getSelectionModel().getSelectedIndex();
-        courseTable.getItems().remove(selectedIndex);
+        if(selectedIndex != -1) {
+            courseTable.getItems().remove(selectedIndex);
+        }
+        else {
+            showDeleteError();
+        }
     }
 
     public void deleteProfessionalExperience(){
         int selectedIndex = profExperienceTable.getSelectionModel().getSelectedIndex();
-        profExperienceTable.getItems().remove(selectedIndex);
+        if(selectedIndex != -1) {
+            profExperienceTable.getItems().remove(selectedIndex);
+        }
+        else {
+            showDeleteError();
+        }
     }
 
     public ObservableList<Skills> getSkillsList() {
@@ -284,6 +304,48 @@ public class CombinedCVController extends CommonFunctions implements Initializab
     }
 
     public void loadTexInfo(File file){
+        List<String> lines = null;
+        try {
+            lines = Files.readAllLines(file.toPath());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
+        for(int i=0; i<lines.size(); i++) {
+            if(lines.get(i).contains("3.")){
+                i++;
+                while (!lines.get(i).contains("4. ")) {
+                    if(lines.get(i).contains("\\item")){
+                        String[] items = lines.get(i).split(" and ");
+                        skillsList.add(new Skills(items[0].replace("\\item ",""), items[1].split(" on ")[0], items[1].split(" on ")[1]));
+                    }
+                    i++;
+                }
+            }
+
+            if(lines.get(i).contains("4. ")){
+                i++;
+                while (!lines.get(i).contains("5. ")) {
+                    if(lines.get(i).contains("\\item")){
+                        String[] items = lines.get(i).split(", ");
+                        String company = items[0].replace("\\item ",""), job = items[1], date = items[2], paragraph = "";
+                        List<String> achievements = new ArrayList<>();
+                        i+=2;
+                        while (!lines.get(i).contains("List")){
+                            paragraph = paragraph + lines.get(i);
+                            i++;
+                        }
+                        paragraph = paragraph.replace("\\item ","").replace("Paragraph of responsibilities:","");
+                        i+=2;
+                        while (lines.get(i).contains("\\item")){
+                            achievements.add(lines.get(i).replace("\\item ",""));
+                            i++;
+                        }
+                        professionalExperiences.add(new ProfessionalExperience(company, job, date, paragraph, FXCollections.observableArrayList(achievements)));
+                    }
+                    i++;
+                }
+            }
+        }
     }
 }
