@@ -11,14 +11,12 @@ import javafx.stage.FileChooser;
 import model.*;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.Scanner;
 
 /**
  * Created by dtsiounis on 27/03/2017.
@@ -49,16 +47,17 @@ public class CombinedCVController extends CommonFunctions implements Initializab
     private ObservableList<Course> courseList;
     private ObservableList<Skills> skillsList;
     private ObservableList<ProfessionalExperience> professionalExperiences;
+    private CombinedCV combinedCV = new CombinedCV();
 
     public CombinedCVController() {
         this.educationTable = new TableView<>();
         this.courseTable = new TableView<>();
         this.skillsTable = new TableView<>();
         this.profExperienceTable = new TableView<>();
-        this.educationList = FXCollections.observableArrayList();
-        this.courseList = FXCollections.observableArrayList();
-        this.skillsList = FXCollections.observableArrayList();
-        this.professionalExperiences =  FXCollections.observableArrayList();
+        this.educationList = combinedCV.getEducationList();
+        this.courseList = combinedCV.getCourseList();
+        this.skillsList = combinedCV.getSkillsList();
+        this.professionalExperiences =  combinedCV.getProfessionalExperiences();
         this.skillTxt = new TextField();
         this.experienceTxt = new TextField();
         this.companyTxt = new TextField();
@@ -84,12 +83,12 @@ public class CombinedCVController extends CommonFunctions implements Initializab
         configureCourseTable(courseTable, courseList);
         configureProfessionalExperienceTable(profExperienceTable, professionalExperiences);
         if(SelectionWindowController.getTxtLoad()){
-            TxtParser txtParser = new TxtParser(nameTxt, addressTxt, telehomeTxt, telemobTxt, emailTxt, professionalProfile, additionalInfoTxt, interestsTxt, educationList, courseList);
+            TxtCVParser txtParser = new TxtCVParser(nameTxt, addressTxt, telehomeTxt, telemobTxt, emailTxt, professionalProfile, additionalInfoTxt, interestsTxt, educationList, courseList);
             txtParser.loadTxtInfo(SelectionWindowController.getFile());
             loadCombinedTxtInfo(SelectionWindowController.getFile());
         }
         else if(SelectionWindowController.getTexLoad()) {
-            LaTexParser texParser = new LaTexParser(nameTxt, addressTxt, telehomeTxt, telemobTxt, emailTxt, professionalProfile, additionalInfoTxt, interestsTxt, educationList, courseList);
+            LaTexCVParser texParser = new LaTexCVParser(nameTxt, addressTxt, telehomeTxt, telemobTxt, emailTxt, professionalProfile, additionalInfoTxt, interestsTxt, educationList, courseList);
             texParser.loadTexInfo(SelectionWindowController.getFile());
             loadTexInfo(SelectionWindowController.getFile());
         }
@@ -232,6 +231,15 @@ public class CombinedCVController extends CommonFunctions implements Initializab
     }
 
     public void saveBtnPressed(ActionEvent event){
+        combinedCV.setName(nameTxt.getText());
+        combinedCV.setAddress(addressTxt.getText());
+        combinedCV.setTelehome(telehomeTxt.getText());
+        combinedCV.setTelemob(telemobTxt.getText());
+        combinedCV.setEmail(emailTxt.getText());
+        combinedCV.setAdditionalInfo(additionalInfoTxt.getText());
+        combinedCV.setProfessionalProfile(professionalProfile.getText());
+        combinedCV.setInterests(interestsTxt.getText());
+
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Save file");
         fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("LaTex File (*.tex)", "*.tex"), new FileChooser.ExtensionFilter("Plain Text File (*.txt)", "*.txt"));
@@ -240,18 +248,18 @@ public class CombinedCVController extends CommonFunctions implements Initializab
 
         if(file!=null) {
             if (file.getName().contains(".tex")) {
-                LaTexDocumentCreator laTexDocument = new LaTexDocumentCreator(skillsList, null, educationList, courseList, professionalExperiences,
+                LaTexCVDocumentCreator laTexDocument = new LaTexCVDocumentCreator(skillsList, null, educationList, courseList, professionalExperiences,
                         nameTxt.getText(), addressTxt.getText(), telehomeTxt.getText(), telemobTxt.getText(),
                         emailTxt.getText(), professionalProfile.getText(), additionalInfoTxt.getText(), interestsTxt.getText(), null);
                 laTexDocument.produceLaTex(file, "combined");
             }
             else{
-                TxtDocumentCreator txtDocument = new TxtDocumentCreator(skillsList, null, educationList, courseList, professionalExperiences,
+                TxtCVDocumentCreator txtDocument = new TxtCVDocumentCreator(skillsList, null, educationList, courseList, professionalExperiences,
                         nameTxt.getText(), addressTxt.getText(), telehomeTxt.getText(), telemobTxt.getText(),
                         emailTxt.getText(), professionalProfile.getText(), additionalInfoTxt.getText(), interestsTxt.getText(), null);
                 txtDocument.produceTxtFile(file, "combined");
             }
-            completion.setHeaderText("The LaTex CV created successfully");
+            completion.setHeaderText("The CV created successfully");
             completion.showAndWait();
         }
     }

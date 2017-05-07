@@ -7,14 +7,10 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import model.CV;
-import org.omg.PortableServer.LIFESPAN_POLICY_ID;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -70,25 +66,17 @@ public class SelectionWindowController {
         if(file != null){
             if(file.getName().contains(".tex")){
                 texLoad = true;
-                Scanner reader = new Scanner(file);
-                List<String> lines = new ArrayList<>();
-
-                while (reader.hasNextLine()){
-                    lines.add(reader.nextLine());
-                }
+                List<String> lines = Files.readAllLines(file.toPath());
 
                 if(lines.contains("\\textbf{3.  SKILLS AND EXPERIENCE}") && lines.contains("\\textbf{4.  CAREER SUMMARY}")){
-                    System.out.println("It's functional");
                     functionalCVchoice.setSelected(true);
                     createNewButtonPressed(event);
                 }
                 else if(lines.contains("\\textbf{3.  CORE STRENGTHS}\\\\") && lines.contains("\\textbf{4.  PROFESSIONAL EXPERIENCE}")){
-                    System.out.println("It's a chronological");
                     chronologicalCVchoice.setSelected(true);
                     createNewButtonPressed(event);
                 }
                 else if(lines.contains("\\textbf{3.  SKILLS AND EXPERIENCE}") && lines.contains("\\textbf{4.  PROFESSIONAL EXPERIENCE}")){
-                    System.out.println("It's a combined");
                     combinedCVchoice.setSelected(true);
                     createNewButtonPressed(event);
                 }
@@ -100,25 +88,17 @@ public class SelectionWindowController {
             }
             else if(file.getName().contains(".txt")){
                 txtLoad = true;
-                Scanner reader = new Scanner(file);
-                List<String> lines = new ArrayList<>();
-
-                while (reader.hasNextLine()){
-                    lines.add(reader.nextLine());
-                }
+                List<String> lines = Files.readAllLines(file.toPath());
 
                 if(lines.contains("3.  SKILLS AND EXPERIENCE") && lines.contains("4.  CAREER SUMMARY")){
-                    System.out.println("It's functional");
                     functionalCVchoice.setSelected(true);
                     createNewButtonPressed(event);
                 }
                 else if(lines.contains("3.  CORE STRENGTHS") && lines.contains("4.  PROFESSIONAL EXPERIENCE")){
-                    System.out.println("It's a chronological");
                     chronologicalCVchoice.setSelected(true);
                     createNewButtonPressed(event);
                 }
                 else if(lines.contains("3.  SKILLS AND EXPERIENCE") && lines.contains("4.  PROFESSIONAL EXPERIENCE")){
-                    System.out.println("It's a combined");
                     combinedCVchoice.setSelected(true);
                     createNewButtonPressed(event);
                 }

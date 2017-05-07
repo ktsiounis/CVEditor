@@ -1,6 +1,5 @@
 package controller;
 
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -14,10 +13,8 @@ import javafx.event.ActionEvent;
 import java.io.*;
 import java.net.URL;
 import java.nio.file.Files;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.Scanner;
 
 public class FunctionalCVController extends CommonFunctions implements Initializable{
 
@@ -45,6 +42,7 @@ public class FunctionalCVController extends CommonFunctions implements Initializ
     private ObservableList<CareerSummary> careerSummaryList;
     private ObservableList<Education> educationList;
     private ObservableList<Course> courseList;
+    private FunctionalCV functionalCV = new FunctionalCV();
 
     public FunctionalCVController() {
         this.educationDateTxt = new TextField();
@@ -62,10 +60,10 @@ public class FunctionalCVController extends CommonFunctions implements Initializ
         this.skillTxt = new TextField();
         this.experienceTxt = new TextField();
         this.companyNameTxt = new TextField();
-        this.skillsList = FXCollections.observableArrayList();
-        this.careerSummaryList = FXCollections.observableArrayList();
-        this.educationList = FXCollections.observableArrayList();
-        this.courseList = FXCollections.observableArrayList();
+        this.skillsList = functionalCV.getSkillsList();
+        this.careerSummaryList = functionalCV.getCareerSummaryList();
+        this.educationList = functionalCV.getEducationList();
+        this.courseList = functionalCV.getCourseList();
         this.skillsTable = new TableView<>();
         this.careerSummaryTable = new TableView<>();
         this.educationTable = new TableView<>();
@@ -79,12 +77,12 @@ public class FunctionalCVController extends CommonFunctions implements Initializ
         configureEducationTable(educationTable, educationList);
         configureCourseTable(courseTable, courseList);
         if(SelectionWindowController.getTxtLoad()){
-            TxtParser txtParser = new TxtParser(nameTxt, addressTxt, telehomeTxt, telemobTxt, emailTxt, professionalProfile, additionalInfoTxt, interestsTxt, educationList, courseList);
+            TxtCVParser txtParser = new TxtCVParser(nameTxt, addressTxt, telehomeTxt, telemobTxt, emailTxt, professionalProfile, additionalInfoTxt, interestsTxt, educationList, courseList);
             txtParser.loadTxtInfo(SelectionWindowController.getFile());
             loadFunctionalTxtInfo(SelectionWindowController.getFile());
         }
         else if(SelectionWindowController.getTexLoad()){
-            LaTexParser texParser = new LaTexParser(nameTxt, addressTxt, telehomeTxt, telemobTxt, emailTxt, professionalProfile, additionalInfoTxt, interestsTxt, educationList, courseList);
+            LaTexCVParser texParser = new LaTexCVParser(nameTxt, addressTxt, telehomeTxt, telemobTxt, emailTxt, professionalProfile, additionalInfoTxt, interestsTxt, educationList, courseList);
             texParser.loadTexInfo(SelectionWindowController.getFile());
             loadTexInfo(SelectionWindowController.getFile());
         }
@@ -180,20 +178,20 @@ public class FunctionalCVController extends CommonFunctions implements Initializ
         }
     }
 
-    public ObservableList<Skills> getSkillsList() {
-        return skillsList;
-    }
-
-    public ObservableList<CareerSummary> getCareerSummaryList() {
-        return careerSummaryList;
-    }
-
     public ObservableList<Education> getEducationList() {
         return educationList;
     }
 
     public ObservableList<Course> getCourseList() {
         return courseList;
+    }
+
+    public ObservableList<Skills> getSkillsList() {
+        return skillsList;
+    }
+
+    public ObservableList<CareerSummary> getCareerSummaryList() {
+        return careerSummaryList;
     }
 
     public void setQualificationTxt(String qualificationTxt) {
@@ -253,6 +251,14 @@ public class FunctionalCVController extends CommonFunctions implements Initializ
     }
 
     public void saveBtnPressed(ActionEvent event){
+        functionalCV.setName(nameTxt.getText());
+        functionalCV.setAddress(addressTxt.getText());
+        functionalCV.setTelehome(telehomeTxt.getText());
+        functionalCV.setTelemob(telemobTxt.getText());
+        functionalCV.setEmail(emailTxt.getText());
+        functionalCV.setAdditionalInfo(additionalInfoTxt.getText());
+        functionalCV.setProfessionalProfile(professionalProfile.getText());
+        functionalCV.setInterests(interestsTxt.getText());
 
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Save file");
@@ -262,26 +268,19 @@ public class FunctionalCVController extends CommonFunctions implements Initializ
 
         if(file!=null) {
             if (file.getName().contains(".tex")) {
-                LaTexDocumentCreator laTexDocument = new LaTexDocumentCreator(skillsList, careerSummaryList, educationList, courseList, null,
+                LaTexCVDocumentCreator laTexDocument = new LaTexCVDocumentCreator(skillsList, careerSummaryList, educationList, courseList, null,
                         nameTxt.getText(), addressTxt.getText(), telehomeTxt.getText(), telemobTxt.getText(),
                         emailTxt.getText(), professionalProfile.getText(), additionalInfoTxt.getText(), interestsTxt.getText(), null);
                 laTexDocument.produceLaTex(file, "functional");
             }
             else{
-                TxtDocumentCreator txtDocument = new TxtDocumentCreator(skillsList, careerSummaryList, educationList, courseList, null,
+                TxtCVDocumentCreator txtDocument = new TxtCVDocumentCreator(skillsList, careerSummaryList, educationList, courseList, null,
                         nameTxt.getText(), addressTxt.getText(), telehomeTxt.getText(), telemobTxt.getText(),
                         emailTxt.getText(), professionalProfile.getText(), additionalInfoTxt.getText(), interestsTxt.getText(), null);
                 txtDocument.produceTxtFile(file, "functional");
             }
-            completion.setHeaderText("The LaTex CV created successfully");
+            completion.setHeaderText("The CV created successfully");
             completion.showAndWait();
-            try {
-                BufferedReader reader = new BufferedReader(Files.newBufferedReader(file.toPath()));
-                System.out.println(reader.readLine());
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
         }
     }
 

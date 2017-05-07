@@ -6,7 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class CV extends Application {
+public class ApplicationMain extends Application {
     public Stage getStage() {
         return stage;
     }
@@ -17,7 +17,7 @@ public class CV extends Application {
     public void start(Stage primaryStage) throws Exception{
 
         Parent root = FXMLLoader.load(getClass().getResource("/view/SelectionWindow.fxml"));
-        primaryStage.setTitle("CV Editor");
+        primaryStage.setTitle("ApplicationMain Editor");
         primaryStage.setScene(new Scene(root, 500, 275));
         stage = primaryStage;
         primaryStage.show();

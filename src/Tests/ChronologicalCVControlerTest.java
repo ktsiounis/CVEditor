@@ -1,6 +1,6 @@
 import controller.ChronologicalCVControler;
 import javafx.application.Application;
-import model.CV;
+import model.ApplicationMain;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -104,7 +104,7 @@ public class ChronologicalCVControlerTest {
         t = new Thread("JavaFX Init Thread") {
             @Override
             public void run() {
-                Application.launch(CV.class);
+                Application.launch(ApplicationMain.class);
             }
         };
         t.setDaemon(true);

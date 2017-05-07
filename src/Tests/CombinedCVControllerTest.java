@@ -1,6 +1,6 @@
 import controller.CombinedCVController;
 import javafx.application.Application;
-import model.CV;
+import model.ApplicationMain;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
 /**
  * Created by dtsiounis on 31/03/2017.
  */
-public class CombinedCVControllerTest{
+public class CombinedCVControllerTest {
 
     private CombinedCVController combined = new CombinedCVController();
     private static Thread t;
@@ -114,7 +114,7 @@ public class CombinedCVControllerTest{
         t = new Thread("JavaFX Init Thread") {
             @Override
             public void run() {
-                Application.launch(CV.class);
+                Application.launch(ApplicationMain.class);
             }
         };
         t.setDaemon(true);

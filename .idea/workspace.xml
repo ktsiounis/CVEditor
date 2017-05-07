@@ -2,13 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/model/ChronologicalCV.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/model/CombinedCV.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/model/FunctionalCV.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/CVEditor/model/CV.class" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/controller/LaTexDocumentCreator.java" afterPath="$PROJECT_DIR$/src/controller/LaTexCVDocumentCreator.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/controller/LaTexParser.java" afterPath="$PROJECT_DIR$/src/controller/LaTexCVParser.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/controller/TxtDocumentCreator.java" afterPath="$PROJECT_DIR$/src/controller/TxtCVDocumentCreator.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/controller/TxtParser.java" afterPath="$PROJECT_DIR$/src/controller/TxtCVParser.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/model/CV.java" afterPath="$PROJECT_DIR$/src/model/ApplicationMain.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CVEditor/controller/ChronologicalCVControler.class" afterPath="$PROJECT_DIR$/out/production/CVEditor/controller/ChronologicalCVControler.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CVEditor/controller/CombinedCVController.class" afterPath="$PROJECT_DIR$/out/production/CVEditor/controller/CombinedCVController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CVEditor/controller/FunctionalCVController.class" afterPath="$PROJECT_DIR$/out/production/CVEditor/controller/FunctionalCVController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CVEditor/controller/SelectionWindowController.class" afterPath="$PROJECT_DIR$/out/production/CVEditor/controller/SelectionWindowController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Tests/ChronologicalCVControlerTest.java" afterPath="$PROJECT_DIR$/src/Tests/ChronologicalCVControlerTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Tests/CombinedCVControllerTest.java" afterPath="$PROJECT_DIR$/src/Tests/CombinedCVControllerTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Tests/FunctionalCVControllerTest.java" afterPath="$PROJECT_DIR$/src/Tests/FunctionalCVControllerTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controller/ChronologicalCVControler.java" afterPath="$PROJECT_DIR$/src/controller/ChronologicalCVControler.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controller/CombinedCVController.java" afterPath="$PROJECT_DIR$/src/controller/CombinedCVController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controller/CommonFunctions.java" afterPath="$PROJECT_DIR$/src/controller/CommonFunctions.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controller/FunctionalCVController.java" afterPath="$PROJECT_DIR$/src/controller/FunctionalCVController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controller/SelectionWindowController.java" afterPath="$PROJECT_DIR$/src/controller/SelectionWindowController.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -70,10 +84,9 @@
       <file leaf-file-name="FunctionalCVController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/controller/FunctionalCVController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1224">
-              <caret line="114" column="41" lean-forward="false" selection-start-line="114" selection-start-column="41" selection-end-line="114" selection-end-column="41" />
+            <state relative-caret-position="355">
+              <caret line="281" column="41" lean-forward="false" selection-start-line="281" selection-start-column="41" selection-end-line="281" selection-end-column="41" />
               <folding>
-                <element signature="imports" expanded="true" />
                 <element signature="method#FunctionalCVController#0;class#FunctionalCVController#0" expanded="false" />
                 <element signature="method#configureCareerSummaryTable#0;class#FunctionalCVController#0" expanded="false" />
                 <element signature="method#addToCareerSummaryTable#0;class#FunctionalCVController#0" expanded="false" />
@@ -84,9 +97,38 @@
                 <element signature="method#deleteEducation#0;class#FunctionalCVController#0" expanded="false" />
                 <element signature="method#deleteCourse#0;class#FunctionalCVController#0" expanded="false" />
                 <element signature="method#setCourseEstablishmentTxt#0;class#FunctionalCVController#0" expanded="false" />
-                <element signature="method#saveBtnPressed#0;class#FunctionalCVController#0" expanded="false" />
                 <element signature="method#loadFunctionalTxtInfo#0;class#FunctionalCVController#0" expanded="false" />
                 <element signature="method#loadTexInfo#0;class#FunctionalCVController#0" expanded="false" />
+                <marker date="1494151114000" expanded="true" signature="13898:13914" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LaTexCVDocumentCreator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/controller/LaTexCVDocumentCreator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="20" column="393" lean-forward="false" selection-start-line="20" selection-start-column="393" selection-end-line="20" selection-end-column="393" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ChronologicalCVControler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/controller/ChronologicalCVControler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="219" column="41" lean-forward="false" selection-start-line="219" selection-start-column="41" selection-end-line="219" selection-end-column="41" />
+              <folding>
+                <element signature="method#addToEducationTable#0;class#ChronologicalCVControler#0" expanded="false" />
+                <element signature="method#addToCourseTable#0;class#ChronologicalCVControler#0" expanded="false" />
+                <element signature="method#addToProfessionalExpTable#0;class#ChronologicalCVControler#0" expanded="false" />
+                <element signature="method#deleteEducation#0;class#ChronologicalCVControler#0" expanded="false" />
+                <element signature="method#deleteCourse#0;class#ChronologicalCVControler#0" expanded="false" />
+                <element signature="method#deleteProfessionalExperience#0;class#ChronologicalCVControler#0" expanded="false" />
+                <element signature="method#setCourseEstablishmentTxt#0;class#ChronologicalCVControler#0" expanded="false" />
+                <marker date="1494151114000" expanded="true" signature="12729:12745" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -95,8 +137,8 @@
       <file leaf-file-name="CombinedCVController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controller/CombinedCVController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="448">
-              <caret line="142" column="0" lean-forward="true" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
+            <state relative-caret-position="365">
+              <caret line="261" column="41" lean-forward="false" selection-start-line="261" selection-start-column="41" selection-end-line="261" selection-end-column="41" />
               <folding>
                 <element signature="method#CombinedCVController#0;class#CombinedCVController#0" expanded="false" />
                 <element signature="method#addToEducationTable#0;class#CombinedCVController#0" expanded="false" />
@@ -107,42 +149,8 @@
                 <element signature="method#deleteCourse#0;class#CombinedCVController#0" expanded="false" />
                 <element signature="method#deleteProfessionalExperience#0;class#CombinedCVController#0" expanded="false" />
                 <element signature="method#setCourseEstablishmentTxt#0;class#CombinedCVController#0" expanded="false" />
-                <element signature="method#saveBtnPressed#0;class#CombinedCVController#0" expanded="false" />
-                <element signature="method#loadCombinedTxtInfo#0;class#CombinedCVController#0" expanded="false" />
-                <element signature="method#loadTexInfo#0;class#CombinedCVController#0" expanded="false" />
+                <marker date="1494151114000" expanded="true" signature="14183:14199" ph="{...}" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ChronologicalCVControler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/controller/ChronologicalCVControler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="116" column="46" lean-forward="false" selection-start-line="116" selection-start-column="46" selection-end-line="116" selection-end-column="46" />
-              <folding>
-                <element signature="method#ChronologicalCVControler#0;class#ChronologicalCVControler#0" expanded="false" />
-                <element signature="method#addToEducationTable#0;class#ChronologicalCVControler#0" expanded="false" />
-                <element signature="method#addToCourseTable#0;class#ChronologicalCVControler#0" expanded="false" />
-                <element signature="method#addToProfessionalExpTable#0;class#ChronologicalCVControler#0" expanded="false" />
-                <element signature="method#deleteEducation#0;class#ChronologicalCVControler#0" expanded="false" />
-                <element signature="method#deleteCourse#0;class#ChronologicalCVControler#0" expanded="false" />
-                <element signature="method#deleteProfessionalExperience#0;class#ChronologicalCVControler#0" expanded="false" />
-                <element signature="method#setCourseEstablishmentTxt#0;class#ChronologicalCVControler#0" expanded="false" />
-                <element signature="method#saveBtnPressed#0;class#ChronologicalCVControler#0" expanded="false" />
-                <element signature="method#loadChronologicalTxtInfo#0;class#ChronologicalCVControler#0" expanded="false" />
-                <element signature="method#loadTexInfo#0;class#ChronologicalCVControler#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CommonFunctions.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/controller/CommonFunctions.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="489">
-              <caret line="124" column="37" lean-forward="false" selection-start-line="124" selection-start-column="37" selection-end-line="124" selection-end-column="37" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -193,7 +201,6 @@
         <option value="$PROJECT_DIR$/Tests/Tests/FunctionalCVControllerTest.java" />
         <option value="$PROJECT_DIR$/src/Tests/controller/CommonFunctionsTest.java" />
         <option value="$PROJECT_DIR$/src/Tests/Tests/CommonFunctionsTest.java" />
-        <option value="$PROJECT_DIR$/src/Tests/ChronologicalCVControlerTest.java" />
         <option value="$PROJECT_DIR$/src/Tests/FunctionalCVControllerTest.java" />
         <option value="$PROJECT_DIR$/src/model/CV.java" />
         <option value="$PROJECT_DIR$/src/Tests/CombinedCVControllerTest.java" />
@@ -203,22 +210,26 @@
         <option value="$PROJECT_DIR$/src/model/Course.java" />
         <option value="$PROJECT_DIR$/src/model/CareerSummary.java" />
         <option value="$PROJECT_DIR$/testLatex.tex" />
+        <option value="$PROJECT_DIR$/src/view/CombinedCV.fxml" />
         <option value="$PROJECT_DIR$/src/view/ChronologicalCV.fxml" />
         <option value="$PROJECT_DIR$/src/model/NewLaTexDocument.java" />
+        <option value="$PROJECT_DIR$/src/controller/CommonFunctions.java" />
         <option value="$PROJECT_DIR$/src/view/FunctionalCV.fxml" />
         <option value="$PROJECT_DIR$/src/controller/CreateNewTxt.java" />
+        <option value="$PROJECT_DIR$/src/controller/CreateLaTexDocument.java" />
         <option value="$PROJECT_DIR$/src/controller/CreateTxtDocument.java" />
         <option value="$PROJECT_DIR$/src/view/SelectionWindow.fxml" />
-        <option value="$PROJECT_DIR$/src/view/CombinedCV.fxml" />
-        <option value="$PROJECT_DIR$/src/controller/CreateLaTexDocument.java" />
-        <option value="$PROJECT_DIR$/src/controller/LaTexDocumentCreator.java" />
-        <option value="$PROJECT_DIR$/src/controller/TxtDocumentCreator.java" />
-        <option value="$PROJECT_DIR$/src/controller/TxtParser.java" />
-        <option value="$PROJECT_DIR$/src/controller/SelectionWindowController.java" />
         <option value="$PROJECT_DIR$/src/controller/LaTexParser.java" />
+        <option value="$PROJECT_DIR$/src/model/ApplicationMain.java" />
+        <option value="$PROJECT_DIR$/src/Tests/ChronologicalApplicationMaiControlerTest.java" />
+        <option value="$PROJECT_DIR$/src/model/FunctionalCV.java" />
+        <option value="$PROJECT_DIR$/src/model/ChronologicalCV.java" />
+        <option value="$PROJECT_DIR$/src/Tests/ChronologicalCVControlerTest.java" />
+        <option value="$PROJECT_DIR$/src/model/CombinedCV.java" />
+        <option value="$PROJECT_DIR$/src/controller/SelectionWindowController.java" />
+        <option value="$PROJECT_DIR$/src/controller/LaTexCVDocumentCreator.java" />
         <option value="$PROJECT_DIR$/src/controller/CombinedCVController.java" />
         <option value="$PROJECT_DIR$/src/controller/ChronologicalCVControler.java" />
-        <option value="$PROJECT_DIR$/src/controller/CommonFunctions.java" />
         <option value="$PROJECT_DIR$/src/controller/FunctionalCVController.java" />
       </list>
     </option>
@@ -231,10 +242,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="width" value="1440" />
+    <option name="height" value="900" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -252,6 +261,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -349,8 +360,6 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -376,6 +385,7 @@
     <property name="Downloaded.Files.Path.Enabled" value="true" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
+    <property name="FullScreen" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -891,7 +901,7 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="model.CV" />
+      <option name="MAIN_CLASS_NAME" value="model.ApplicationMain" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -967,10 +977,10 @@
       <workItem from="1493569095521" duration="7415000" />
       <workItem from="1493648967336" duration="32000" />
       <workItem from="1493651458624" duration="3573000" />
-      <workItem from="1493721067066" duration="11714000" />
-      <workItem from="1493796032866" duration="5435000" />
-      <workItem from="1493885513952" duration="9195000" />
-      <workItem from="1493911180974" duration="19938000" />
+      <workItem from="1493721067066" duration="11487000" />
+      <workItem from="1493989038307" duration="8361000" />
+      <workItem from="1494060592910" duration="93000" />
+      <workItem from="1494147778349" duration="2277000" />
     </task>
     <task id="LOCAL-00001" summary="Added the add and delete feature for every table">
       <created>1490647808456</created>
@@ -1035,35 +1045,7 @@
       <option name="project" value="LOCAL" />
       <updated>1493717652172</updated>
     </task>
-    <task id="LOCAL-00010" summary="Made some progress with the file load">
-      <created>1493743040942</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1493743040942</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Made some progress with the file load">
-      <created>1493802092926</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1493802092926</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Completed functional txt load">
-      <created>1493895662410</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1493895662410</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Almost completed latex parsing, changed some class names and made the code cleaner">
-      <created>1493926529770</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1493926529770</updated>
-    </task>
-    <option name="localTasksCounter" value="14" />
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1099,30 +1081,29 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="125438000" />
+    <option name="totallyTimeSpent" value="101882000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32875264" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3282532" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934928" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26215646" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23467231" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26260257" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15364583" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20625" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25792813" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1139,6 +1120,7 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25763613" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1156,14 +1138,11 @@
     <MESSAGE value="Completed the error messages and the dialogs for the file's name and type" />
     <MESSAGE value="Changed the file choice process and began the txt procedure" />
     <MESSAGE value="Completed txt creation" />
-    <MESSAGE value="Made some progress with the file load" />
-    <MESSAGE value="Completed functional txt load" />
-    <MESSAGE value="Almost completed latex parsing, changed some class names and made the code cleaner" />
-    <option name="LAST_COMMIT_MESSAGE" value="Almost completed latex parsing, changed some class names and made the code cleaner" />
+    <option name="LAST_COMMIT_MESSAGE" value="Completed txt creation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="2" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1172,44 +1151,8 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/controller/FunctionalCVController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#FunctionalCVController#0;class#FunctionalCVController#0" expanded="false" />
-            <element signature="method#configureCareerSummaryTable#0;class#FunctionalCVController#0" expanded="false" />
-            <element signature="method#addToCareerSummaryTable#0;class#FunctionalCVController#0" expanded="false" />
-            <element signature="method#addToEducationTable#0;class#FunctionalCVController#0" expanded="false" />
-            <element signature="method#addToCourseTable#0;class#FunctionalCVController#0" expanded="false" />
-            <element signature="method#deleteSkill#0;class#FunctionalCVController#0" expanded="false" />
-            <element signature="method#deleteCareerSummary#0;class#FunctionalCVController#0" expanded="false" />
-            <element signature="method#deleteEducation#0;class#FunctionalCVController#0" expanded="false" />
-            <element signature="method#deleteCourse#0;class#FunctionalCVController#0" expanded="false" />
-            <element signature="method#setCourseEstablishmentTxt#0;class#FunctionalCVController#0" expanded="false" />
-            <element signature="method#saveBtnPressed#0;class#FunctionalCVController#0" expanded="false" />
-            <element signature="method#loadFunctionalTxtInfo#0;class#FunctionalCVController#0" expanded="false" />
-            <element signature="method#loadTexInfo#0;class#FunctionalCVController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/SelectionWindow.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="118" lean-forward="false" selection-start-line="17" selection-start-column="118" selection-end-line="17" selection-end-column="118" />
-          <folding>
-            <marker date="1493740667141" expanded="true" signature="1778:1793" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/view/functionCVtemplate.fxml" />
-    <entry file="file://$PROJECT_DIR$/src/model/CV.java">
+    <entry file="file://$PROJECT_DIR$/src/model/ApplicationMain.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
@@ -1221,7 +1164,6 @@
         <state relative-caret-position="60">
           <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="method#FunctionalCVController#0;class#FunctionalCVController#0" expanded="false" />
             <element signature="method#configureCareerSummaryTable#0;class#FunctionalCVController#0" expanded="false" />
             <element signature="method#addToCareerSummaryTable#0;class#FunctionalCVController#0" expanded="false" />
@@ -1232,9 +1174,9 @@
             <element signature="method#deleteEducation#0;class#FunctionalCVController#0" expanded="false" />
             <element signature="method#deleteCourse#0;class#FunctionalCVController#0" expanded="false" />
             <element signature="method#setCourseEstablishmentTxt#0;class#FunctionalCVController#0" expanded="false" />
-            <element signature="method#saveBtnPressed#0;class#FunctionalCVController#0" expanded="false" />
             <element signature="method#loadFunctionalTxtInfo#0;class#FunctionalCVController#0" expanded="false" />
             <element signature="method#loadTexInfo#0;class#FunctionalCVController#0" expanded="false" />
+            <marker date="1494151114000" expanded="true" signature="13898:13914" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1246,9 +1188,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="11" lean-forward="true" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
-          <folding>
-            <marker date="1493740667141" expanded="true" signature="1778:1793" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1257,20 +1197,8 @@
     <entry file="file://$PROJECT_DIR$/src/view/chronologicalCVtemplate.fxml" />
     <entry file="file://$PROJECT_DIR$/src/view/combinedCVtemplate.fxml" />
     <entry file="file://$PROJECT_DIR$/src/view/test.fxml" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_102/javafx-src.zip!/javafx/beans/property/SimpleListProperty.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="79">
-          <caret line="65" column="11" lean-forward="false" selection-start-line="65" selection-start-column="11" selection-end-line="65" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_102/javafx-src.zip!/javafx/beans/property/SimpleStringProperty.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-278">
-          <caret line="35" column="13" lean-forward="false" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_102/javafx-src.zip!/javafx/beans/property/SimpleListProperty.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_102/javafx-src.zip!/javafx/beans/property/SimpleStringProperty.java" />
     <entry file="file://$PROJECT_DIR$/src/model/ProfessionalExp.java" />
     <entry file="uml://JAVA/">
       <provider selected="true" editor-type-id="UmlEditorProvider">
@@ -1355,13 +1283,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/ProfessionalExperience.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-177">
-          <caret line="32" column="5" lean-forward="true" selection-start-line="32" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Education.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -1369,30 +1290,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Course.java">
+    <entry file="file://$PROJECT_DIR$/src/model/CareerSummary.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
+        <state relative-caret-position="374">
+          <caret line="24" column="12" lean-forward="false" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Tests/FunctionalCVControllerTest.java">
+    <entry file="file://$PROJECT_DIR$/src/Tests/CombinedCVControllerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        <state relative-caret-position="17">
+          <caret line="1" column="38" lean-forward="false" selection-start-line="1" selection-start-column="38" selection-end-line="1" selection-end-column="38" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/testLatex.tex" />
     <entry file="file://$PROJECT_DIR$/testFile" />
-    <entry file="file://$PROJECT_DIR$/src/view/ChronologicalCV.fxml">
+    <entry file="file://$PROJECT_DIR$/src/view/CombinedCV.fxml">
       <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
       <provider editor-type-id="text-editor">
-        <state relative-caret-position="2108">
-          <caret line="124" column="24" lean-forward="false" selection-start-line="124" selection-start-column="24" selection-end-line="124" selection-end-column="24" />
+        <state relative-caret-position="2261">
+          <caret line="133" column="118" lean-forward="false" selection-start-line="133" selection-start-column="118" selection-end-line="133" selection-end-column="118" />
           <folding />
         </state>
       </provider>
@@ -1400,24 +1321,21 @@
     <entry file="file://$PROJECT_DIR$/src/model/NewLaTexDocument.java" />
     <entry file="file://$PROJECT_DIR$/testFile.tex" />
     <entry file="file://$PROJECT_DIR$/newFile.tex" />
+    <entry file="file://$PROJECT_DIR$/src/view/FunctionalCV.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="679">
+          <caret line="130" column="104" lean-forward="false" selection-start-line="130" selection-start-column="104" selection-end-line="130" selection-end-column="104" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/testLatex.tex.tex" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_102/src.zip!/java/util/function/Consumer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="48" column="9" lean-forward="false" selection-start-line="48" selection-start-column="9" selection-end-line="48" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Skills.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="60" column="51" lean-forward="true" selection-start-line="60" selection-start-column="51" selection-end-line="60" selection-end-column="51" />
-          <folding>
-            <element signature="e#1377#1378#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_102/src.zip!/java/util/function/Consumer.java" />
+    <entry file="file://$PROJECT_DIR$/src/controller/CreateTxtDocument.java" />
+    <entry file="file://$PROJECT_DIR$/src/controller/CreateLaTexDocument.java" />
     <entry file="file://$PROJECT_DIR$/src/view/SelectionWindow.fxml">
       <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
         <state />
@@ -1425,65 +1343,73 @@
       <provider editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="22" column="33" lean-forward="false" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
-          <folding>
-            <marker date="1493740667141" expanded="true" signature="1778:1793" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_102/src.zip!/java/lang/reflect/Field.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="763" column="0" lean-forward="false" selection-start-line="763" selection-start-column="0" selection-end-line="763" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/CombinedCV.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="116" column="22" lean-forward="false" selection-start-line="116" selection-start-column="22" selection-end-line="116" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/CareerSummary.java">
+    <entry file="file://$PROJECT_DIR$/src/model/ProfessionalExperience.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="24" column="12" lean-forward="false" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
+        <state relative-caret-position="303">
+          <caret line="32" column="5" lean-forward="true" selection-start-line="32" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
           <folding>
-            <element signature="e#683#684#0" expanded="false" />
-            <element signature="e#726#727#0" expanded="false" />
+            <element signature="e#1059#1060#0" expanded="false" />
+            <element signature="e#1094#1095#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Tests/CombinedCVControllerTest.java">
+    <entry file="file://$PROJECT_DIR$/src/model/Course.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="102" column="46" lean-forward="true" selection-start-line="102" selection-start-column="46" selection-end-line="102" selection-end-column="46" />
+        <state relative-caret-position="315">
+          <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#707#708#0" expanded="false" />
+            <element signature="e#746#747#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/TxtDocumentCreator.java">
+    <entry file="file://$PROJECT_DIR$/src/view/ChronologicalCV.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="455">
-          <caret line="65" column="40" lean-forward="false" selection-start-line="65" selection-start-column="40" selection-end-line="65" selection-end-column="40" />
+        <state relative-caret-position="1860">
+          <caret line="124" column="24" lean-forward="false" selection-start-line="124" selection-start-column="24" selection-end-line="124" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/LaTexCVParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1035">
+          <caret line="92" column="47" lean-forward="false" selection-start-line="92" selection-start-column="47" selection-end-line="92" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/CommonFunctions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1737">
+          <caret line="202" column="5" lean-forward="false" selection-start-line="202" selection-start-column="5" selection-end-line="202" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Skills.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#TxtDocumentCreator#0;class#TxtDocumentCreator#0" expanded="false" />
+            <element signature="e#1347#1348#0" expanded="false" />
+            <element signature="e#1377#1378#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/CV.java">
+    <entry file="file://$PROJECT_DIR$/src/model/ApplicationMain.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
+        <state relative-caret-position="60">
           <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding />
         </state>
@@ -1491,84 +1417,73 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Tests/ChronologicalCVControlerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="48" column="117" lean-forward="true" selection-start-line="48" selection-start-column="117" selection-end-line="48" selection-end-column="117" />
+        <state relative-caret-position="-878">
+          <caret line="14" column="36" lean-forward="true" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Tests/FunctionalCVControllerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/SelectionWindowController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="89" column="109" lean-forward="false" selection-start-line="89" selection-start-column="109" selection-end-line="89" selection-end-column="109" />
-          <folding>
-            <element signature="e#6092#6093#0" expanded="true" />
-            <element signature="e#6122#6123#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/LaTexDocumentCreator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="68" column="39" lean-forward="false" selection-start-line="68" selection-start-column="39" selection-end-line="68" selection-end-column="39" />
-          <folding>
-            <element signature="method#LaTexDocumentCreator#0;class#LaTexDocumentCreator#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/TxtParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="44" column="53" lean-forward="false" selection-start-line="44" selection-start-column="53" selection-end-line="44" selection-end-column="53" />
+        <state relative-caret-position="189">
+          <caret line="90" column="71" lean-forward="false" selection-start-line="90" selection-start-column="71" selection-end-line="90" selection-end-column="71" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/LaTexParser.java">
+    <entry file="file://$PROJECT_DIR$/src/model/FunctionalCV.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="70" column="17" lean-forward="false" selection-start-line="70" selection-start-column="17" selection-end-line="70" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/FunctionalCV.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="636">
-          <caret line="130" column="104" lean-forward="false" selection-start-line="130" selection-start-column="104" selection-end-line="130" selection-end-column="104" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/ChronologicalCVControler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="116" column="46" lean-forward="false" selection-start-line="116" selection-start-column="46" selection-end-line="116" selection-end-column="46" />
+        <state relative-caret-position="405">
+          <caret line="28" column="28" lean-forward="true" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
           <folding>
-            <element signature="method#ChronologicalCVControler#0;class#ChronologicalCVControler#0" expanded="false" />
-            <element signature="method#addToEducationTable#0;class#ChronologicalCVControler#0" expanded="false" />
-            <element signature="method#addToCourseTable#0;class#ChronologicalCVControler#0" expanded="false" />
-            <element signature="method#addToProfessionalExpTable#0;class#ChronologicalCVControler#0" expanded="false" />
-            <element signature="method#deleteEducation#0;class#ChronologicalCVControler#0" expanded="false" />
-            <element signature="method#deleteCourse#0;class#ChronologicalCVControler#0" expanded="false" />
-            <element signature="method#deleteProfessionalExperience#0;class#ChronologicalCVControler#0" expanded="false" />
-            <element signature="method#setCourseEstablishmentTxt#0;class#ChronologicalCVControler#0" expanded="false" />
-            <element signature="method#saveBtnPressed#0;class#ChronologicalCVControler#0" expanded="false" />
-            <element signature="method#loadChronologicalTxtInfo#0;class#ChronologicalCVControler#0" expanded="false" />
-            <element signature="method#loadTexInfo#0;class#ChronologicalCVControler#0" expanded="false" />
+            <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/ChronologicalCV.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="990">
+          <caret line="102" column="4" lean-forward="true" selection-start-line="102" selection-start-column="4" selection-end-line="104" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2506#2507#0" expanded="true" />
+            <element signature="e#2542#2543#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/CombinedCV.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="31" column="57" lean-forward="false" selection-start-line="31" selection-start-column="57" selection-end-line="31" selection-end-column="57" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1132#1133#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/LaTexCVDocumentCreator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="20" column="393" lean-forward="false" selection-start-line="20" selection-start-column="393" selection-end-line="20" selection-end-column="393" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/CombinedCVController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="142" column="0" lean-forward="true" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
+        <state relative-caret-position="365">
+          <caret line="261" column="41" lean-forward="false" selection-start-line="261" selection-start-column="41" selection-end-line="261" selection-end-column="41" />
           <folding>
             <element signature="method#CombinedCVController#0;class#CombinedCVController#0" expanded="false" />
             <element signature="method#addToEducationTable#0;class#CombinedCVController#0" expanded="false" />
@@ -1579,27 +1494,33 @@
             <element signature="method#deleteCourse#0;class#CombinedCVController#0" expanded="false" />
             <element signature="method#deleteProfessionalExperience#0;class#CombinedCVController#0" expanded="false" />
             <element signature="method#setCourseEstablishmentTxt#0;class#CombinedCVController#0" expanded="false" />
-            <element signature="method#saveBtnPressed#0;class#CombinedCVController#0" expanded="false" />
-            <element signature="method#loadCombinedTxtInfo#0;class#CombinedCVController#0" expanded="false" />
-            <element signature="method#loadTexInfo#0;class#CombinedCVController#0" expanded="false" />
+            <marker date="1494151114000" expanded="true" signature="14183:14199" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/CommonFunctions.java">
+    <entry file="file://$PROJECT_DIR$/src/controller/ChronologicalCVControler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="489">
-          <caret line="124" column="37" lean-forward="false" selection-start-line="124" selection-start-column="37" selection-end-line="124" selection-end-column="37" />
-          <folding />
+        <state relative-caret-position="459">
+          <caret line="219" column="41" lean-forward="false" selection-start-line="219" selection-start-column="41" selection-end-line="219" selection-end-column="41" />
+          <folding>
+            <element signature="method#addToEducationTable#0;class#ChronologicalCVControler#0" expanded="false" />
+            <element signature="method#addToCourseTable#0;class#ChronologicalCVControler#0" expanded="false" />
+            <element signature="method#addToProfessionalExpTable#0;class#ChronologicalCVControler#0" expanded="false" />
+            <element signature="method#deleteEducation#0;class#ChronologicalCVControler#0" expanded="false" />
+            <element signature="method#deleteCourse#0;class#ChronologicalCVControler#0" expanded="false" />
+            <element signature="method#deleteProfessionalExperience#0;class#ChronologicalCVControler#0" expanded="false" />
+            <element signature="method#setCourseEstablishmentTxt#0;class#ChronologicalCVControler#0" expanded="false" />
+            <marker date="1494151114000" expanded="true" signature="12729:12745" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/FunctionalCVController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1224">
-          <caret line="114" column="41" lean-forward="false" selection-start-line="114" selection-start-column="41" selection-end-line="114" selection-end-column="41" />
+        <state relative-caret-position="355">
+          <caret line="281" column="41" lean-forward="false" selection-start-line="281" selection-start-column="41" selection-end-line="281" selection-end-column="41" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="method#FunctionalCVController#0;class#FunctionalCVController#0" expanded="false" />
             <element signature="method#configureCareerSummaryTable#0;class#FunctionalCVController#0" expanded="false" />
             <element signature="method#addToCareerSummaryTable#0;class#FunctionalCVController#0" expanded="false" />
@@ -1610,9 +1531,9 @@
             <element signature="method#deleteEducation#0;class#FunctionalCVController#0" expanded="false" />
             <element signature="method#deleteCourse#0;class#FunctionalCVController#0" expanded="false" />
             <element signature="method#setCourseEstablishmentTxt#0;class#FunctionalCVController#0" expanded="false" />
-            <element signature="method#saveBtnPressed#0;class#FunctionalCVController#0" expanded="false" />
             <element signature="method#loadFunctionalTxtInfo#0;class#FunctionalCVController#0" expanded="false" />
             <element signature="method#loadTexInfo#0;class#FunctionalCVController#0" expanded="false" />
+            <marker date="1494151114000" expanded="true" signature="13898:13914" ph="{...}" />
           </folding>
         </state>
       </provider>

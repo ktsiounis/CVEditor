@@ -8,18 +8,19 @@ import model.Education;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by Ntinos on 4/5/2017.
  */
-public class TxtParser {
+public class LaTexCVParser {
 
     private TextField nameTxt, addressTxt, telehomeTxt, telemobTxt, emailTxt, professionalProfile, additionalInfoTxt, interestsTxt;
     private ObservableList<Education> educationList;
     private ObservableList<Course> courseList;
 
-    public TxtParser(TextField nameTxt, TextField addressTxt, TextField telehomeTxt, TextField telemobTxt, TextField emailTxt, TextField professionalProfile, TextField additionalInfoTxt, TextField interestsTxt, ObservableList<Education> educationList, ObservableList<Course> courseList) {
+    public LaTexCVParser(TextField nameTxt, TextField addressTxt, TextField telehomeTxt, TextField telemobTxt, TextField emailTxt, TextField professionalProfile, TextField additionalInfoTxt, TextField interestsTxt, ObservableList<Education> educationList, ObservableList<Course> courseList) {
         this.nameTxt = nameTxt;
         this.addressTxt = addressTxt;
         this.telehomeTxt = telehomeTxt;
@@ -32,8 +33,8 @@ public class TxtParser {
         this.courseList = courseList;
     }
 
-    public void loadTxtInfo(File file){
-        List<String> lines = null;
+    public void loadTexInfo(File file){
+        List<String> lines = new ArrayList<>();
         try {
             lines = Files.readAllLines(file.toPath());
         } catch (IOException e) {
@@ -41,71 +42,60 @@ public class TxtParser {
         }
 
         lines.forEach(line -> {
-            if(line.contains("Name") && line.split(": ").length>1){
-                nameTxt.setText(line.split(": ")[1]);
-            }
-            else if(line.contains("Address") && line.split(": ").length>1){
-                addressTxt.setText(line.split(": ")[1]);
-            }
+            if(line.contains("Name")) nameTxt.setText(line.split(": ")[1].replace("\\",""));
+            else if(line.contains("Address")) addressTxt.setText(line.split(": ")[1].replace("\\",""));
             else if(line.contains("Telephone")){
-                String numbers = line.split(": ")[1];
-                String home = numbers.split("    ")[0];
-                home = home.replace("(Home)","");
-                String mobile = numbers.split("    ")[1];
-                mobile = mobile.replace("(Mobile)","");
-                telehomeTxt.setText(home);
-                telemobTxt.setText(mobile);
+                telehomeTxt.setText(line.split(": ")[1].split(" ")[0].replace("(Home)",""));
+                telemobTxt.setText(line.split(": ")[1].split(" ")[1].replace("(Mobile)","").replace("\\",""));
             }
-            else if(line.contains("Email") && line.split(": ").length>1){
-                emailTxt.setText(line.split(": ")[1]);
-            }
+            else if (line.contains("Email")) emailTxt.setText(line.split(": ")[1].replace("\\",""));
         });
 
         for(int i=0; i<lines.size(); i++) {
-            if(lines.get(i).contains("2.")) {
+            if (lines.get(i).contains("2.")) {
                 i++;
                 while (!lines.get(i).contains("3.")) {
                     professionalProfile.setText(professionalProfile.getText() + lines.get(i));
+                    professionalProfile.setText(professionalProfile.getText().replace("\\",""));
                     i++;
                 }
             }
-            if(lines.get(i).contains("5.")){
+            if (lines.get(i).contains("5.")) {
                 i++;
                 while (!lines.get(i).contains("6.")) {
-                    String[] educationItem = lines.get(i).split(", ");
-                    if(educationItem.length>1){
-                        educationItem[0] = educationItem[0].replace("\t• ", "");
-                        educationList.add(new Education(educationItem[0], educationItem[1], educationItem[2], educationItem[3]));
+                    if(lines.get(i).contains("\\item")){
+                        String[] items = lines.get(i).split(", ");
+                        educationList.add(new Education(items[0].replace("\\item ",""), items[1], items[2], items[3]));
                     }
                     i++;
                 }
             }
-            if(lines.get(i).contains("6.")){
+            if (lines.get(i).contains("6.")) {
                 i++;
                 while (!lines.get(i).contains("7.")) {
-                    String[] courseItem = lines.get(i).split(", ");
-                    if(courseItem.length>1){
-                        courseItem[0] = courseItem[0].replace("\t• ", "");
-                        courseList.add(new Course(courseItem[0], courseItem[1], courseItem[2], courseItem[3]));
+                    if(lines.get(i).contains("\\item")){
+                        String[] items = lines.get(i).split(", ");
+                        courseList.add(new Course(items[0].replace("\\item ",""), items[1], items[2], items[3]));
                     }
                     i++;
                 }
             }
-            if(lines.get(i).contains("7.")){
+            if (lines.get(i).contains("7.")) {
                 i++;
                 while (!lines.get(i).contains("8.")) {
                     additionalInfoTxt.setText(additionalInfoTxt.getText() + lines.get(i));
+                    additionalInfoTxt.setText(additionalInfoTxt.getText().replace("\\",""));
                     i++;
                 }
             }
-            if (lines.get(i).equals("8.  INTERESTS")){
+            if (lines.get(i).contains("8.")) {
                 i++;
-                while (i<lines.size()) {
+                while (!lines.get(i).equals("\\end{document}")) {
                     interestsTxt.setText(interestsTxt.getText() + lines.get(i));
+                    interestsTxt.setText(interestsTxt.getText().replace("\\",""));
                     i++;
                 }
             }
         }
     }
-
 }
